@@ -1,11 +1,10 @@
----
-title: "New Blog"
-slug: "new-blog"
-date: 2018-09-03T11:52:21-07:00
-categories:
-- Updates
-draft: false
----
++++
+title = "New Blog"
+slug = "new-blog"
+date = 2018-09-03T11:52:21-07:00
+categories = ["Updates"]
+draft = false
++++
 
 I decided to create a new blog. I'm mostly going to write about my programming projects and some programming topics. The objective of this blog is to increase my understanding of various programming topics, since explaining a topic will yield better conceptual understanding (of that topic).
 

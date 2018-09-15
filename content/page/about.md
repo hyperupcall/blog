@@ -1,8 +1,8 @@
----
-title: "About"
-date: 2018-09-03T11:54:02-07:00
-draft: false
----
++++
+title = "About"
+date = 2018-09-03T11:54:02-07:00
+draft = false
++++
 
 I'm Edwin Kofler, an aspiring web developer.
 
