@@ -7,7 +7,7 @@ categories = ["Blog Updates", "Tutorials"]
 tags = ["LaTeX", "KaTeX"]
 markup = "mmark"
 katex = true
-draft = true
+draft = false
 +++
 
 Just recently, I added support to render LaTex math equations with the rendering engine [KaTeX](https://katex.org/) for this blog. I chose it over MathJax because it performs [substantially faster](https://jsperf.com/katex-vs-mathjax) than MathJax. To integrate KaTeX in my Hugo blog, I had to use the [Mmark](https://github.com/mmarkdown/mmark) Markdown processor rather than Hugo's default [Blackfriday](https://github.com/russross/blackfriday) processor.
