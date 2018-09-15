@@ -1,6 +1,6 @@
 +++
 title = "{{ replace .Name "-" " " | title }}"
-slug = ""
+slug = "{{ urlize .Name }}"
 author = "Edwin Kofler"
 date = {{ .Date }}
 categories = []

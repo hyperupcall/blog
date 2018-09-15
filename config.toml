@@ -16,6 +16,11 @@ enableEmoji = true
 # [blackfriday]
 #     enableEmoji = true
 
+# Possible Options for math (put these in the front matter)
+# markup = "markdown"
+# mathjax = true
+# katex = false
+
 [taxonomies]
     category = "categories"
     tag = "tags"

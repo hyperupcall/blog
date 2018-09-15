@@ -18,7 +18,14 @@
   </url>
   
   <url>
+    <loc>https://eankeen.github.io/blog/categories/blog-updates/</loc>
+    <lastmod>2018-09-03T11:52:21-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://eankeen.github.io/blog/categories/</loc>
+    <lastmod>2018-09-03T11:52:21-07:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -42,12 +49,6 @@
   
   <url>
     <loc>https://eankeen.github.io/blog/tags/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://eankeen.github.io/blog/categories/updates/</loc>
-    <lastmod>2018-09-03T11:52:21-07:00</lastmod>
     <priority>0</priority>
   </url>
   

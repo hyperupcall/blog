@@ -1,0 +1,25 @@
+<!-- Note that for some reason, menuSettings: { zoom: "None" } will not work on firefox; zoom still shows on hover -->
+<!-- https://stackoverflow.com/questions/34924033/convert-latex-mathml-to-svg-or-image-with-mathjax-or-similar -->
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/CommonHTML"],
+  extensions: ["tex2jax.js"],
+  CommonHTML: {
+    // linebreaks: { automatic: true },
+    // scale: 125
+  },
+  showMathMenu: false,
+  showMathMenuMSIE: false,
+  menuSettings: {
+    zoom: "None",
+  },
+  // useMathMLspacing: true,
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[','\]']],
+  }
+});
+</script>
