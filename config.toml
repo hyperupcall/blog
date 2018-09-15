@@ -11,6 +11,11 @@ paginate = 10
 pygmentsCodefences = true
 pygmentsStyle = "native"
 
+ # https://gohugohq.com/partials/emojis-shortcode-for-hugo/
+enableEmoji = true
+# [blackfriday]
+#     enableEmoji = true
+
 [taxonomies]
     category = "categories"
     tag = "tags"
