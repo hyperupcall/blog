@@ -70,7 +70,7 @@ Now, your `katex.html` partial will be used, which allows KaTex to render your L
 
 
 ## Writing LaTex in Markdown for Mmark
-Now you can write LaTex in markdown! :tada:
+Now you can write LaTex in markdown files! :tada:
 It's intuitive writing LateX in markdown using the Mmark processor. You can display equations on the block level or inline. Note that you must use Mmark, or this will not work. Using the default Blackfriday processor will make all of these inline (using a single dollar sign as a delimiter will not work).
 
 ### Display Block
