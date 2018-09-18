@@ -10,7 +10,7 @@ katex = true
 draft = false
 +++
 
-Just recently, I added support to render LaTex math equations with the rendering engine [KaTeX](https://katex.org/) for this blog. I chose it over MathJax because it performs [substantially faster](https://jsperf.com/katex-vs-mathjax) than MathJax. To integrate KaTeX in my Hugo blog, I had to use the [Mmark](https://github.com/mmarkdown/mmark) Markdown processor rather than Hugo's default [Blackfriday](https://github.com/russross/blackfriday) processor.
+Just recently, I added support to render LaTeX math equations with the rendering engine [KaTeX](https://katex.org/) for this blog. I chose it over MathJax because it performs [substantially faster](https://jsperf.com/katex-vs-mathjax) than MathJax. To integrate KaTeX in my Hugo blog, I had to use the [Mmark](https://github.com/mmarkdown/mmark) Markdown processor rather than Hugo's default [Blackfriday](https://github.com/russross/blackfriday) processor.
 
 There are three steps to follow so you can write LaTeX in markdown for KaTeX to use.
 1. Create a KateX partial
@@ -18,7 +18,7 @@ There are three steps to follow so you can write LaTeX in markdown for KaTeX to 
 3. Activate the KaTeX partial in the markdown file
 
 ## Create a KaTex partial
-To get KaTex to work, you have to to import their JavaScript and CSS files. We're going to do this using Hugo partials. To do this, create a `katex.html` partial in your `layouts/partials` directory of your Hugo project. In this file, just import the [required files](https://katex.org/docs/browser.html)
+To get KaTex to work, you have to to import their JavaScript and CSS files. We're going to do this using Hugo partials. To do this, create a `katex.html` partial in your `layouts/partials` directory of your Hugo project. In this file, just import the [required files](https://katex.org/docs/browser.html).
 
 ```html
 <!-- CSS File -->
@@ -66,7 +66,7 @@ markup: "mmark"
 ---
 ```
 
-Now, your `katex.html` partial will be used, which allows KaTex to render your LaTeX. Additionally, this activates the Mmark parsing engine, which is already integrated with Hugo. Using the Mmark parsing engine prevents [the problems](https://gohugo.io/content-management/formats/#issues-with-markdown) the default Blackfriday parsing engine has.
+Now, your `katex.html` partial will be used, which allows KaTex to render your LaTeX. Additionally, this activates the Mmark parsing engine, which is already integrated with Hugo. Using the Mmark parsing engine prevents [the problems](https://gohugo.io/content-management/formats/#issues-with-markdown) the default Blackfriday parsing engine has with rendering LaTex.
 
 
 ## Writing LaTex in Markdown for Mmark
