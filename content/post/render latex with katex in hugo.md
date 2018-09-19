@@ -33,7 +33,7 @@ After creating the `katex.html` partial file, now you have to include it in some
 
 I'm going to add it in my footer partial. So, create a `footer.html` partial in your `layouts/partials` directory, if you don't have one already. Since I have a theme, I copied the theme's `footer.html` partial and pasted it into my own `footer.html` partial. Note that your `footer.html` partial will override the theme's.
 
-Then, add the following to the `footer.html` partial, outside of the body tag, but inside of the html tag.
+Then, add the following to the `footer.html` partial, outside of the body tag, but inside the html tag.
 
 ```html
 {{ if .Params.katex}}{{ partial "katex.html" . }}{{ end }}
@@ -66,7 +66,7 @@ markup: "mmark"
 ---
 ```
 
-Now, your `katex.html` partial will be used, which allows KaTex to render your LaTeX. Additionally, this activates the Mmark parsing engine, which is already integrated with Hugo. Using the Mmark parsing engine prevents [the problems](https://gohugo.io/content-management/formats/#issues-with-markdown) the default Blackfriday parsing engine has with rendering LaTex.
+Now, your `katex.html` partial will be used, which allows KaTex to render your LaTeX. Additionally, this activates the Mmark parsing engine, which is already integrated with Hugo. Using the Mmark parsing engine prevents [the problems](https://gohugo.io/content-management/formats/#issues-with-markdown) the default Blackfriday parsing engine has with parsing LaTex in markdown.
 
 
 ## Writing LaTex in Markdown for Mmark

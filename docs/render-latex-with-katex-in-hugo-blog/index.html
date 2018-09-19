@@ -79,7 +79,7 @@
 
 <p>I'm going to add it in my footer partial. So, create a <code>footer.html</code> partial in your <code>layouts/partials</code> directory, if you don't have one already. Since I have a theme, I copied the theme's <code>footer.html</code> partial and pasted it into my own <code>footer.html</code> partial. Note that your <code>footer.html</code> partial will override the theme's.</p>
 
-<p>Then, add the following to the <code>footer.html</code> partial, outside of the body tag, but inside of the html tag.</p>
+<p>Then, add the following to the <code>footer.html</code> partial, outside of the body tag, but inside the html tag.</p>
 <div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">{{ if .Params.katex}}{{ partial &#34;katex.html&#34; . }}{{ end }}</code></pre></div>
 <p>My entire <code>footer.html</code> file ended up looking like the following.</p>
 <div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#6ab825;font-weight:bold">footer</span> <span style="color:#bbb">class</span>=<span style="color:#ed9d13">&#34;footer&#34;</span>&gt;
@@ -101,7 +101,7 @@
 </span><span style="color:#666"></span>katex:<span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">true</span><span style="color:#666">
 </span><span style="color:#666"></span>markup:<span style="color:#666"> </span><span style="color:#ed9d13">&#34;mmark&#34;</span><span style="color:#666">
 </span><span style="color:#666"></span>---</code></pre></div>
-<p>Now, your <code>katex.html</code> partial will be used, which allows KaTex to render your LaTeX. Additionally, this activates the Mmark parsing engine, which is already integrated with Hugo. Using the Mmark parsing engine prevents <a href="https://gohugo.io/content-management/formats/#issues-with-markdown">the problems</a> the default Blackfriday parsing engine has with rendering LaTex.</p>
+<p>Now, your <code>katex.html</code> partial will be used, which allows KaTex to render your LaTeX. Additionally, this activates the Mmark parsing engine, which is already integrated with Hugo. Using the Mmark parsing engine prevents <a href="https://gohugo.io/content-management/formats/#issues-with-markdown">the problems</a> the default Blackfriday parsing engine has with parsing LaTex in markdown.</p>
 
 <h2 id="writing-latex-in-markdown-for-mmark">Writing LaTex in Markdown for Mmark</h2>
 
