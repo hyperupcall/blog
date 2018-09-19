@@ -18,16 +18,16 @@
 
 
 
-<link rel="stylesheet" href="https://eankeen.github.io/Blog/css/main.css" media="all">
-<link rel="stylesheet" href="https://eankeen.github.io/Blog/css/fonts.css">
+<link rel="stylesheet" href="https://eankeen.github.io/blog/css/main.css" media="all">
+<link rel="stylesheet" href="https://eankeen.github.io/blog/css/fonts.css">
 
   </head>
   <body>
     <div class="wrapper">
       <header class="header">
         <nav class="nav">
-  <a href="https://eankeen.github.io/Blog/" class="nav-logo">
-    <img src="https://eankeen.github.io/Blog/images/logo.png" 
+  <a href="https://eankeen.github.io/blog/" class="nav-logo">
+    <img src="https://eankeen.github.io/blog/images/logo.png" 
          width="50" 
          height="50" 
          alt="Logo">
@@ -35,11 +35,11 @@
 
   <ul class="nav-links">
     
-    <li><a href="/Blog/categories">Categories</a></li>
+    <li><a href="/blog/categories">Categories</a></li>
     
-    <li><a href="/Blog/tags">Tags</a></li>
+    <li><a href="/blog/tags">Tags</a></li>
     
-    <li><a href="/Blog/about/">About</a></li>
+    <li><a href="/blog/about/">About</a></li>
     
   </ul>
 </nav>
@@ -55,7 +55,7 @@
     
 
     <div class="article-content">
-      <p>Just recently, I added support to render LaTex math equations with the rendering engine <a href="https://katex.org/">KaTeX</a> for this blog. I chose it over MathJax because it performs <a href="https://jsperf.com/katex-vs-mathjax">substantially faster</a> than MathJax. To integrate KaTeX in my Hugo blog, I had to use the <a href="https://github.com/mmarkdown/mmark">Mmark</a> Markdown processor rather than Hugo's default <a href="https://github.com/russross/blackfriday">Blackfriday</a> processor.</p>
+      <p>Just recently, I added support to render LaTeX math equations with the rendering engine <a href="https://katex.org/">KaTeX</a> for this blog. I chose it over MathJax because it performs <a href="https://jsperf.com/katex-vs-mathjax">substantially faster</a> than MathJax. To integrate KaTeX in my Hugo blog, I had to use the <a href="https://github.com/mmarkdown/mmark">Mmark</a> Markdown processor rather than Hugo's default <a href="https://github.com/russross/blackfriday">Blackfriday</a> processor.</p>
 
 <p>There are three steps to follow so you can write LaTeX in markdown for KaTeX to use.</p>
 
@@ -67,7 +67,7 @@
 
 <h2 id="create-a-katex-partial">Create a KaTex partial</h2>
 
-<p>To get KaTex to work, you have to to import their JavaScript and CSS files. We're going to do this using Hugo partials. To do this, create a <code>katex.html</code> partial in your <code>layouts/partials</code> directory of your Hugo project. In this file, just import the <a href="https://katex.org/docs/browser.html">required files</a></p>
+<p>To get KaTex to work, you have to to import their JavaScript and CSS files. We're going to do this using Hugo partials. To do this, create a <code>katex.html</code> partial in your <code>layouts/partials</code> directory of your Hugo project. In this file, just import the <a href="https://katex.org/docs/browser.html">required files</a>.</p>
 <div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#999;font-style:italic">&lt;!-- CSS File --&gt;</span>
 &lt;<span style="color:#6ab825;font-weight:bold">link</span> <span style="color:#bbb">rel</span>=<span style="color:#ed9d13">&#34;stylesheet&#34;</span> <span style="color:#bbb">href</span>=<span style="color:#ed9d13">&#34;https://cdn.jsdelivr.net/npm/katex@0.10.0-rc.1/dist/katex.min.css&#34;</span> <span style="color:#bbb">integrity</span>=<span style="color:#ed9d13">&#34;sha384-D+9gmBxUQogRLqvARvNLmA9hS2x//eK1FhVb9PiU86gmcrBrJAQT8okdJ4LMp2uv&#34;</span> <span style="color:#bbb">crossorigin</span>=<span style="color:#ed9d13">&#34;anonymous&#34;</span>&gt;
 
@@ -101,11 +101,11 @@
 </span><span style="color:#666"></span>katex:<span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">true</span><span style="color:#666">
 </span><span style="color:#666"></span>markup:<span style="color:#666"> </span><span style="color:#ed9d13">&#34;mmark&#34;</span><span style="color:#666">
 </span><span style="color:#666"></span>---</code></pre></div>
-<p>Now, your <code>katex.html</code> partial will be used, which allows KaTex to render your LaTeX. Additionally, this activates the Mmark parsing engine, which is already integrated with Hugo. Using the Mmark parsing engine prevents <a href="https://gohugo.io/content-management/formats/#issues-with-markdown">the problems</a> the default Blackfriday parsing engine has.</p>
+<p>Now, your <code>katex.html</code> partial will be used, which allows KaTex to render your LaTeX. Additionally, this activates the Mmark parsing engine, which is already integrated with Hugo. Using the Mmark parsing engine prevents <a href="https://gohugo.io/content-management/formats/#issues-with-markdown">the problems</a> the default Blackfriday parsing engine has with rendering LaTex.</p>
 
 <h2 id="writing-latex-in-markdown-for-mmark">Writing LaTex in Markdown for Mmark</h2>
 
-<p>Now you can write LaTex in markdown! 🎉
+<p>Now you can write LaTex in markdown files! 🎉
 It's intuitive writing LateX in markdown using the Mmark processor. You can display equations on the block level or inline. Note that you must use Mmark, or this will not work. Using the default Blackfriday processor will make all of these inline (using a single dollar sign as a delimiter will not work).</p>
 
 <h3 id="display-block">Display Block</h3>
@@ -137,13 +137,13 @@ It turns out, using KaTeX rather than MathJax was easier than I thought. I hope 
                   
       <hr>
       <li>
-        <i class="fa fa-category"></i><a href="/Blog/categories/blog-updates">Blog Updates</a><a href="/Blog/categories/tutorials">Tutorials</a>
+        <i class="fa fa-category"></i><a href="/blog/categories/blog-updates">Blog Updates</a><a href="/blog/categories/tutorials">Tutorials</a>
       </li>
       
     
       
       <li>
-        <i class="fa fa-tags"></i><a href="/Blog/tags/latex">LaTeX</a><a href="/Blog/tags/katex">KaTeX</a>
+        <i class="fa fa-tags"></i><a href="/blog/tags/latex">LaTeX</a><a href="/blog/tags/katex">KaTeX</a>
       </li>
       
   </article>
@@ -153,13 +153,13 @@ It turns out, using KaTeX rather than MathJax was easier than I thought. I hope 
 <footer class="footer">
   <ul class="footer-links">
     <li>
-      <a href="https://eankeen.github.io/Blog/index.xml" type="application/rss+xml" target="_blank"><i class="fa fa-rss"></i> RSS feed</a>
+      <a href="https://eankeen.github.io/blog/index.xml" type="application/rss+xml" target="_blank"><i class="fa fa-rss"></i> RSS feed</a>
     </li>
     <li>
       <a href="/blog">Home</a>
     </li>
     <li>
-      <a href="https://eankeen.github.io/Blog/site-notice">Site notice</a>
+      <a href="https://eankeen.github.io/blog/site-notice">Site notice</a>
     </li>
   </ul>
 </footer>
