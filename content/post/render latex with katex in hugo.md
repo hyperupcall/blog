@@ -54,7 +54,7 @@ My entire `footer.html` file ended up looking like the following.
 
 Everything else except that one line was copied and pasted from my theme's `footer.html` file.
 
-By adding the `katex.html` partial to the `footer.html` partial conditionally, now you can specify if you want to use KaTex for each markdown file separately. That way, you don't have to serve KaTex JS and CSS files for blog posts that don't actually use them.
+By adding the `katex.html` partial to the `footer.html` partial conditionally, now you can specify if you want to use KaTex for each markdown file separately. That way, you don't have to serve KaTeX JS and CSS files for blog posts that don't actually use them.
 
 ## Using the KaTex partial
 Now, using the KaTex partial is trivial. In your Hugo [front matter](https://gohugo.io/content-management/front-matter/) (of any markdown file), add the following lines.

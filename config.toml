@@ -4,6 +4,8 @@ title = "Edwin's Blog"
 theme = "hugo-natrium-theme"
 
 publishDir = "docs"
+relativeURLs = true
+canonifyURLs = true
 
 preserveTaxonomyNames = true
 rssLimit = 10
