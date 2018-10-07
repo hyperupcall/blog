@@ -35,11 +35,11 @@
 
   <ul class="nav-links">
     
-    <li><a href="/blog/categories">Categories</a></li>
+    <li><a href="../categories">Categories</a></li>
     
-    <li><a href="/blog/tags">Tags</a></li>
+    <li><a href="../tags">Tags</a></li>
     
-    <li><a href="/blog/about/">About</a></li>
+    <li><a href="../about/">About</a></li>
     
   </ul>
 </nav>
@@ -55,7 +55,7 @@
     
 
     <div class="article-content">
-      <p>Just recently, I added support to render LaTeX math equations with the rendering engine <a href="https://katex.org/">KaTeX</a> for this blog. I chose it over MathJax because it performs <a href="https://jsperf.com/katex-vs-mathjax">substantially faster</a> than MathJax. To integrate KaTeX in my Hugo blog, I had to use the <a href="https://github.com/mmarkdown/mmark">Mmark</a> Markdown processor rather than Hugo's default <a href="https://github.com/russross/blackfriday">Blackfriday</a> processor.</p>
+      <p>Just recently, I added support to render LaTeX math equations with the rendering engine <a href="https://katex.org/">KaTeX</a> for this blog. I chose it over MathJax because it performs <a href="https://www.intmath.com/cg5/katex-mathjax-comparison.php">substantially faster</a> than MathJax. To integrate KaTeX in my Hugo blog, I had to use the <a href="https://github.com/mmarkdown/mmark">Mmark</a> Markdown processor rather than Hugo's default <a href="https://github.com/russross/blackfriday">Blackfriday</a> processor.</p>
 
 <p>There are three steps to follow so you can write LaTeX in markdown for KaTeX to use.</p>
 
@@ -92,7 +92,7 @@
 &lt;/<span style="color:#6ab825;font-weight:bold">html</span>&gt;</code></pre></div>
 <p>Everything else except that one line was copied and pasted from my theme's <code>footer.html</code> file.</p>
 
-<p>By adding the <code>katex.html</code> partial to the <code>footer.html</code> partial conditionally, now you can specify if you want to use KaTex for each markdown file separately. That way, you don't have to serve KaTex JS and CSS files for blog posts that don't actually use them.</p>
+<p>By adding the <code>katex.html</code> partial to the <code>footer.html</code> partial conditionally, now you can specify if you want to use KaTex for each markdown file separately. That way, you don't have to serve KaTeX JS and CSS files for blog posts that don't actually use them.</p>
 
 <h2 id="using-the-katex-partial">Using the KaTex partial</h2>
 
@@ -137,13 +137,13 @@ It turns out, using KaTeX rather than MathJax was easier than I thought. I hope 
                   
       <hr>
       <li>
-        <i class="fa fa-category"></i><a href="/blog/categories/blog-updates">Blog Updates</a><a href="/blog/categories/tutorials">Tutorials</a>
+        <i class="fa fa-category"></i><a href="../categories/blog-updates">Blog Updates</a><a href="../categories/tutorials">Tutorials</a>
       </li>
       
     
       
       <li>
-        <i class="fa fa-tags"></i><a href="/blog/tags/latex">LaTeX</a><a href="/blog/tags/katex">KaTeX</a>
+        <i class="fa fa-tags"></i><a href="../tags/latex">LaTeX</a><a href="../tags/katex">KaTeX</a>
       </li>
       
   </article>
@@ -156,7 +156,7 @@ It turns out, using KaTeX rather than MathJax was easier than I thought. I hope 
       <a href="https://eankeen.github.io/blog/index.xml" type="application/rss+xml" target="_blank"><i class="fa fa-rss"></i> RSS feed</a>
     </li>
     <li>
-      <a href="/blog">Home</a>
+      <a href="../blog">Home</a>
     </li>
     <li>
       <a href="https://eankeen.github.io/blog/site-notice">Site notice</a>
