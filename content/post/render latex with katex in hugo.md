@@ -18,7 +18,7 @@ There are three steps to follow so you can write LaTeX in markdown for KaTeX to 
 3. Activate the KaTeX partial in the markdown file
 
 ## Create a KaTex partial
-To get KaTex to work, you have to to import their JavaScript and CSS files. We're going to do this using Hugo partials. To do this, create a `katex.html` partial in your `layouts/partials` directory of your Hugo project. In this file, just import the [required files](https://katex.org/docs/browser.html).
+To get KaTex to work, you must import their JavaScript and CSS files. We're going to do this using Hugo partials. To do this, create a `katex.html` partial in your `layouts/partials` directory of your Hugo project. In this file, just import the [required files](https://katex.org/docs/browser.html).
 
 ```html
 <!-- CSS File -->
