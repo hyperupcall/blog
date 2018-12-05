@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on Edwin&#39;s Blog</title>
+    <link>https://eankeen.github.io/blog/categories/</link>
+    <description>Recent content in Categories on Edwin&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 15 Sep 2018 11:26:16 -0700</lastBuildDate>
+    
+	<atom:link href="https://eankeen.github.io/blog/categories/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Blog Updates</title>
+      <link>https://eankeen.github.io/blog/categories/blog-updates/</link>
+      <pubDate>Sat, 15 Sep 2018 11:26:16 -0700</pubDate>
+      
+      <guid>https://eankeen.github.io/blog/categories/blog-updates/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tutorials</title>
+      <link>https://eankeen.github.io/blog/categories/tutorials/</link>
+      <pubDate>Sat, 15 Sep 2018 11:26:16 -0700</pubDate>
+      
+      <guid>https://eankeen.github.io/blog/categories/tutorials/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
