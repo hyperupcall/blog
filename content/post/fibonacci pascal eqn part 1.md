@@ -26,27 +26,29 @@ $$
 $$
 
 ### Binomial Theorem Relation
-My instructor stated that Pascal's triangle fundamentally represents the coefficients of an expanded binomial. You've probably seen this before. A binomial to the nth power (where $$n \in \mathbb{Z}$$) has the same coefficients as the nth row of Pascal's triangle. This is known as the [binomial theorem](https://en.wikipedia.org/wiki/Binomial_theorem), which is expressed below.
+My instructor stated that Pascal's triangle fundamentally represents the coefficients of an expanded binomial. You've probably seen this before. A binomial to the $$n$$th power (where $$n \in \mathbb{Z}$$) has the same coefficients as the $$n$$th row of Pascal's triangle. This is known as the [binomial theorem](https://en.wikipedia.org/wiki/Binomial_theorem), which is expressed below.
 
 $$ (a+b)^n = \sum_{k=0}^{n} \binom{n}{k} a^{n-k} b^k $$
 
-$$\binom{n}{k}$$ means $$n$$ choose $$k$$. As you can see, it's the coefficient of the $$k$$th term in the polynomial expansion $$(a+b)^n$$ For example, $$n=3$$ yields the following:
+$$\binom{n}{k}$$ means $$n$$ choose $$k$$, which has a relation to [statistics](https://en.wikipedia.org/wiki/Binomial_coefficient). As you can see, it's the coefficient of the $$k$$th term in the polynomial expansion $$(a+b)^n$$ For example, $$n=3$$ yields the following:
 
 $$ (a+b)^3 = \sum_{k=0}^{3} \binom{3}{k} a^{3-k} b^{k}$$
 
 $$ a^3 + 3ab^2 + 3a^2b + 9b^3 = \binom{3}{0}a^3 + \binom{3}{1}a^2b + \binom{3}{2}b^2a + \binom{3}{3}b^3 $$
 
-From the above equation, we obtain a cubic equation. Given this, we can ascertain that the coefficient $$3$$ choose $$0$$, or $$\binom{3}{0}$$ = $$1$$. Below you can see some values we determined from the above operation.
+From the above equation, we obtain a cubic equation. Given this, we can ascertain that the coefficient $$3$$ choose $$0$$, or $$\binom{3}{0}$$ = $$1$$. Below you can see some values we can determine from the operation above.
 
 $$\binom{3}{0} = 1\\[4px]$$
 $$\binom{3}{1} = 3\\[4px]$$
 $$\binom{3}{2} = 3\\[4px]$$
 $$\binom{3}{3} = 9\\[4px]$$
 
-This binomial theorem relationship is typically discussed when bringing up the Fibonacci sequence in pre-calculus classes. You must be familiar with this to understand the fibonacci sequence relationship.
+And look at that! The sequence $$1\ 3\ 3\ 9$$ is on the $$3$$rd row of Pascal's triangle (starting from $$0$$).
+
+This binomial theorem relationship is typically discussed when bringing up Pascal's triangle in pre-calculus classes. You might want to be familiar with this to understand the fibonacci sequence relationship.
 
 ## Pascal's Triangle Representations
-In fact, Pascal's triangle can be represented by a series of $$n$$ choose $$k$$ symbols.
+Of course, it's not just one row that can be represented by a series of $$n$$ choose $$k$$ symbols. The whole triangle can. As you can see, the $$3$$rd row (starting from $$0$$) includes $$\binom{3}{0}\ \binom{3}{1}\ \binom{3}{2}\ \binom{3}{3}$$, the numbers we obtained from the binommial expansion earlier.
 
 $$
 \binom{0}{0} \newline
@@ -57,7 +59,7 @@ $$
 \binom{5}{0} \quad \binom{5}{1} \quad \binom{5}{2} \quad \binom{5}{3} \quad \binom{5}{4} \quad \binom{5}{5} \newline
 $$
 
-Alternatively, Pascal's triangle can also be represented in a similar fashion, using $$_nC_k$$ symbols.
+Alternatively, Pascal's triangle can also be represented in a similar fashion, using $$_nC_k$$ symbols. I'll be using this notation from now on.
 
 $$
 {_0C_0} \\[5px]
@@ -73,7 +75,11 @@ What exactly is this relatiponship? First, draw diagonal lines intersecting vari
 
 ![Pascal's Triangle](../image/pascals-triangle.png)
 
-The green lines represent the division between each term in the Fibonacci sequence and the red terms represent each $$zth$$ term, the sum of all black numbers within the green border. In this case, the green lines are initially at an angle of $$20\degree$$, and gradually become less steep as $$z$$ increases.
+The green lines represent the division between each term in the Fibonacci sequence and the red terms represent each $$zth$$ term, the sum of all black numbers sandwiched within the green borders. In this case, the green lines are initially at an angle of $$20\degree$$, and gradually become less steep as $$z$$ increases.
+
+Like I said, I'm going to be using $$_nC_k$$ symbols to express relationships to Pascal's triangle, so here's the relationship expressed with different symbols.
+
+![Pascal's Triangle](../image/pascals-triangle-2.png)
 
 We can write the first 5 equations.
 
@@ -89,6 +95,6 @@ $$z_5 = {_4C_0} + {_3C_1} + {_2C_2} = 5$$
 
 $$...$$
 
-Is it possible to succinctly write the $$z$$th term of the Fibonacci as a summation of $$_nC_k$$ Pascal's triangle terms? The number of terms being summed up depends on the $$z$$th term. Both $$n$$ and $$k$$ (within $$_nC_k$$) depend on $$z$$. See any patterns yet? See if you can figure it out for yourself before continuing!
+Is it possible to succinctly write the $$z$$th term ($$Fib(z)$$, or $$F(z)$$) of the Fibonacci as a summation of $$_nC_k$$ Pascal's triangle terms? The number of terms being summed up depends on the $$z$$th term. Both $$n$$ and $$k$$ (within $$_nC_k$$) depend on $$z$$. See any patterns yet? Note that I'm using $$z$$th term rather than $$n$$th term because $$n$$ is already used when representing $$_nC_k$$. See if you can figure it out for yourself before continuing! If you're still in high school (Algebra 2 / Pre-Calculus), this may take more than a single night, but it's a fun challenge!
 
 Part 2 is not complete. When it's finished, find it [here](../fibonacci-equation-using-pascals-triangle-part-2/).
