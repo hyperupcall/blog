@@ -498,17 +498,23 @@ blockquote {
   .tag-cloud-title {
     font-size: 38px;
   }
-
+  
   .list-item a {
-    padding: 5px 0;
+    /* display: block; */
+    padding: 5px 0 0 0;
     font-size: 21px;
+  }
+  
+  .list-item {
+    /* display: flex; */
   }
 
   .list-item-date {
-    padding: 5px 0;
+    /* display: block; */
+    padding: 0 0 5px 0;
     font-size: 17px;
-    text-align: right;
-    float: right;
+    /* text-align: right; */
+    /* float: right; */
   }
 
   .category-item {
