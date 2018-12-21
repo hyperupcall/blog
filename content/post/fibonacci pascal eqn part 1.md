@@ -10,8 +10,7 @@ katex = true
 draft = false
 +++
 
-If you're familiar with the intricacies of Pascal's Triangle, see how I did it by going to [part 2](../fibonacci-equation-using-pascals-triangle-part-2/). (Part 2 not complete yet)
-{{ .Title }}
+If you're familiar with the intricacies of Pascal's Triangle, see how I did it by going to [part 2](../fibonacci-equation-using-pascals-triangle-part-2/).
 
 ## Background of Pascal's Triangle
 A while back, I was reintroduced to Pascal's Triangle by my pre-calculus teacher. Pascal's triangle can be written as an infintely expanding triangle, with each term being generated as the sum of the two numbers adjacently above it. For example, both $$10$$s in the triangle below are the sum of $$6$$ and $$4$$. $$6$$ and $$4$$ are directly above each $$10$$.
@@ -43,9 +42,9 @@ $$\binom{3}{1} = 3\\[4px]$$
 $$\binom{3}{2} = 3\\[4px]$$
 $$\binom{3}{3} = 9\\[4px]$$
 
-And look at that! The sequence $$1\ 3\ 3\ 9$$ is on the $$3$$rd row of Pascal's triangle (starting from $$0$$).
+And look at that! The sequence $$1\ 3\ 3\ 9$$ is on the $$3$$rd row of Pascal's triangle (starting from the $$0$$th row).
 
-This binomial theorem relationship is typically discussed when bringing up Pascal's triangle in pre-calculus classes. You might want to be familiar with this to understand the fibonacci sequence relationship.
+This binomial theorem relationship is typically discussed when bringing up Pascal's triangle in pre-calculus classes. You might want to be familiar with this to understand the fibonacci sequence-pascal triangle relationship.
 
 ## Pascal's Triangle Representations
 Of course, it's not just one row that can be represented by a series of $$n$$ choose $$k$$ symbols. The whole triangle can. As you can see, the $$3$$rd row (starting from $$0$$) includes $$\binom{3}{0}\ \binom{3}{1}\ \binom{3}{2}\ \binom{3}{3}$$, the numbers we obtained from the binommial expansion earlier.
@@ -71,17 +70,17 @@ $$
 $$
 
 ## Relationship Between Pascal's Triangle and the Fibonacci Sequence
-What exactly is this relatiponship? First, draw diagonal lines intersecting various rows of the Fibonacci sequence. Then, add the terms up within each diagronal line to obtain the $$zth$$ element of the Fibonacci sequence.
+What exactly is this relatiponship? First, draw diagonal lines intersecting various rows of the Fibonacci sequence. Then, add the terms up within each diagronal line to obtain the $$z_{th}$$ element of the Fibonacci sequence.
 
 ![Pascal's Triangle](../image/pascals-triangle.png)
 
-The green lines represent the division between each term in the Fibonacci sequence and the red terms represent each $$zth$$ term, the sum of all black numbers sandwiched within the green borders. In this case, the green lines are initially at an angle of $$20\degree$$, and gradually become less steep as $$z$$ increases.
+The green lines represent the division between each term in the Fibonacci sequence and the red terms represent each $$z_{th}$$ term, the sum of all black numbers sandwiched within the green borders. In this case, the green lines are initially at an angle of $$\frac{\pi}{9}$$ radians, and gradually become less steep as $$z$$ increases.
 
-Like I said, I'm going to be using $$_nC_k$$ symbols to express relationships to Pascal's triangle, so here's the relationship expressed with different symbols.
+Like I said, I'm going to be using $$_nC_k$$ symbols to express relationships to Pascal's triangle, so here's the triangle expressed with different symbols.
 
 ![Pascal's Triangle](../image/pascals-triangle-2.png)
 
-We can write the first 5 equations.
+We can write the first 5 equations. We want to generate the $$_nC_r$$ terms using some formula. 
 
 $$z_1 = {_0C_0} = 1$$
 
@@ -95,6 +94,6 @@ $$z_5 = {_4C_0} + {_3C_1} + {_2C_2} = 5$$
 
 $$...$$
 
-Is it possible to succinctly write the $$z$$th term ($$Fib(z)$$, or $$F(z)$$) of the Fibonacci as a summation of $$_nC_k$$ Pascal's triangle terms? The number of terms being summed up depends on the $$z$$th term. Both $$n$$ and $$k$$ (within $$_nC_k$$) depend on $$z$$. See any patterns yet? Note that I'm using $$z$$th term rather than $$n$$th term because $$n$$ is already used when representing $$_nC_k$$. See if you can figure it out for yourself before continuing! If you're still in high school (Algebra 2 / Pre-Calculus), this may take more than a single night, but it's a fun challenge!
+Is it possible to succinctly write the $$z$$th term ($$Fib(z)$$, or $$F(z)$$) of the Fibonacci as a summation of $$_nC_k$$ Pascal's triangle terms? The number of terms being summed up depends on the $$z$$th term. Both $$n$$ and $$k$$ (within $$_nC_k$$) depend on the value of the summation index (I'll use $$\varphi$$). See any patterns yet? Note that I'm using $$z$$th term rather than $$n$$th term because $$n$$ is used when representing $$_nC_k$$. See if you can figure it out for yourself before continuing! If you're still in high school (Algebra 2 / Pre-Calculus), this may take more than a single night, but it's a fun challenge!
 
-Part 2 is not complete. When it's finished, find it [here](../fibonacci-equation-using-pascals-triangle-part-2/).
+See how I did it in [part 2](../fibonacci-equation-using-pascals-triangle-part-2/)!

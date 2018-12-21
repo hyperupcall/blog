@@ -10,12 +10,15 @@ katex = true
 draft = false
 +++
 
-Just recently, I added support to render LaTeX math equations with the rendering engine [KaTeX](https://katex.org/) for this blog. I chose it over MathJax because it performs [substantially faster](https://www.intmath.com/cg5/katex-mathjax-comparison.php) than MathJax. To integrate KaTeX in my Hugo blog, I had to use the [Mmark](https://github.com/mmarkdown/mmark) Markdown processor rather than Hugo's default [Blackfriday](https://github.com/russross/blackfriday) processor.
+Just recently, I added support to render LaTeX math equations with the rendering engine [KaTeX](https://katex.org/) for this blog. I chose it over MathJax because it performs [substantially faster](https://www.intmath.com/cg5/katex-mathjax-comparison.php). To integrate KaTeX in my Hugo blog, I used the [Mmark](https://github.com/mmarkdown/mmark) Markdown processor rather than Hugo's default [Blackfriday](https://github.com/russross/blackfriday) processor.
 
 There are three steps to follow so you can write LaTeX in markdown for KaTeX to use.
 1. Create a KateX partial
 2. Integrate the KateX partial in your header or footer element
 3. Activate the KaTeX partial in the markdown file
+
+What is a partial?
+[Hugo partials](https://gohugo.io/templates/partials/) are just single page templates. Think of them like `html` files that you can insert into any of your pages.
 
 ## Create a KaTex partial
 To get KaTex to work, you must import their JavaScript and CSS files. We're going to do this using Hugo partials. To do this, create a `katex.html` partial in your `layouts/partials` directory of your Hugo project. In this file, just import the [required files](https://katex.org/docs/browser.html).
