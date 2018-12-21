@@ -7,7 +7,7 @@ categories = ["Math"]
 tags = ["pascal's triangle", "fibonacci"]
 markup = "mmark"
 katex = true
-draft = true
+draft = false
 +++
 
 If you're not familiar with the intricacies of Pascal's Triangle, see [part 1](http://localhost:1313/blog/fibonacci-equation-using-pascals-triangle-part-1/).
