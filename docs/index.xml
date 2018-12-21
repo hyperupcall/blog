@@ -18,7 +18,7 @@
       <pubDate>Fri, 16 Nov 2018 10:10:57 -0800</pubDate>
       
       <guid>https://eankeen.github.io/blog/fibonacci-equation-using-pascals-triangle-part-1/</guid>
-      <description>If you&#39;re familiar with the intricacies of Pascal&#39;s Triangle, see how I did it by going to part 2. (Part 2 not complete yet)
+      <description>If you&#39;re familiar with the intricacies of Pascal&#39;s Triangle, see how I did it by going to part 2.
 Background of Pascal&#39;s Triangle A while back, I was reintroduced to Pascal&#39;s Triangle by my pre-calculus teacher. Pascal&#39;s triangle can be written as an infintely expanding triangle, with each term being generated as the sum of the two numbers adjacently above it. For example, both \(10\)s in the triangle below are the sum of \(6\) and \(4\).</description>
     </item>
     
@@ -30,9 +30,9 @@ Background of Pascal&#39;s Triangle A while back, I was reintroduced to Pascal&#
       <pubDate>Sat, 15 Sep 2018 11:26:16 -0700</pubDate>
       
       <guid>https://eankeen.github.io/blog/render-latex-with-katex-in-hugo-blog/</guid>
-      <description>Just recently, I added support to render LaTeX math equations with the rendering engine KaTeX for this blog. I chose it over MathJax because it performs substantially faster than MathJax. To integrate KaTeX in my Hugo blog, I had to use the Mmark Markdown processor rather than Hugo&#39;s default Blackfriday processor.
+      <description>Just recently, I added support to render LaTeX math equations with the rendering engine KaTeX for this blog. I chose it over MathJax because it performs substantially faster. To integrate KaTeX in my Hugo blog, I used the Mmark Markdown processor rather than Hugo&#39;s default Blackfriday processor.
 There are three steps to follow so you can write LaTeX in markdown for KaTeX to use.
- Create a KateX partial Integrate the KateX partial in your header or footer element Activate the KaTeX partial in the markdown file  Create a KaTex partial To get KaTex to work, you must import their JavaScript and CSS files.</description>
+ Create a KateX partial Integrate the KateX partial in your header or footer element Activate the KaTeX partial in the markdown file  What is a partial?</description>
     </item>
     
     

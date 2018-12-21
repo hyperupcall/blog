@@ -55,7 +55,7 @@
     
 
     <div class="article-content">
-      <p>Just recently, I added support to render LaTeX math equations with the rendering engine <a href="https://katex.org/">KaTeX</a> for this blog. I chose it over MathJax because it performs <a href="https://www.intmath.com/cg5/katex-mathjax-comparison.php">substantially faster</a> than MathJax. To integrate KaTeX in my Hugo blog, I had to use the <a href="https://github.com/mmarkdown/mmark">Mmark</a> Markdown processor rather than Hugo's default <a href="https://github.com/russross/blackfriday">Blackfriday</a> processor.</p>
+      <p>Just recently, I added support to render LaTeX math equations with the rendering engine <a href="https://katex.org/">KaTeX</a> for this blog. I chose it over MathJax because it performs <a href="https://www.intmath.com/cg5/katex-mathjax-comparison.php">substantially faster</a>. To integrate KaTeX in my Hugo blog, I used the <a href="https://github.com/mmarkdown/mmark">Mmark</a> Markdown processor rather than Hugo's default <a href="https://github.com/russross/blackfriday">Blackfriday</a> processor.</p>
 
 <p>There are three steps to follow so you can write LaTeX in markdown for KaTeX to use.</p>
 
@@ -64,6 +64,9 @@
 <li>Integrate the KateX partial in your header or footer element</li>
 <li>Activate the KaTeX partial in the markdown file</li>
 </ol>
+
+<p>What is a partial?
+<a href="https://gohugo.io/templates/partials/">Hugo partials</a> are just single page templates. Think of them like <code>html</code> files that you can insert into any of your pages.</p>
 
 <h2 id="create-a-katex-partial">Create a KaTex partial</h2>
 

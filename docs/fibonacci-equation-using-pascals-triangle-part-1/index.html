@@ -55,7 +55,7 @@
     
 
     <div class="article-content">
-      <p>If you're familiar with the intricacies of Pascal's Triangle, see how I did it by going to <a href="../fibonacci-equation-using-pascals-triangle-part-2/">part 2</a>. (Part 2 not complete yet)</p>
+      <p>If you're familiar with the intricacies of Pascal's Triangle, see how I did it by going to <a href="../fibonacci-equation-using-pascals-triangle-part-2/">part 2</a>.</p>
 
 <h2 id="background-of-pascals-triangle">Background of Pascal's Triangle</h2>
 
@@ -89,9 +89,9 @@
 <span  class="math">\(\binom{3}{2} = 3\\[4px]\)</span>
 <span  class="math">\(\binom{3}{3} = 9\\[4px]\)</span></p>
 
-<p>And look at that! The sequence <span  class="math">\(1\ 3\ 3\ 9\)</span> is on the <span  class="math">\(3\)</span>rd row of Pascal's triangle (starting from <span  class="math">\(0\)</span>).</p>
+<p>And look at that! The sequence <span  class="math">\(1\ 3\ 3\ 9\)</span> is on the <span  class="math">\(3\)</span>rd row of Pascal's triangle (starting from the <span  class="math">\(0\)</span>th row).</p>
 
-<p>This binomial theorem relationship is typically discussed when bringing up Pascal's triangle in pre-calculus classes. You might want to be familiar with this to understand the fibonacci sequence relationship.</p>
+<p>This binomial theorem relationship is typically discussed when bringing up Pascal's triangle in pre-calculus classes. You might want to be familiar with this to understand the fibonacci sequence-pascal triangle relationship.</p>
 
 <h2 id="pascals-triangle-representations">Pascal's Triangle Representations</h2>
 
@@ -119,17 +119,17 @@
 
 <h2 id="relationship-between-pascals-triangle-and-the-fibonacci-sequence">Relationship Between Pascal's Triangle and the Fibonacci Sequence</h2>
 
-<p>What exactly is this relatiponship? First, draw diagonal lines intersecting various rows of the Fibonacci sequence. Then, add the terms up within each diagronal line to obtain the <span  class="math">\(zth\)</span> element of the Fibonacci sequence.</p>
+<p>What exactly is this relatiponship? First, draw diagonal lines intersecting various rows of the Fibonacci sequence. Then, add the terms up within each diagronal line to obtain the <span  class="math">\(z_{th}\)</span> element of the Fibonacci sequence.</p>
 
 <p><figure><img src="../image/pascals-triangle.png" alt="Pascal's Triangle"></figure></p>
 
-<p>The green lines represent the division between each term in the Fibonacci sequence and the red terms represent each <span  class="math">\(zth\)</span> term, the sum of all black numbers sandwiched within the green borders. In this case, the green lines are initially at an angle of <span  class="math">\(20\degree\)</span>, and gradually become less steep as <span  class="math">\(z\)</span> increases.</p>
+<p>The green lines represent the division between each term in the Fibonacci sequence and the red terms represent each <span  class="math">\(z_{th}\)</span> term, the sum of all black numbers sandwiched within the green borders. In this case, the green lines are initially at an angle of <span  class="math">\(\frac{\pi}{9}\)</span> radians, and gradually become less steep as <span  class="math">\(z\)</span> increases.</p>
 
-<p>Like I said, I'm going to be using <span  class="math">\(_nC_k\)</span> symbols to express relationships to Pascal's triangle, so here's the relationship expressed with different symbols.</p>
+<p>Like I said, I'm going to be using <span  class="math">\(_nC_k\)</span> symbols to express relationships to Pascal's triangle, so here's the triangle expressed with different symbols.</p>
 
 <p><figure><img src="../image/pascals-triangle-2.png" alt="Pascal's Triangle"></figure></p>
 
-<p>We can write the first 5 equations.</p>
+<p>We can write the first 5 equations. We want to generate the <span  class="math">\(_nC_r\)</span> terms using some formula.</p>
 
 <p><span  class="math">\[z_1 = {_0C_0} = 1\]</span></p>
 
@@ -143,9 +143,9 @@
 
 <p><span  class="math">\[...\]</span></p>
 
-<p>Is it possible to succinctly write the <span  class="math">\(z\)</span>th term (<span  class="math">\(Fib(z)\)</span>, or <span  class="math">\(F(z)\)</span>) of the Fibonacci as a summation of <span  class="math">\(_nC_k\)</span> Pascal's triangle terms? The number of terms being summed up depends on the <span  class="math">\(z\)</span>th term. Both <span  class="math">\(n\)</span> and <span  class="math">\(k\)</span> (within <span  class="math">\(_nC_k\)</span>) depend on <span  class="math">\(z\)</span>. See any patterns yet? Note that I'm using <span  class="math">\(z\)</span>th term rather than <span  class="math">\(n\)</span>th term because <span  class="math">\(n\)</span> is already used when representing <span  class="math">\(_nC_k\)</span>. See if you can figure it out for yourself before continuing! If you're still in high school (Algebra 2 / Pre-Calculus), this may take more than a single night, but it's a fun challenge!</p>
+<p>Is it possible to succinctly write the <span  class="math">\(z\)</span>th term (<span  class="math">\(Fib(z)\)</span>, or <span  class="math">\(F(z)\)</span>) of the Fibonacci as a summation of <span  class="math">\(_nC_k\)</span> Pascal's triangle terms? The number of terms being summed up depends on the <span  class="math">\(z\)</span>th term. Both <span  class="math">\(n\)</span> and <span  class="math">\(k\)</span> (within <span  class="math">\(_nC_k\)</span>) depend on the value of the summation index (I'll use <span  class="math">\(\varphi\)</span>). See any patterns yet? Note that I'm using <span  class="math">\(z\)</span>th term rather than <span  class="math">\(n\)</span>th term because <span  class="math">\(n\)</span> is used when representing <span  class="math">\(_nC_k\)</span>. See if you can figure it out for yourself before continuing! If you're still in high school (Algebra 2 / Pre-Calculus), this may take more than a single night, but it's a fun challenge!</p>
 
-<p>Part 2 is not complete. When it's finished, find it <a href="../fibonacci-equation-using-pascals-triangle-part-2/">here</a>.</p>
+<p>See how I did it in <a href="../fibonacci-equation-using-pascals-triangle-part-2/">part 2</a>!</p>
 
     </div>
  
