@@ -2,7 +2,7 @@
 title = "Fibonacci Equation for Zth (Nth) Term Using Pascal's Triangle (Part 2 of 2)"
 slug = "fibonacci-equation-using-pascals-triangle-part-2"
 author = "Edwin Kofler"
-date = 2018-12-04T22:39:42-08:00
+date = 2018-12-20T11:41:42-08:00
 categories = ["Math"]
 tags = ["pascal's triangle", "fibonacci"]
 markup = "mmark"
