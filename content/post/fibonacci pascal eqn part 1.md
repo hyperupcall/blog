@@ -25,7 +25,7 @@ $$
 $$
 
 ### Binomial Theorem Relation
-My instructor stated that Pascal's triangle fundamentally represents the coefficients of an expanded binomial. You've probably seen this before. A binomial to the $$n$$th power (where $$n \in \mathbb{Z}$$) has the same coefficients as the $$n$$th row of Pascal's triangle. This is known as the [binomial theorem](https://en.wikipedia.org/wiki/Binomial_theorem), which is expressed below.
+My instructor stated that Pascal's triangle fundamentally represents the coefficients of an expanded binomial. You've probably seen this before. A binomial to the $$n$$th power (where $$n \in \mathbb{N}$$) has the same coefficients as the $$n$$th row of Pascal's triangle. This is known as the [binomial theorem](https://en.wikipedia.org/wiki/Binomial_theorem), which is expressed below.
 
 $$ (a+b)^n = \sum_{k=0}^{n} \binom{n}{k} a^{n-k} b^k $$
 

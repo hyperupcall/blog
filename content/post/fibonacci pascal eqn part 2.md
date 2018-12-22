@@ -38,7 +38,7 @@ $$z_{end} = round(\frac{z}{2})$$
 
 Now, we know we can better describe what the summation might look like
 
-$$f(z) = Fib(z) =\sum_{\varphi=1}^{round(\frac{z}{2})}{_{n(\varphi)}}C_{k(\varphi)}$$
+$$Fib(z) = f(z) =\sum_{\varphi=1}^{round(\frac{z}{2})}{_{n(\varphi)}}C_{k(\varphi)}$$
 
 
 So to find the $$4$$th term in the Fibonacci Sequence, or $$z = 4$$, we know $$z_{end} = 2$$, or $$2$$ terms will be summed.
