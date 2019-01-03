@@ -27,7 +27,7 @@ $$
 
 ## Binomial Theorem Relation
 
-My instructor stated that Pascal's triangle fundamentally represents the coefficients of an expanded binomial. You've probably seen this before. A binomial to the $$n$$th power (where $$n \in \mathbb{N}$$) has the same coefficients as the $$n$$th row of Pascal's triangle. This is known as the [binomial theorem](https://en.wikipedia.org/wiki/Binomial_theorem), which is expressed below.
+My instructor stated that Pascal's triangle strongly relates to the coefficients of an expanded binomial. You've probably seen this before. A binomial to the $$n$$th power (where $$n \in \mathbb{N}$$) has the same coefficients as the $$n$$th row of Pascal's triangle. The overall relationship is known as the [binomial theorem](https://en.wikipedia.org/wiki/Binomial_theorem), which is expressed below.
 
 $$ (a+b)^n = \sum_{k=0}^{n} \binom{n}{k} a^{n-k} b^k $$
 
@@ -46,7 +46,7 @@ $$\binom{3}{3} = 9\\[4px]$$
 
 And look at that! The sequence $$1\ 3\ 3\ 9$$ is on the $$3$$rd row of Pascal's triangle (starting from the $$0$$th row).
 
-This binomial theorem relationship is typically discussed when bringing up Pascal's triangle in pre-calculus classes. You might want to be familiar with this to understand the fibonacci sequence-pascal triangle relationship.
+This binomial theorem relationship is typically discussed when bringing up Pascal's triangle in pre-calculus classes. You might want to be familiar with this to understand the fibonacci sequence-pascal's triangle relationship.
 
 # Pascal's Triangle Representations
 
@@ -98,6 +98,6 @@ $$z_5 = {_4C_0} + {_3C_1} + {_2C_2} = 5$$
 
 $$...$$
 
-Is it possible to succinctly write the $$z$$th term ($$Fib(z)$$, or $$F(z)$$) of the Fibonacci as a summation of $$_nC_k$$ Pascal's triangle terms? The number of terms being summed up depends on the $$z$$th term. Both $$n$$ and $$k$$ (within $$_nC_k$$) depend on the value of the summation index (I'll use $$\varphi$$). See any patterns yet? Note that I'm using $$z$$th term rather than $$n$$th term because $$n$$ is used when representing $$_nC_k$$. See if you can figure it out for yourself before continuing! If you're still in high school (Algebra 2 / Pre-Calculus), this may take more than a single night, but it's a fun challenge!
+Is it possible to succinctly write the $$z$$th term ($$Fib(z)$$, or $$F(z)$$) of the Fibonacci as a summation of $$_nC_k$$ Pascal's triangle terms? The number of terms being summed up depends on the $$z$$th term. Both $$n$$ and $$k$$ (within $$_nC_k$$) depend on the value of the summation index (I'll use $$\varphi$$). See any patterns yet? Note that I'm using $$z$$th term rather than $$n$$th term because $$n$$ is used when representing $$_nC_k$$. See if you can figure it out for yourself before continuing! This is a great challenge for Algebra 2 / Pre-Calculus students!
 
 See how I did it in [part 2](../fibonacci-equation-using-pascals-triangle-part-2/)!

@@ -66,7 +66,7 @@ How do we leverage the relationship (in the image above) to obtain an equation t
 
 <p><span  class="math">\[\sum_{\varphi=1}^{z_{end}}{_n}C_k\]</span></p>
 
-<p>But this is not exactly right, since <span  class="math">\(n\)</span> and <span  class="math">\(k\)</span> are different for each <span  class="math">\(z\)</span>th term that's being added up. Both will at least be dependent on the summation index, <span  class="math">\(\varphi\)</span>. Therefore, we can more accurately write:</p>
+<p>But this is not exactly right, since <span  class="math">\(n\)</span> and <span  class="math">\(k\)</span> are different for each <span  class="math">\(\varphi\)</span>th term that's being added up (dependent on the summation index). Therefore, we can more accurately write:</p>
 
 <p><span  class="math">\[Fib(z) = f(z) =\ \sum_{\varphi=1}^{z_{end}}{_{n(\varphi)}}C_{k(\varphi)}\]</span></p>
 
@@ -92,19 +92,19 @@ How do we leverage the relationship (in the image above) to obtain an equation t
 
 <p>We only know that <span  class="math">\(_2C_1\)</span> and <span  class="math">\(_3C_0\)</span> are summed due to the table I wrote above. We don't know why <span  class="math">\(n(1) = 2\)</span> or why <span  class="math">\(k(2) = 0\)</span> yet.</p>
 
-<p>There are a few other patterns held within the grid. I found it easier to find the pattern by changing which way the terms were summed. As you can see, I rearange the order of the <span  class="math">\(_{n(\varphi)}C_{k(\varphi)}\)</span> terms, making the <span  class="math">\(\varphi_1, \varphi_2, ...\ \varphi_{th}\)</span> terms somewhat arbitrary.</p>
+<p>There are a few other patterns held within the grid. I found it easier to find the pattern by changing which way the terms were summed. As you can see, I rearange the order of the <span  class="math">\(_{n(\varphi)}C_{k(\varphi)}\)</span> terms, making the <span  class="math">\(\varphi_1, \varphi_2, ...\ \varphi_{th}\)</span> terms somewhat arbitrary (depending on the grid structure rather than concrete values).</p>
 
 <p><figure><img src="../image/pascals-triangle-4.png" alt="Pascal's Triange Reordered"></figure></p>
 
-<p>Now, you can see a clearer pattern for the <span  class="math">\(k(\varphi)\)</span> more easily, now that they're more aligned. It's value is one less than the current summation index value.</p>
+<p>Now, you can see a clearer pattern for the <span  class="math">\(k(\varphi)\)</span> more easily, now that they're more aligned. It's value is one less than the current summation index value (the <span  class="math">\(\varphi\)</span>th term, up to <span  class="math">\(z_{end}\)</span>).</p>
 
 <p><span  class="math">\[k(\varphi) = \varphi - 1\]</span></p>
 
-<p>Now, we just have to determine <span  class="math">\(n(\varphi)\)</span>. It's slightly harder because it depends on the <span  class="math">\(z_{th}\)</span> term and the <span  class="math">\(\varphi\)</span>th term. In other words, it depends on the <span  class="math">\(z_{th}\)</span> term we're adding to in the Fibonacci sequence and the value of the summation index, <span  class="math">\(\varphi\)</span>.</p>
+<p>Now, we just have to determine <span  class="math">\(n(\varphi)\)</span>. It's slightly harder because it depends on the <span  class="math">\(z\)</span>th term and the <span  class="math">\(\varphi\)</span>th term. In other words, it depends on the <span  class="math">\(z\)</span>th term we're adding to in the Fibonacci sequence and the value of the summation index, <span  class="math">\(\varphi\)</span>.</p>
 
 <p><span  class="math">\[n(\varphi) = z - \varphi\]</span></p>
 
-<p>Or, better</p>
+<p>Or, more accurately</p>
 
 <p><span  class="math">\[n(\varphi, z) = z - \varphi\]</span></p>
 
@@ -116,7 +116,7 @@ How do we leverage the relationship (in the image above) to obtain an equation t
 
 <p><span  class="math">\[F(z) = \sum_{\varphi=1}^{round(\frac{z}{2})}{_{z - \varphi}}C_{\varphi - 1}\]</span></p>
 
-<p>Does it work? Yes!</p>
+<p>Does this equation give us the <span  class="math">\(z\)</span>th term of the Fibonacci sequence by adding up terms of Pascal's triangle? Yes! It conforms to the original goal.</p>
 
 <p>Let <span  class="math">\(z = 9\)</span>. We obtain</p>
 

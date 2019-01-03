@@ -21,7 +21,7 @@ So our final equation will look akin to this:
 
 $$\sum_{\varphi=1}^{z_{end}}{_n}C_k$$
 
-But this is not exactly right, since $$n$$ and $$k$$ are different for each $$z$$th term that's being added up. Both will at least be dependent on the summation index, $$\varphi$$. Therefore, we can more accurately write:
+But this is not exactly right, since $$n$$ and $$k$$ are different for each $$\varphi$$th term that's being added up (dependent on the summation index). Therefore, we can more accurately write:
 
 $$Fib(z) = f(z) =\ \sum_{\varphi=1}^{z_{end}}{_{n(\varphi)}}C_{k(\varphi)}$$
 
@@ -47,19 +47,19 @@ $$Fib(4) =\sum_{\varphi=1}^{2}{_{n(\varphi)}}C_{k(\varphi)} =\ _2C_1 +\ _3C_0$$
 
 We only know that $$_2C_1$$ and $$_3C_0$$ are summed due to the table I wrote above. We don't know why $$n(1) = 2$$ or why $$k(2) = 0$$ yet.
 
-There are a few other patterns held within the grid. I found it easier to find the pattern by changing which way the terms were summed. As you can see, I rearange the order of the $$_{n(\varphi)}C_{k(\varphi)}$$ terms, making the $$\varphi_1, \varphi_2, ...\ \varphi_{th}$$ terms somewhat arbitrary.
+There are a few other patterns held within the grid. I found it easier to find the pattern by changing which way the terms were summed. As you can see, I rearange the order of the $$_{n(\varphi)}C_{k(\varphi)}$$ terms, making the $$\varphi_1, \varphi_2, ...\ \varphi_{th}$$ terms somewhat arbitrary (depending on the grid structure rather than concrete values).
 
 ![Pascal's Triange Reordered](../image/pascals-triangle-4.png)
 
-Now, you can see a clearer pattern for the $$k(\varphi)$$ more easily, now that they're more aligned. It's value is one less than the current summation index value.
+Now, you can see a clearer pattern for the $$k(\varphi)$$ more easily, now that they're more aligned. It's value is one less than the current summation index value (the $$\varphi$$th term, up to $$z_{end}$$).
 
 $$k(\varphi) = \varphi - 1$$
 
-Now, we just have to determine $$n(\varphi)$$. It's slightly harder because it depends on the $$z_{th}$$ term and the $$\varphi$$th term. In other words, it depends on the $$z_{th}$$ term we're adding to in the Fibonacci sequence and the value of the summation index, $$\varphi$$.
+Now, we just have to determine $$n(\varphi)$$. It's slightly harder because it depends on the $$z$$th term and the $$\varphi$$th term. In other words, it depends on the $$z$$th term we're adding to in the Fibonacci sequence and the value of the summation index, $$\varphi$$.
 
 $$n(\varphi) = z - \varphi$$
 
-Or, better
+Or, more accurately
 
 $$n(\varphi, z) = z - \varphi$$
 
@@ -71,7 +71,7 @@ Or, more succinctly
 
 $$F(z) = \sum_{\varphi=1}^{round(\frac{z}{2})}{_{z - \varphi}}C_{\varphi - 1}$$
 
-Does it work? Yes!
+Does this equation give us the $$z$$th term of the Fibonacci sequence by adding up terms of Pascal's triangle? Yes! It conforms to the original goal.
 
 Let $$z = 9$$. We obtain
 
