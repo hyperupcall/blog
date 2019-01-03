@@ -17,8 +17,8 @@
       <pubDate>Thu, 20 Dec 2018 11:41:42 -0800</pubDate>
       
       <guid>https://eankeen.github.io/blog/fibonacci-equation-using-pascals-triangle-part-2/</guid>
-      <description>If you&#39;re not familiar with the intricacies of Pascal&#39;s Triangle, see part 1.
-Finding a Formula  How do we leverage the relationship (in the image above) to obtain an equation that obtains the \(z\)th term (\(Fib(z)\), or \(F(z)\)) in the Fibonacci sequence? First, we need to figure out what our equation may look like. We know we&#39;re adding up terms of the Fibonacci sequence, so a summation symbol will be used.</description>
+      <description>If you&#39;re not familiar with Pascal&#39;s Triangle, see part 1.
+Finding a Formula  How do we leverage the relationship (in the image above) to obtain an equation that obtains the \(z\)th term (\(Fib(z)\), or \(F(z)\)) in the Fibonacci sequence? First, we need to figure out what our equation may look like. We know we&#39;re adding up terms of the Fibonacci sequence, so a summation symbol will be used. Additionally, we are adding up terms from Pascal&#39;s triangle, where each term individually can be written as \(_nC_r\).</description>
     </item>
     
     <item>

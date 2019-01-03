@@ -55,7 +55,7 @@
     
 
     <div class="article-content">
-      <p>If you're not familiar with the intricacies of Pascal's Triangle, see <a href="http://localhost:1313/blog/fibonacci-equation-using-pascals-triangle-part-1/">part 1</a>.</p>
+      <p>If you're not familiar with Pascal's Triangle, see <a href="http://localhost:1313/blog/fibonacci-equation-using-pascals-triangle-part-1/">part 1</a>.</p>
 
 <h1 id="finding-a-formula">Finding a Formula</h1>
 
@@ -68,9 +68,9 @@ How do we leverage the relationship (in the image above) to obtain an equation t
 
 <p>But this is not exactly right, since <span  class="math">\(n\)</span> and <span  class="math">\(k\)</span> are different for each <span  class="math">\(z\)</span>th term that's being added up. Both will at least be dependent on the summation index, <span  class="math">\(\varphi\)</span>. Therefore, we can more accurately write:</p>
 
-<p><span  class="math">\[\sum_{\varphi=1}^{z_{end}}{_{n(\varphi)}}C_{k(\varphi)}\]</span></p>
+<p><span  class="math">\[Fib(z) = f(z) =\ \sum_{\varphi=1}^{z_{end}}{_{n(\varphi)}}C_{k(\varphi)}\]</span></p>
 
-<p>Note that the summation index, <span  class="math">\(\varphi\)</span> is starting from <span  class="math">\(1\)</span>. Also, I'm starting Pascal's triangle at 1. Since <span  class="math">\(z\)</span> starts at 1, <span  class="math">\(z_1 = 1\)</span> and <span  class="math">\(z_2 = 1\)</span>.</p>
+<p>Note that the summation index, <span  class="math">\(\varphi\)</span> is starting from <span  class="math">\(1\)</span>. Also, I'm starting Pascal's triangle from a row of 1. So since <span  class="math">\(z\)</span> starts at 1, <span  class="math">\(z_1 = 1\)</span>, <span  class="math">\(z_2 = 1\)</span>, and <span  class="math">\(z_3 = 2\)</span>.</p>
 
 <p>I started by reorganizing all the <span  class="math">\(_nC_r\)</span> terms from the triangle above into rows. I tried to color the table similarly to the triangle.</p>
 
@@ -86,7 +86,7 @@ How do we leverage the relationship (in the image above) to obtain an equation t
 
 <p><span  class="math">\[Fib(z) = f(z) =\sum_{\varphi=1}^{round(\frac{z}{2})}{_{n(\varphi)}}C_{k(\varphi)}\]</span></p>
 
-<p>So to find the <span  class="math">\(4\)</span>th term in the Fibonacci Sequence, or <span  class="math">\(z = 4\)</span>, we know <span  class="math">\(z_{end} = 2\)</span>, or <span  class="math">\(2\)</span> terms will be summed.</p>
+<p>So to find the <span  class="math">\(4\)</span>th term in the Fibonacci Sequence, or <span  class="math">\(z = 4\)</span>, we know <span  class="math">\(z_{end} = 2\)</span>. We're summing <span  class="math">\(2\)</span> terms.</p>
 
 <p><span  class="math">\[Fib(4) =\sum_{\varphi=1}^{2}{_{n(\varphi)}}C_{k(\varphi)} =\ _2C_1 +\ _3C_0\]</span></p>
 
@@ -104,9 +104,13 @@ How do we leverage the relationship (in the image above) to obtain an equation t
 
 <p><span  class="math">\[n(\varphi) = z - \varphi\]</span></p>
 
+<p>Or, better</p>
+
+<p><span  class="math">\[n(\varphi, z) = z - \varphi\]</span></p>
+
 <p>Now we have all of the missing parts! Putting it all together, we obtain</p>
 
-<p><span  class="math">\[F(z) = Fib(z) = \sum_{\varphi=1}^{z_{end} = round(\frac{z}{2})}{_{n(\varphi)\ =\ z - \varphi}}C_{k(\varphi)\ =\ \varphi - 1}\]</span></p>
+<p><span  class="math">\[F(z) = Fib(z) = \sum_{\varphi=1}^{z_{end} = round(\frac{z}{2})}{_{n(\varphi,\ z)\ =\ z - \varphi}}C_{k(\varphi)\ =\ \varphi - 1}\]</span></p>
 
 <p>Or, more succinctly</p>
 

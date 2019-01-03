@@ -57,7 +57,7 @@
     <div class="article-content">
       <p>If you're familiar with the intricacies of Pascal's Triangle, see how I did it by going to <a href="../fibonacci-equation-using-pascals-triangle-part-2/">part 2</a>.</p>
 
-<h2 id="background-of-pascals-triangle">Background of Pascal's Triangle</h2>
+<h1 id="background-of-pascals-triangle">Background of Pascal's Triangle</h1>
 
 <p>A while back, I was reintroduced to Pascal's Triangle by my pre-calculus teacher. Pascal's triangle can be written as an infintely expanding triangle, with each term being generated as the sum of the two numbers adjacently above it. For example, both <span  class="math">\(10\)</span>s in the triangle below are the sum of <span  class="math">\(6\)</span> and <span  class="math">\(4\)</span>. <span  class="math">\(6\)</span> and <span  class="math">\(4\)</span> are directly above each <span  class="math">\(10\)</span>.</p>
 
@@ -70,7 +70,7 @@
 1 \quad 5 \quad 10 \quad 10 \quad 5 \quad 1 \newline
 \]</span></p>
 
-<h3 id="binomial-theorem-relation">Binomial Theorem Relation</h3>
+<h2 id="binomial-theorem-relation">Binomial Theorem Relation</h2>
 
 <p>My instructor stated that Pascal's triangle fundamentally represents the coefficients of an expanded binomial. You've probably seen this before. A binomial to the <span  class="math">\(n\)</span>th power (where <span  class="math">\(n \in \mathbb{N}\)</span>) has the same coefficients as the <span  class="math">\(n\)</span>th row of Pascal's triangle. This is known as the <a href="https://en.wikipedia.org/wiki/Binomial_theorem">binomial theorem</a>, which is expressed below.</p>
 
@@ -93,7 +93,7 @@
 
 <p>This binomial theorem relationship is typically discussed when bringing up Pascal's triangle in pre-calculus classes. You might want to be familiar with this to understand the fibonacci sequence-pascal triangle relationship.</p>
 
-<h2 id="pascals-triangle-representations">Pascal's Triangle Representations</h2>
+<h1 id="pascals-triangle-representations">Pascal's Triangle Representations</h1>
 
 <p>Of course, it's not just one row that can be represented by a series of <span  class="math">\(n\)</span> choose <span  class="math">\(k\)</span> symbols. The whole triangle can. As you can see, the <span  class="math">\(3\)</span>rd row (starting from <span  class="math">\(0\)</span>) includes <span  class="math">\(\binom{3}{0}\ \binom{3}{1}\ \binom{3}{2}\ \binom{3}{3}\)</span>, the numbers we obtained from the binommial expansion earlier.</p>
 
@@ -117,7 +117,7 @@
 {_5C_0} \quad {_5C_1} \quad {_5C_2} \quad {_5C_3} \quad {_5C_4} \quad {_5C_5} \\[5px]
 \]</span></p>
 
-<h2 id="relationship-between-pascals-triangle-and-the-fibonacci-sequence">Relationship Between Pascal's Triangle and the Fibonacci Sequence</h2>
+<h1 id="relationship-between-pascals-triangle-and-the-fibonacci-sequence">Relationship Between Pascal's Triangle and the Fibonacci Sequence</h1>
 
 <p>What exactly is this relatiponship? First, draw diagonal lines intersecting various rows of the Fibonacci sequence. Then, add the terms up within each diagronal line to obtain the <span  class="math">\(z_{th}\)</span> element of the Fibonacci sequence.</p>
 
@@ -129,7 +129,7 @@
 
 <p><figure><img src="../image/pascals-triangle-2.png" alt="Pascal's Triangle"></figure></p>
 
-<p>We can write the first 5 equations. We want to generate the <span  class="math">\(_nC_r\)</span> terms using some formula.</p>
+<p>We can write the first 5 equations. We want to generate the <span  class="math">\(_nC_r\)</span> terms using some formula (starting from 1).</p>
 
 <p><span  class="math">\[z_1 = {_0C_0} = 1\]</span></p>
 

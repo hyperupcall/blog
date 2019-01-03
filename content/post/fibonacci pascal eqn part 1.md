@@ -12,7 +12,8 @@ draft = false
 
 If you're familiar with the intricacies of Pascal's Triangle, see how I did it by going to [part 2](../fibonacci-equation-using-pascals-triangle-part-2/).
 
-## Background of Pascal's Triangle
+# Background of Pascal's Triangle
+
 A while back, I was reintroduced to Pascal's Triangle by my pre-calculus teacher. Pascal's triangle can be written as an infintely expanding triangle, with each term being generated as the sum of the two numbers adjacently above it. For example, both $$10$$s in the triangle below are the sum of $$6$$ and $$4$$. $$6$$ and $$4$$ are directly above each $$10$$.
 
 $$
@@ -24,7 +25,8 @@ $$
 1 \quad 5 \quad 10 \quad 10 \quad 5 \quad 1 \newline
 $$
 
-### Binomial Theorem Relation
+## Binomial Theorem Relation
+
 My instructor stated that Pascal's triangle fundamentally represents the coefficients of an expanded binomial. You've probably seen this before. A binomial to the $$n$$th power (where $$n \in \mathbb{N}$$) has the same coefficients as the $$n$$th row of Pascal's triangle. This is known as the [binomial theorem](https://en.wikipedia.org/wiki/Binomial_theorem), which is expressed below.
 
 $$ (a+b)^n = \sum_{k=0}^{n} \binom{n}{k} a^{n-k} b^k $$
@@ -46,7 +48,8 @@ And look at that! The sequence $$1\ 3\ 3\ 9$$ is on the $$3$$rd row of Pascal's 
 
 This binomial theorem relationship is typically discussed when bringing up Pascal's triangle in pre-calculus classes. You might want to be familiar with this to understand the fibonacci sequence-pascal triangle relationship.
 
-## Pascal's Triangle Representations
+# Pascal's Triangle Representations
+
 Of course, it's not just one row that can be represented by a series of $$n$$ choose $$k$$ symbols. The whole triangle can. As you can see, the $$3$$rd row (starting from $$0$$) includes $$\binom{3}{0}\ \binom{3}{1}\ \binom{3}{2}\ \binom{3}{3}$$, the numbers we obtained from the binommial expansion earlier.
 
 $$
@@ -69,7 +72,8 @@ $$
 {_5C_0} \quad {_5C_1} \quad {_5C_2} \quad {_5C_3} \quad {_5C_4} \quad {_5C_5} \\[5px]
 $$
 
-## Relationship Between Pascal's Triangle and the Fibonacci Sequence
+# Relationship Between Pascal's Triangle and the Fibonacci Sequence
+
 What exactly is this relatiponship? First, draw diagonal lines intersecting various rows of the Fibonacci sequence. Then, add the terms up within each diagronal line to obtain the $$z_{th}$$ element of the Fibonacci sequence.
 
 ![Pascal's Triangle](../image/pascals-triangle.png)
@@ -80,7 +84,7 @@ Like I said, I'm going to be using $$_nC_k$$ symbols to express relationships to
 
 ![Pascal's Triangle](../image/pascals-triangle-2.png)
 
-We can write the first 5 equations. We want to generate the $$_nC_r$$ terms using some formula. 
+We can write the first 5 equations. We want to generate the $$_nC_r$$ terms using some formula (starting from 1).
 
 $$z_1 = {_0C_0} = 1$$
 

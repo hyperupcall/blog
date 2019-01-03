@@ -10,9 +10,10 @@ katex = true
 draft = false
 +++
 
-If you're not familiar with the intricacies of Pascal's Triangle, see [part 1](http://localhost:1313/blog/fibonacci-equation-using-pascals-triangle-part-1/).
+If you're not familiar with Pascal's Triangle, see [part 1](http://localhost:1313/blog/fibonacci-equation-using-pascals-triangle-part-1/).
 
 # Finding a Formula
+
 ![Pascal's Triangle](../image/pascals-triangle-2.png)
 How do we leverage the relationship (in the image above) to obtain an equation that obtains the $$z$$th term ($$Fib(z)$$, or $$F(z)$$) in the Fibonacci sequence? First, we need to figure out what our equation may look like. We know we're adding up terms of the Fibonacci sequence, so a summation symbol will be used. Additionally, we are adding up terms from Pascal's triangle, where each term individually can be written as $$_nC_r$$.
 
@@ -22,9 +23,9 @@ $$\sum_{\varphi=1}^{z_{end}}{_n}C_k$$
 
 But this is not exactly right, since $$n$$ and $$k$$ are different for each $$z$$th term that's being added up. Both will at least be dependent on the summation index, $$\varphi$$. Therefore, we can more accurately write:
 
-$$\sum_{\varphi=1}^{z_{end}}{_{n(\varphi)}}C_{k(\varphi)}$$
+$$Fib(z) = f(z) =\ \sum_{\varphi=1}^{z_{end}}{_{n(\varphi)}}C_{k(\varphi)}$$
 
-Note that the summation index, $$\varphi$$ is starting from $$1$$. Also, I'm starting Pascal's triangle at 1. Since $$z$$ starts at 1, $$z_1 = 1$$ and $$z_2 = 1$$.
+Note that the summation index, $$\varphi$$ is starting from $$1$$. Also, I'm starting Pascal's triangle from a row of 1. So since $$z$$ starts at 1, $$z_1 = 1$$, $$z_2 = 1$$, and $$z_3 = 2$$.
 
 I started by reorganizing all the $$_nC_r$$ terms from the triangle above into rows. I tried to color the table similarly to the triangle.
 
@@ -40,14 +41,13 @@ Now, we know we can better describe what the summation might look like
 
 $$Fib(z) = f(z) =\sum_{\varphi=1}^{round(\frac{z}{2})}{_{n(\varphi)}}C_{k(\varphi)}$$
 
-
-So to find the $$4$$th term in the Fibonacci Sequence, or $$z = 4$$, we know $$z_{end} = 2$$, or $$2$$ terms will be summed.
+So to find the $$4$$th term in the Fibonacci Sequence, or $$z = 4$$, we know $$z_{end} = 2$$. We're summing $$2$$ terms.
 
 $$Fib(4) =\sum_{\varphi=1}^{2}{_{n(\varphi)}}C_{k(\varphi)} =\ _2C_1 +\ _3C_0$$
 
 We only know that $$_2C_1$$ and $$_3C_0$$ are summed due to the table I wrote above. We don't know why $$n(1) = 2$$ or why $$k(2) = 0$$ yet.
 
-There are a few other patterns held within the grid. I found it easier to find the pattern by changing which way the terms were summed. As you can see, I rearange the order of the $$_{n(\varphi)}C_{k(\varphi)}$$ terms, making the $$\varphi_1, \varphi_2, ...\ \varphi_{th}$$ terms somewhat arbitrary. 
+There are a few other patterns held within the grid. I found it easier to find the pattern by changing which way the terms were summed. As you can see, I rearange the order of the $$_{n(\varphi)}C_{k(\varphi)}$$ terms, making the $$\varphi_1, \varphi_2, ...\ \varphi_{th}$$ terms somewhat arbitrary.
 
 ![Pascal's Triange Reordered](../image/pascals-triangle-4.png)
 
@@ -59,9 +59,13 @@ Now, we just have to determine $$n(\varphi)$$. It's slightly harder because it d
 
 $$n(\varphi) = z - \varphi$$
 
+Or, better
+
+$$n(\varphi, z) = z - \varphi$$
+
 Now we have all of the missing parts! Putting it all together, we obtain
 
-$$F(z) = Fib(z) = \sum_{\varphi=1}^{z_{end} = round(\frac{z}{2})}{_{n(\varphi)\ =\ z - \varphi}}C_{k(\varphi)\ =\ \varphi - 1}$$
+$$F(z) = Fib(z) = \sum_{\varphi=1}^{z_{end} = round(\frac{z}{2})}{_{n(\varphi,\ z)\ =\ z - \varphi}}C_{k(\varphi)\ =\ \varphi - 1}$$
 
 Or, more succinctly
 
