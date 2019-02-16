@@ -10,7 +10,7 @@ katex = true
 draft = false
 +++
 
-If you're not familiar with Pascal's Triangle, see [part 1](../fibonacci-equation-using-pascals-triangle-part-1/).
+If you're not familiar with Pascal's Triangle, see [part 1](../fibonaccii-equation-using-pascals-triangle-part-1/).
 
 # Finding a Formula
 
