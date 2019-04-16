@@ -76,13 +76,13 @@ $$
 
 What exactly is this relatiponship? First, draw diagonal lines intersecting various rows of the Fibonacci sequence. Then, add the terms up within each diagronal line to obtain the $$z_{th}$$ element of the Fibonacci sequence.
 
-![Pascal's Triangle](../image/pascals-triangle.png)
+![Pascal's Triangle](../image/pascals-triangle/pascals-triangle.png)
 
 The green lines represent the division between each term in the Fibonacci sequence and the red terms represent each $$z_{th}$$ term, the sum of all black numbers sandwiched within the green borders. In this case, the green lines are initially at an angle of $$\frac{\pi}{9}$$ radians, and gradually become less steep as $$z$$ increases.
 
 Like I said, I'm going to be using $$_nC_k$$ symbols to express relationships to Pascal's triangle, so here's the triangle expressed with different symbols.
 
-![Pascal's Triangle](../image/pascals-triangle-2.png)
+![Pascal's Triangle](../image/pascals-triangle/pascals-triangle-2.png)
 
 We can write the first 5 equations. We want to generate the $$_nC_r$$ terms using some formula (starting from 1).
 

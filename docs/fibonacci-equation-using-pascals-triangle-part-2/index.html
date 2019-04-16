@@ -59,7 +59,7 @@
 
 <h1 id="finding-a-formula">Finding a Formula</h1>
 
-<p><figure><img src="../image/pascals-triangle-2.png" alt="Pascal's Triangle"></figure>
+<p><figure><img src="../image/pascals-triangle/pascals-triangle-2.png" alt="Pascal's Triangle"></figure>
 How do we leverage the relationship (in the image above) to obtain an equation that obtains the <span  class="math">\(z\)</span>th term (<span  class="math">\(Fib(z)\)</span>, or <span  class="math">\(F(z)\)</span>) in the Fibonacci sequence? First, we need to figure out what our equation may look like. We know we're adding up terms of the Fibonacci sequence, so a summation symbol will be used. Additionally, we are adding up terms from Pascal's triangle, where each term individually can be written as <span  class="math">\(_nC_r\)</span>.</p>
 
 <p>So our final equation will look akin to this:</p>
@@ -74,7 +74,7 @@ How do we leverage the relationship (in the image above) to obtain an equation t
 
 <p>I started by reorganizing all the <span  class="math">\(_nC_r\)</span> terms from the triangle above into rows. I tried to color the table similarly to the triangle.</p>
 
-<p><figure><img src="../image/pascals-triangle-3.png" alt="Pascal's Triange Reordered"></figure></p>
+<p><figure><img src="../image/pascals-triangle/pascals-triangle-3.png" alt="Pascal's Triange Reordered"></figure></p>
 
 <p>One of the first and more obvious patterns is found in the <span  class="math">\(z_{end}\)</span> column. Rather than increasing by an increment of <span  class="math">\(1\)</span> for every row as the <span  class="math">\(z\)</span> colum does, it increases by an increment of <span  class="math">\(1\)</span> for every other row.</p>
 
@@ -94,7 +94,7 @@ How do we leverage the relationship (in the image above) to obtain an equation t
 
 <p>There are a few other patterns held within the grid. I found it easier to find the pattern by changing which way the terms were summed. As you can see, I rearange the order of the <span  class="math">\(_{n(\varphi)}C_{k(\varphi)}\)</span> terms, making the <span  class="math">\(\varphi_1, \varphi_2, ...\ \varphi_{th}\)</span> terms somewhat arbitrary (depending on the grid structure rather than concrete values).</p>
 
-<p><figure><img src="../image/pascals-triangle-4.png" alt="Pascal's Triange Reordered"></figure></p>
+<p><figure><img src="../image/pascals-triangle/pascals-triangle-4.png" alt="Pascal's Triange Reordered"></figure></p>
 
 <p>Now, you can see a clearer pattern for the <span  class="math">\(k(\varphi)\)</span> more easily, now that they're more aligned. It's value is one less than the current summation index value (the <span  class="math">\(\varphi\)</span>th term, up to <span  class="math">\(z_{end}\)</span>).</p>
 

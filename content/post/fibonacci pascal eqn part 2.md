@@ -14,7 +14,7 @@ If you're not familiar with Pascal's Triangle, see [part 1](../fibonacci-equatio
 
 # Finding a Formula
 
-![Pascal's Triangle](../image/pascals-triangle-2.png)
+![Pascal's Triangle](../image/pascals-triangle/pascals-triangle-2.png)
 How do we leverage the relationship (in the image above) to obtain an equation that obtains the $$z$$th term ($$Fib(z)$$, or $$F(z)$$) in the Fibonacci sequence? First, we need to figure out what our equation may look like. We know we're adding up terms of the Fibonacci sequence, so a summation symbol will be used. Additionally, we are adding up terms from Pascal's triangle, where each term individually can be written as $$_nC_r$$.
 
 So our final equation will look akin to this:
@@ -29,7 +29,7 @@ Note that the summation index, $$\varphi$$ is starting from $$1$$. Also, I'm sta
 
 I started by reorganizing all the $$_nC_r$$ terms from the triangle above into rows. I tried to color the table similarly to the triangle.
 
-![Pascal's Triange Reordered](../image/pascals-triangle-3.png)
+![Pascal's Triange Reordered](../image/pascals-triangle/pascals-triangle-3.png)
 
 One of the first and more obvious patterns is found in the $$z_{end}$$ column. Rather than increasing by an increment of $$1$$ for every row as the $$z$$ colum does, it increases by an increment of $$1$$ for every other row.
 
@@ -49,7 +49,7 @@ We only know that $$_2C_1$$ and $$_3C_0$$ are summed due to the table I wrote ab
 
 There are a few other patterns held within the grid. I found it easier to find the pattern by changing which way the terms were summed. As you can see, I rearange the order of the $$_{n(\varphi)}C_{k(\varphi)}$$ terms, making the $$\varphi_1, \varphi_2, ...\ \varphi_{th}$$ terms somewhat arbitrary (depending on the grid structure rather than concrete values).
 
-![Pascal's Triange Reordered](../image/pascals-triangle-4.png)
+![Pascal's Triange Reordered](../image/pascals-triangle/pascals-triangle-4.png)
 
 Now, you can see a clearer pattern for the $$k(\varphi)$$ more easily, now that they're more aligned. It's value is one less than the current summation index value (the $$\varphi$$th term, up to $$z_{end}$$).
 
