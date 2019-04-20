@@ -1,3 +1,9 @@
+:root {
+  --dark-text-color: var(--oc-gray-8);
+  --middle-text-color: var(--oc-gray-6);
+  --light-text-color: var(--oc-gray-5);
+}
+
 html,
 body {
   margin: 0;
@@ -18,7 +24,7 @@ h4,
 h5,
 h6 {
   font-family: 'Lato', sans-serif;
-  color: #222;
+  color: var(--oc-gray-8);
 }
 
 pre,
@@ -72,26 +78,28 @@ blockquote {
 .wrapper {
   overflow: hidden;
   position: relative;
+  background-color: white;
 }
 
 .header {
   padding: 20px 0;
   position: relative;
-  background: #f5f5f5;
-  border-bottom: 1px solid #eaeaea;
 }
 
 .nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   max-width: 800px;
   margin: 0 auto;
   padding: 0 15px;
   font-family: 'Lato', sans-serif;
-  text-align: right;
+  /* text-align: right; */
 }
 
 .nav-logo {
-  float: left;
-  margin-top: -11px;
+  /* float: left;
+  margin-top: -11px; */
   transition: transform 150ms ease-out;
 }
 
@@ -103,6 +111,7 @@ blockquote {
   display: block;
   max-height: 40px;
   width: auto;
+  border-radius: 3px;
 }
 
 .nav-links {
@@ -114,20 +123,32 @@ blockquote {
 
 .nav-links li {
   display: inline-block;
-  margin: 0 0 0 15px;
+  margin: 0 8px;
+  padding: 7px 10px;
+  background-color: var(--oc-gray-1);
+  border-radius: 3px;
+  box-shadow: 2px 2px 4px var(--oc-gray-2);
+  transition: box-shadow 150ms ease-in-out;
 }
 
 .nav-links li:first-child {
   margin-left: 0;
 }
 
-.nav-links a {
-  text-decoration: none;
-  color: #444;
+.nav-links li:hover {
+  background-color: var(--oc-gray-1);
+  box-shadow: 3px 3px 6px var(--oc-gray-3);
+  cursor: pointer;
+  transition: box-shadow 150ms ease-in-out;
 }
 
-.nav-links a:hover {
- color: #111;
+.nav-links li a {
+  text-decoration: none;
+  color: var(--oc-gray-7);
+}
+
+.nav-links li:hover a {
+ color: var(--oc-gray-8);
 }
 
 .content {
@@ -138,12 +159,12 @@ blockquote {
   padding: 0 15px;
   font-size: 16px;
   line-height: 1.7;
-  color: #555;
+  color: var(--oc-gray-7);
 }
 
 .article-title {
   font-size: 34px;
-  color: #222;
+  color: var(--oc-gray-8);
   margin: 0;
   line-height: 1.3;
 }
@@ -151,7 +172,7 @@ blockquote {
 .article-date {
   font-size: 16px;
   font-family: 'Lato', sans-serif;
-  color: #ccc;
+  color: var(--oc-gray-5);
 }
 
 .article-content p {
@@ -161,13 +182,13 @@ blockquote {
 .article-content a {
   text-decoration: none;
   color: inherit;
-  border-bottom: medium solid #f0f0f0;
-  transition: border-color 600ms;
+  border-bottom: medium solid var(--oc-gray-2);
+  transition: border-color 500ms;
 }
 
 .article-content a:hover,
 .article-content a:active {
-  border-color: #606060;
+  border-color: var(--oc-gray-5);
 }
 
 .article-content hr {
@@ -176,14 +197,14 @@ blockquote {
   height: 1px;
   overflow: hidden;
   border: none;
-  background: #e8e8e8;
+  background: var(--oc-gray-1);
 }
 
 .article-taxonomy {
   list-style: none;
   padding-left: 0;
   font-family: 'Lato', sans-serif;
-  color: #404040;
+  color: var(--oc-gray-7);
   font-size: 14px;
   text-align: left;
 }
@@ -193,7 +214,7 @@ blockquote {
   margin: 5px 0 10px;
   height: 1px;
   border: none;
-  background: #e8e8e8;
+  background: var(--oc-gray-5);
 }
 
 .article-taxonomy a {
@@ -201,17 +222,17 @@ blockquote {
   margin: 0 10px 0 0;
   text-decoration: none;
   color: inherit;
-  transition: color 300ms;
+  transition: color 250ms;
 }
 
 .article-taxonomy a:hover,
 .article-taxonomy a:active {
-  color: #ccc;
+  color: var(--oc-gray-5);
 }
 
 .article-image-large {
   padding: 2px;
-  border: solid 1px #e6e6e6;
+  border: solid 1px var(--oc-gray-2);
   opacity: 1;
   transition: opacity 1s;
 }
@@ -246,7 +267,7 @@ blockquote {
   display: block;
   padding: 4px 0;
   font-family: 'Lato', sans-serif;
-  color: #ccc;
+  color: var(--light-text-color);
   font-size: 14px;
 }
 
@@ -263,13 +284,13 @@ blockquote {
   font-size: 17px;
   font-family: 'Lato', sans-serif;
   font-weight: bold;
-  color: #222;
-  border-bottom: 1px solid #ddd;
-  transition: border-color 300ms;
+  color: var(--dark-text-color);
+  border-bottom: 1px solid var(--oc-gray-3);
+  transition: border-color 250ms;
 }
 
 .list-item a:hover {
-  border-color: #222;
+  border-color: var(--light-text-color)
 }
 
 .category-item {
@@ -286,14 +307,18 @@ blockquote {
   font-size: 19px;
   font-family: 'Lato', sans-serif;
   font-weight: bold;
-  color: #222;
-  transition: color 300ms;
+  color: var(--dark-text-color);
+  transition: color 250ms;
+}
+
+.category-item a:hover {
+  cursor: pointer;
 }
 
 .category-item-count {
   font-family: 'Lato', sans-serif;
   margin-right: 15px;
-  color: #ccc;
+  color: var(--light-text-color);
   font-size: 14px;
   font-weight: bold;
 }
@@ -313,15 +338,15 @@ blockquote {
   text-decoration: none;
   font-family: 'Lato', sans-serif;
   font-weight: bold;
-  color: #222;
-  transition: color 300ms;
+  color: var(--dark-text-color);
+  transition: color 250ms;
 }
 
 .tag-cloud-item a:hover,
 .tag-cloud-item a:active,
 .category-item a:hover,
 .category-item a:active {
-   color: #ccc;
+   color: var(--middle-text-color);
 }
 
 .footer {
@@ -336,7 +361,7 @@ blockquote {
   list-style: none;
   margin: 0;
   padding: 0;
-  color: #ccc;
+  color: var(--oc-gray-3);
   font-size: 14px;
 }
 
@@ -347,14 +372,14 @@ blockquote {
 }
 
 .footer-links a {
-  color: #888;
+  color: var(--dark-text-color);
   text-decoration: none;
-  transition: color 300ms;
+  transition: color 250ms;
   margin: 0 5px;
 }
 
 .footer-links a:hover {
-  color: #222;
+  color: var(--middle-text-color);
 }
 
 .footer-links li::before {
@@ -382,18 +407,18 @@ blockquote {
 .page-links a {
   text-decoration: none;
   padding: 0 5px;
-  color: #555;
-  transition: color 300ms;
+  color: var(--oc-gray-5);
+  transition: color 250ms;
 }
 
 .page-links a:hover {
-  color: #ccc;
+  color: var(--oc-gray-5);
 }
 
 .page-links-active a,
 .page-links-disabled a {
   text-decoration: none;
-  color: #ccc;
+  color: var(--oc-gray-5);
 }
 
 .error-page-title {
@@ -408,12 +433,12 @@ blockquote {
 .error-page-content a {
   text-decoration: none;
   color: inherit;
-  transition: color 600ms;
+  transition: color 500ms;
 }
 
 .error-page-content a:hover,
 .error-page-content a:active {
-  color: #ccc;
+  color: var(--oc-gray-5);
 }
 
 .fa {
@@ -460,7 +485,7 @@ blockquote {
   }
 
   .nav-logo {
-    margin-top: -13px;
+    /* margin-top: -13px; */
   }
 
   .nav-logo img {
@@ -472,7 +497,7 @@ blockquote {
   }
 
   .nav-links li {
-    margin: 0 0 0 30px;
+    /* margin: 0 0 0 30px; */
   }
 
   .content {
@@ -498,13 +523,13 @@ blockquote {
   .tag-cloud-title {
     font-size: 38px;
   }
-  
+
   .list-item a {
     /* display: block; */
     padding: 5px 0 0 0;
     font-size: 21px;
   }
-  
+
   .list-item {
     /* display: flex; */
   }

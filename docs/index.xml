@@ -1,69 +1,7 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Edwin&#39;s Blog</title>
-    <link>https://eankeen.github.io/blog/</link>
-    <description>Recent content on Edwin&#39;s Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Thu, 20 Dec 2018 11:41:42 -0800</lastBuildDate>
-    
-        <atom:link href="https://eankeen.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    
-    <item>
-      <title>Fibonacci Equation for Zth (Nth) Term Using Pascal&#39;s Triangle (Part 2 of 2)</title>
-      <link>https://eankeen.github.io/blog/fibonacci-equation-using-pascals-triangle-part-2/</link>
-      <pubDate>Thu, 20 Dec 2018 11:41:42 -0800</pubDate>
-      
-      <guid>https://eankeen.github.io/blog/fibonacci-equation-using-pascals-triangle-part-2/</guid>
-      <description>If you&#39;re not familiar with Pascal&#39;s Triangle, see part 1.
-Finding a Formula  How do we leverage the relationship (in the image above) to obtain an equation that obtains the \(z\)th term (\(Fib(z)\), or \(F(z)\)) in the Fibonacci sequence? First, we need to figure out what our equation may look like. We know we&#39;re adding up terms of the Fibonacci sequence, so a summation symbol will be used. Additionally, we are adding up terms from Pascal&#39;s triangle, where each term individually can be written as \(_nC_r\).</description>
-    </item>
-    
-    
-    
-    <item>
-      <title>Fibonacci Equation for Zth (Nth) Term Using Pascal&#39;s Triangle (Part 1 of 2)</title>
-      <link>https://eankeen.github.io/blog/fibonacci-equation-using-pascals-triangle-part-1/</link>
-      <pubDate>Fri, 16 Nov 2018 10:10:57 -0800</pubDate>
-      
-      <guid>https://eankeen.github.io/blog/fibonacci-equation-using-pascals-triangle-part-1/</guid>
-      <description>If you&#39;re familiar with the intricacies of Pascal&#39;s Triangle, see how I did it by going to part 2.
-Background of Pascal&#39;s Triangle A while back, I was reintroduced to Pascal&#39;s Triangle by my pre-calculus teacher. Pascal&#39;s triangle can be written as an infintely expanding triangle, with each term being generated as the sum of the two numbers adjacently above it. For example, both \(10\)s in the triangle below are the sum of \(6\) and \(4\).</description>
-    </item>
-    
-    
-    
-    <item>
-      <title>Render LaTeX with KaTex in Hugo Blog</title>
-      <link>https://eankeen.github.io/blog/render-latex-with-katex-in-hugo-blog/</link>
-      <pubDate>Sat, 15 Sep 2018 11:26:16 -0700</pubDate>
-      
-      <guid>https://eankeen.github.io/blog/render-latex-with-katex-in-hugo-blog/</guid>
-      <description>Just recently, I added support to render LaTeX math equations with the rendering engine KaTeX for this blog. I chose it over MathJax because it performs substantially faster. To integrate KaTeX in my Hugo blog, I used the Mmark Markdown processor rather than Hugo&#39;s default Blackfriday processor.
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Edwin&#39;s Blog</title><link>https://eankeen.github.io/blog/</link><description>Recent content on Edwin&#39;s Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 20 Dec 2018 11:41:42 -0800</lastBuildDate><atom:link href="https://eankeen.github.io/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>Fibonacci Equation for Zth (Nth) Term Using Pascal&#39;s Triangle (Part 2 of 2)</title><link>https://eankeen.github.io/blog/fibonacci-equation-using-pascals-triangle-part-2/</link><pubDate>Thu, 20 Dec 2018 11:41:42 -0800</pubDate><guid>https://eankeen.github.io/blog/fibonacci-equation-using-pascals-triangle-part-2/</guid><description>If you&#39;re not familiar with Pascal&#39;s Triangle, see part 1.
+Finding a Formula How do we leverage the relationship (in the image above) to obtain an equation that obtains the \(z\)th term (\(Fib(z)\), or \(F(z)\)) in the Fibonacci sequence? First, we need to figure out what our equation may look like. We know we&#39;re adding up terms of the Fibonacci sequence, so a summation symbol will be used. Additionally, we are adding up terms from Pascal&#39;s triangle, where each term individually can be written as \(_nC_r\).</description></item><item><title>Fibonacci Equation for Zth (Nth) Term Using Pascal&#39;s Triangle (Part 1 of 2)</title><link>https://eankeen.github.io/blog/fibonacci-equation-using-pascals-triangle-part-1/</link><pubDate>Fri, 16 Nov 2018 10:10:57 -0800</pubDate><guid>https://eankeen.github.io/blog/fibonacci-equation-using-pascals-triangle-part-1/</guid><description>If you&#39;re familiar with the intricacies of Pascal&#39;s Triangle, see how I did it by going to part 2.
+Background of Pascal&#39;s Triangle A while back, I was reintroduced to Pascal&#39;s Triangle by my pre-calculus teacher. Pascal&#39;s triangle can be written as an infintely expanding triangle, with each term being generated as the sum of the two numbers adjacently above it. For example, both \(10\)s in the triangle below are the sum of \(6\) and \(4\).</description></item><item><title>Render LaTeX with KaTex in Hugo Blog</title><link>https://eankeen.github.io/blog/render-latex-with-katex-in-hugo-blog/</link><pubDate>Sat, 15 Sep 2018 11:26:16 -0700</pubDate><guid>https://eankeen.github.io/blog/render-latex-with-katex-in-hugo-blog/</guid><description>Just recently, I added support to render LaTeX math equations with the rendering engine KaTeX for this blog. I chose it over MathJax because it performs substantially faster. To integrate KaTeX in my Hugo blog, I used the Mmark Markdown processor rather than Hugo&#39;s default Blackfriday processor.
 There are three steps to follow so you can write LaTeX in markdown for KaTeX to use.
- Create a KateX partial Integrate the KateX partial in your header or footer element Activate the KaTeX partial in the markdown file  What is a partial?</description>
-    </item>
-    
-    
-    
-    
-    
-    
-    
-    <item>
-      <title>New Blog</title>
-      <link>https://eankeen.github.io/blog/new-blog/</link>
-      <pubDate>Mon, 03 Sep 2018 11:52:21 -0700</pubDate>
-      
-      <guid>https://eankeen.github.io/blog/new-blog/</guid>
-      <description>I decided to create a new blog. I&amp;rsquo;m mostly going to write about my programming projects and some programming topics. The objective of this blog is to increase my understanding of various programming topics, since explaining a topic will yield better conceptual understanding (of that topic).
+Create a KateX partial Integrate the KateX partial in your header or footer element Activate the KaTeX partial in the markdown file What is a partial?</description></item><item><title>New Blog</title><link>https://eankeen.github.io/blog/new-blog/</link><pubDate>Mon, 03 Sep 2018 11:52:21 -0700</pubDate><guid>https://eankeen.github.io/blog/new-blog/</guid><description>I decided to create a new blog. I&amp;rsquo;m mostly going to write about my programming projects and some programming topics. The objective of this blog is to increase my understanding of various programming topics, since explaining a topic will yield better conceptual understanding (of that topic).
 This blog was created using Hugo, one of the fastest static-site generators. It has speed, wide-support, and great themes.
-Overtime, I&amp;rsquo;ll style the blog to my liking and (hopefully) post many high-quality blogs.</description>
-    </item>
-    
-    
-  </channel>
-</rss>
+Overtime, I&amp;rsquo;ll style the blog to my liking and (hopefully) post many high-quality blogs.</description></item></channel></rss>
