@@ -1,1 +1,107 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml"><url><loc>https://eankeen.github.io/blog/fibonacci-equation-using-pascals-triangle-part-2/</loc><lastmod>2018-12-20T11:41:42-08:00</lastmod></url><url><loc>https://eankeen.github.io/blog/fibonacci-equation-using-pascals-triangle-part-1/</loc><lastmod>2018-11-16T10:10:57-08:00</lastmod></url><url><loc>https://eankeen.github.io/blog/render-latex-with-katex-in-hugo-blog/</loc><lastmod>2018-09-15T11:26:16-07:00</lastmod></url><url><loc>https://eankeen.github.io/blog/site-notice/</loc><lastmod>2018-09-03T11:54:18-07:00</lastmod></url><url><loc>https://eankeen.github.io/blog/about/</loc><lastmod>2018-09-03T11:54:02-07:00</lastmod></url><url><loc>https://eankeen.github.io/blog/new-blog/</loc><lastmod>2018-09-03T11:52:21-07:00</lastmod></url><url><loc>https://eankeen.github.io/blog/categories/blog-updates/</loc><lastmod>2018-09-15T11:26:16-07:00</lastmod><priority>0</priority></url><url><loc>https://eankeen.github.io/blog/categories/</loc><lastmod>2018-09-15T11:26:16-07:00</lastmod><priority>0</priority></url><url><loc>https://eankeen.github.io/blog/</loc><lastmod>2018-12-20T11:41:42-08:00</lastmod><priority>0</priority></url><url><loc>https://eankeen.github.io/blog/tags/katex/</loc><lastmod>2018-09-15T11:26:16-07:00</lastmod><priority>0</priority></url><url><loc>https://eankeen.github.io/blog/tags/latex/</loc><lastmod>2018-09-15T11:26:16-07:00</lastmod><priority>0</priority></url><url><loc>https://eankeen.github.io/blog/categories/math/</loc><lastmod>2018-12-20T11:41:42-08:00</lastmod><priority>0</priority></url><url><loc>https://eankeen.github.io/blog/page/</loc><lastmod>2018-09-03T11:54:18-07:00</lastmod><priority>0</priority></url><url><loc>https://eankeen.github.io/blog/post/</loc><lastmod>2018-12-20T11:41:42-08:00</lastmod><priority>0</priority></url><url><loc>https://eankeen.github.io/blog/tags/</loc><lastmod>2018-09-15T11:26:16-07:00</lastmod><priority>0</priority></url><url><loc>https://eankeen.github.io/blog/categories/tutorials/</loc><lastmod>2018-09-15T11:26:16-07:00</lastmod><priority>0</priority></url><url><loc>https://eankeen.github.io/blog/tags/fibonacci/</loc><lastmod>2018-12-20T11:41:42-08:00</lastmod><priority>0</priority></url><url><loc>https://eankeen.github.io/blog/tags/pascals-triangle/</loc><lastmod>2018-12-20T11:41:42-08:00</lastmod><priority>0</priority></url></urlset>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://eankeen.github.io/blog/fibonacci-equation-using-pascals-triangle-part-2/</loc>
+    <lastmod>2018-12-20T11:41:42-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://eankeen.github.io/blog/fibonacci-equation-using-pascals-triangle-part-1/</loc>
+    <lastmod>2018-11-16T10:10:57-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://eankeen.github.io/blog/render-latex-with-katex-in-hugo-blog/</loc>
+    <lastmod>2018-09-15T11:26:16-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://eankeen.github.io/blog/site-notice/</loc>
+    <lastmod>2018-09-03T11:54:18-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://eankeen.github.io/blog/about/</loc>
+    <lastmod>2018-09-03T11:54:02-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://eankeen.github.io/blog/new-blog/</loc>
+    <lastmod>2018-09-03T11:52:21-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://eankeen.github.io/blog/categories/blog-updates/</loc>
+    <lastmod>2018-09-15T11:26:16-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://eankeen.github.io/blog/categories/</loc>
+    <lastmod>2018-09-15T11:26:16-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://eankeen.github.io/blog/</loc>
+    <lastmod>2018-12-20T11:41:42-08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://eankeen.github.io/blog/tags/katex/</loc>
+    <lastmod>2018-09-15T11:26:16-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://eankeen.github.io/blog/tags/latex/</loc>
+    <lastmod>2018-09-15T11:26:16-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://eankeen.github.io/blog/categories/math/</loc>
+    <lastmod>2018-12-20T11:41:42-08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://eankeen.github.io/blog/page/</loc>
+    <lastmod>2018-09-03T11:54:18-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://eankeen.github.io/blog/post/</loc>
+    <lastmod>2018-12-20T11:41:42-08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://eankeen.github.io/blog/tags/</loc>
+    <lastmod>2018-09-15T11:26:16-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://eankeen.github.io/blog/categories/tutorials/</loc>
+    <lastmod>2018-09-15T11:26:16-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://eankeen.github.io/blog/tags/fibonacci/</loc>
+    <lastmod>2018-12-20T11:41:42-08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://eankeen.github.io/blog/tags/pascals-triangle/</loc>
+    <lastmod>2018-12-20T11:41:42-08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+</urlset>
