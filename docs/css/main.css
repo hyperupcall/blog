@@ -124,31 +124,27 @@ blockquote {
 .nav-links li {
   display: inline-block;
   margin: 0 8px;
-  padding: 7px 10px;
-  background-color: var(--oc-gray-1);
-  border-radius: 3px;
-  box-shadow: 2px 2px 4px var(--oc-gray-2);
-  transition: box-shadow 150ms ease-in-out;
 }
 
 .nav-links li:first-child {
   margin-left: 0;
 }
 
-.nav-links li:hover {
+.nav-links li a {
   background-color: var(--oc-gray-1);
+  color: var(--oc-gray-7);
+  box-shadow: 2px 2px 4px var(--oc-gray-2);
+  border-radius: 3px;
+  text-decoration: none;
+  padding: 7px 10px;
+  transition: box-shadow 150ms ease-in-out, color 150ms ease-in-out;
+}
+
+.nav-links li a:hover {
+  color: var(--oc-gray-8);
   box-shadow: 3px 3px 6px var(--oc-gray-3);
   cursor: pointer;
-  transition: box-shadow 150ms ease-in-out;
-}
-
-.nav-links li a {
-  text-decoration: none;
-  color: var(--oc-gray-7);
-}
-
-.nav-links li:hover a {
- color: var(--oc-gray-8);
+  transition: box-shadow 150ms ease-in-out, color 150ms ease-in-out;
 }
 
 .content {
@@ -494,10 +490,6 @@ blockquote {
 
   .nav-links {
     font-size: 18px;
-  }
-
-  .nav-links li {
-    /* margin: 0 0 0 30px; */
   }
 
   .content {
