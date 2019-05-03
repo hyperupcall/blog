@@ -10,9 +10,9 @@ draft = true
 
 So I was reintroduced to programming during the fall of 2017. I was learning Java in my AP Computer Science A class. The class was another one of those supposed "college-level" "advanced placement" classes, which actually became really fun near the end. You see, I was finishing up a really fun [final project](https://github.com/EanKeen/word-finder) (written in Java). It was basically an anagram finder, with a few extra features (including local multiplayer).
 
-Because it was so fun, I wanted to create a larger programming project. I wanted people to be able to easily use it. Naturally, I realized the web was perfect for this. No need to download anything - people can see your program just by opening up a link!
+Because it was so fun, I wanted to create a larger programming project. Some project that people can look at without downloading anything. Naturally, I realized the web was perfect for this. No need to download anything - people can see your program just by opening up a link!
 
-My first project idea was a flashcard application that looked as good as [Quizlet](https://quizlet.com), but had as much functionality as [Anki](https://apps.ankiweb.net). So I began to create a mockup.
+My first project idea was a flashcard application that I wanted to look as good as [Quizlet](https://quizlet.com), but had as much functionality as [Anki](https://apps.ankiweb.net). So I began to create a mockup.
 ![Pascal's Triangle](../image/web-dev-a-year-later/sigag-mockup.png)
 
 Keep in mind, the only other program I created at this point is a terminal-based [anagram finder](https://github.com/EanKeen/word-finder). It's somewhat silly brainstorming a more complex project in retrospect, but I believed it helped motivate me.
@@ -93,11 +93,11 @@ Anyways, I also used Webpack to compile my Scss into Css, which was much easier.
 
 Another month passed by (July 13)
 
-At first I began to dread using Webpack, because now I had to use loaders for my svg, font files, and similar. But later I accepted the challenge and realized it's use. This was when I was using `webpack-merge` to create separate development and production builds. Integrating UglifyJS, MiniCssExtractPlugins, OptimizeCssAssetsPlugin, CopyWebpackPlugin, etc. wasn't so bad. I remember failing to export separate chunks (which would be lazily-loaded as I changed routes) with Webpack. I didn't mind that so much.
+At first I began to dread using Webpack, because now I had to use loaders for my svg, font files, and similar. But later I accepted the challenge and realized it's use. This was when I was using `webpack-merge` to create separate development and production builds. Integrating UglifyJS, MiniCssExtractPlugins, OptimizeCssAssetsPlugin, CopyWebpackPlugin, etc. wasn't so bad. I remember failing to export separate chunks (which would be lazily-loaded as I changed routes) with Webpack. I didn't mind missing out on that feature so much.
 
 As July turned to August, I basically started to refine most of my application. This was when I started harvesting data about the elements of the periodic table. I had to write some scripts in the Wolfram Language to get data about each element. I exported much of the data as one large JSON. I used Gulp to transform the bundle and move stuff to the backend (which I also recently created).
 
-It was around this time I became sort of close to burning out. You see, when school started I poured all my available free time into building this application. At first, I was working maybe 6 hours a day, but that quickly grew to 10, then 14. The few weeks I was working 18 hours a day on the application took a huge toll. I probably could have gotten so much more done if I was not sleep deprived. 🤔 I took a few days break after that to prevent myself from burning out. A few other sporadic breaks helped keep my sanity.
+It was around this time I became sort of close to burning out. You see, when school started I poured all my available free time into building this application. At first, I was working maybe 6 hours a day, but that quickly grew to 10, then 14. The few weeks I was working 18 hours a day on the application took a huge toll. I could have gotten so much more done if I was not sleep deprived. 🤔 I took a few days break after that to prevent myself from burning out. A few other sporadic breaks helped keep my sanity.
 
 I originally planned to finish the application before school started, but I realized that really was not going to happen during September. I wanted to release my application as a birthday present, but I ended up pushing a half-baked application that didn't really work. It didn't even have any data.
 
