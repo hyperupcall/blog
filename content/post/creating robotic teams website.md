@@ -2,7 +2,7 @@
 title = "Making a Website for My Robotics Competition"
 slug = "creating-website-for-robotics-club"
 author = "Edwin Kofler"
-date = 2019-05-14T21:22:54-38:00
+date = 2019-05-14T22:58:47-07:00
 categories = ["Web"]
 tags = ["vue", "frontend"]
 draft = false
