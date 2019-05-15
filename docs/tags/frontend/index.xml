@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>frontend on Edwin&#39;s Blog</title>
+    <link>https://eankeen.github.io/blog/tags/frontend/</link>
+    <description>Recent content in frontend on Edwin&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 09 Apr 2019 21:23:47 -0700</lastBuildDate>
+    
+	<atom:link href="https://eankeen.github.io/blog/tags/frontend/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Making a Website for My Robotics Competition</title>
+      <link>https://eankeen.github.io/blog/creating-website-for-robotics-club/</link>
+      <pubDate>Tue, 09 Apr 2019 21:23:47 -0700</pubDate>
+      
+      <guid>https://eankeen.github.io/blog/creating-website-for-robotics-club/</guid>
+      <description>During the November of 2018, I became aware of a website competition. I had the opportunity to submit a website that showcased my robotics club by mid-January. Website creation tools (like ones from Wix or Weebly) were not prohibited. After learning this, I thought this competition would be perfect to apply the frontend skills that I recently learned! I knew I probably wasn&amp;rsquo;t going to win, but I wanted to give it my best shot.</description>
+    </item>
+    
+  </channel>
+</rss>

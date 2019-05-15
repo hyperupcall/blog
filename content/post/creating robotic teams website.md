@@ -2,10 +2,10 @@
 title = "Making a Website for My Robotics Competition"
 slug = "creating-website-for-robotics-club"
 author = "Edwin Kofler"
-date = 2019-04-09T21:23:47-07:00
+date = 2019-05-14T21:22:54-38:00
 categories = ["Web"]
 tags = ["vue", "frontend"]
-draft = true
+draft = false
 +++
 
 During the November of 2018, I became aware of a [website](https://challenges.robotevents.com/challenge/95) competition. I had the opportunity to submit a website that showcased my robotics club by mid-January. Website creation tools (like ones from Wix or Weebly) were not prohibited.  After learning this, I thought this competition would be perfect to apply the frontend skills that I recently learned! I knew I probably wasn't going to win, but I wanted to give it my best shot.
