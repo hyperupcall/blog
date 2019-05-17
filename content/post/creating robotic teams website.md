@@ -1,5 +1,5 @@
 +++
-title = "Making a Website for My Robotics Competition"
+title = "Developing a Website for the Robotics Team"
 slug = "creating-website-for-robotics-club"
 author = "Edwin Kofler"
 date = 2019-05-14T22:58:47-07:00
@@ -105,6 +105,6 @@ The portion of the website with the most utility is probably the photo album. Ea
 
 Since all of our team's photographs are in a GitHub [repository](https://gitub.com/eshsrobotics/database-photos), I just linked to referenced those.
 
-## Conclusion
+## Wrap
 
 When I started this project, it wasn't clear to me exactly how the final project will look. But, I had a whole lot of fun and learning experience by making incremental changes to the codebase. Although I had to drop some features (like a blogging system and a video album), I absolutely love the final product! I continue to revisit the repository and make incremental changes.
