@@ -1,5 +1,5 @@
 +++
-title = "Developing a Website for the Robotics Team"
+title = "Developing my Robotics Teams' Website"
 slug = "creating-website-for-robotics-club"
 author = "Edwin Kofler"
 date = 2019-05-14T22:58:47-07:00
@@ -14,7 +14,7 @@ So I created a new repository that November and started working. I made sure to 
 
 ## Initial Structure
 
-I made sure to abide by some lessons I've learned firsthand from my earlier website
+I made sure to abide by some lessons I've learned firsthand from my previous website
 
 * Create components from repeated page elements
 * Do not make HTML templates large (split up into as many components as possible)
@@ -63,7 +63,7 @@ After I refactored, navigation behaved similarly, with simpler code
 
 Since the previous screenshot, I also added a footer, better animations on the navigation tabs, and placeholder images and text.
 
-## More Colors
+## Colors
 
 Unfortunately, our team's previous website had little content. So I couldn't really reuse any text or photos. On the plus side, I helped our team organize and upload our photographs to a single GitHub repository a few months before. From there I was able to browse for some photos.
 
@@ -91,19 +91,19 @@ I had the most fun making the carousal that displayed the club's sponsors. After
 
 ### Enlarged photograph views
 
-![robotics-website-enlarge-image-feature](../image/robotics-website/enlarge-image-feature.gif)
-
 I enjoyed animating the photograph card on hover. You can see it in   the gif below: On moues hover, the card floats up, the shadow increases, and the "enlarge" icon fades in and slides to the left.
 
-The page that shows the enlarged image was pretty cool. At the time, I didn't know any best practices that allowed the image to stay on refresh. For a temporary-permanent solution, I base64 encoded the data that described the image in the URI. Because `/` is the 63rd character in the base64 format, it created extra routes that were not intended. As a result, I replaced forward slashes with exclamation marks.
+The page that shows the enlarged image was pretty cool. At the time, I didn't know any best practices that allowed the image to stay on refresh. For a temporary-permanent solution, I base64 encoded the data that described the image in the URI. Because `/` is the 63rd character in the base64 format, it created extra routes that were not intended. As a result, I replaced forward slashes with exclamation marks. I had to convert the exclamation marks to forward slashes before decoding the string.
+
+![robotics-website-enlarge-image-feature](../image/robotics-website/enlarge-image-feature.gif)
 
 ### Photo album
 
-The portion of the website with the most utility is probably the photo album. Earlier I said that I had to browse for team photos directly through the GitHub interface. By creating this photo gallery, team members can more easily search for photos.
+The photo album is probably the most used feature on this site. Earlier I said that I had to browse for team photos directly through the GitHub interface. By creating this photo gallery, team members search for photos easily.
 
 ![robotics-website-5](../image/robotics-website/photo-album.png)
 
-Since all of our team's photographs are in a GitHub [repository](https://gitub.com/eshsrobotics/database-photos), I just linked to referenced those.
+Since all of our team's photographs are in a GitHub [repository](https://gitub.com/eshsrobotics/database-photos), I just referenced those.
 
 ## Wrap
 
