@@ -6,8 +6,8 @@
 <meta name="generator" content="Hugo 0.51" />
 
 
-<title>Developing a Website for the Robotics Team - Edwin&#39;s Blog</title>
-<meta property="og:title" content="Developing a Website for the Robotics Team - Edwin&#39;s Blog">
+<title>Developing my Robotics Teams&#39; Website - Edwin&#39;s Blog</title>
+<meta property="og:title" content="Developing my Robotics Teams&#39; Website - Edwin&#39;s Blog">
 
 
 
@@ -50,7 +50,7 @@
 
 <main class="content" role="main">
   <article class="article">
-    <h1 class="article-title">Developing a Website for the Robotics Team</h1>
+    <h1 class="article-title">Developing my Robotics Teams&#39; Website</h1>
     
     <span class="article-date">2019-05-14</span>
     
@@ -64,7 +64,7 @@
 
 <h2 id="initial-structure">Initial Structure</h2>
 
-<p>I made sure to abide by some lessons I&rsquo;ve learned firsthand from my earlier website</p>
+<p>I made sure to abide by some lessons I&rsquo;ve learned firsthand from my previous website</p>
 
 <ul>
 <li>Create components from repeated page elements</li>
@@ -107,7 +107,7 @@
 
 <p>Since the previous screenshot, I also added a footer, better animations on the navigation tabs, and placeholder images and text.</p>
 
-<h2 id="more-colors">More Colors</h2>
+<h2 id="colors">Colors</h2>
 
 <p>Unfortunately, our team&rsquo;s previous website had little content. So I couldn&rsquo;t really reuse any text or photos. On the plus side, I helped our team organize and upload our photographs to a single GitHub repository a few months before. From there I was able to browse for some photos.</p>
 
@@ -135,19 +135,19 @@
 
 <h3 id="enlarged-photograph-views">Enlarged photograph views</h3>
 
-<p><img src="../image/robotics-website/enlarge-image-feature.gif" alt="robotics-website-enlarge-image-feature" /></p>
-
 <p>I enjoyed animating the photograph card on hover. You can see it in   the gif below: On moues hover, the card floats up, the shadow increases, and the &ldquo;enlarge&rdquo; icon fades in and slides to the left.</p>
 
-<p>The page that shows the enlarged image was pretty cool. At the time, I didn&rsquo;t know any best practices that allowed the image to stay on refresh. For a temporary-permanent solution, I base64 encoded the data that described the image in the URI. Because <code>/</code> is the 63rd character in the base64 format, it created extra routes that were not intended. As a result, I replaced forward slashes with exclamation marks.</p>
+<p>The page that shows the enlarged image was pretty cool. At the time, I didn&rsquo;t know any best practices that allowed the image to stay on refresh. For a temporary-permanent solution, I base64 encoded the data that described the image in the URI. Because <code>/</code> is the 63rd character in the base64 format, it created extra routes that were not intended. As a result, I replaced forward slashes with exclamation marks. I had to convert the exclamation marks to forward slashes before decoding the string.</p>
+
+<p><img src="../image/robotics-website/enlarge-image-feature.gif" alt="robotics-website-enlarge-image-feature" /></p>
 
 <h3 id="photo-album">Photo album</h3>
 
-<p>The portion of the website with the most utility is probably the photo album. Earlier I said that I had to browse for team photos directly through the GitHub interface. By creating this photo gallery, team members can more easily search for photos.</p>
+<p>The photo album is probably the most used feature on this site. Earlier I said that I had to browse for team photos directly through the GitHub interface. By creating this photo gallery, team members search for photos easily.</p>
 
 <p><img src="../image/robotics-website/photo-album.png" alt="robotics-website-5" /></p>
 
-<p>Since all of our team&rsquo;s photographs are in a GitHub <a href="https://gitub.com/eshsrobotics/database-photos">repository</a>, I just linked to referenced those.</p>
+<p>Since all of our team&rsquo;s photographs are in a GitHub <a href="https://gitub.com/eshsrobotics/database-photos">repository</a>, I just referenced those.</p>
 
 <h2 id="wrap">Wrap</h2>
 
