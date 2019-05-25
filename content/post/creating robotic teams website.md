@@ -1,5 +1,5 @@
 +++
-title = "Developing my Robotics Teams' Website"
+title = "Developing a website for my Robotics Team"
 slug = "creating-website-for-robotics-club"
 author = "Edwin Kofler"
 date = 2019-05-14T22:58:47-07:00
@@ -43,7 +43,7 @@ After a few weeks, I realized the top-level architecture I had previously had to
 
 If you're not familiar, the `<router-view/>` component changes based on the current URL, such as `/home` or `/about`.
 
-There was a Page Heading component inside of `router-view`, which I later moved out to the parent component. This component consists of the title of the page and sub-pages of a route. Previously, I was duplicating the page heading across several components (each of which corresponded to a specific route). This seemed wasteful at best, so I refactored to improve the structure. Looking back, there were other ways to create an abstraction, but that sufficed for the time.
+There was a Page Heading component inside of `router-view`, which I later moved out to the parent component. This component consisted of the page title and sub-pages of a route. Previously, I was duplicating the page heading across several components (each of which corresponded to a specific route). This seemed wasteful at best, so I refactored to improve the structure. Looking back, there were other ways to create an abstraction, but that sufficed for the time.
 
 ```html
 <template>
@@ -65,7 +65,7 @@ Since the previous screenshot, I also added a footer, better animations on the n
 
 ## Colors
 
-Unfortunately, our team's previous website had little content. So I couldn't really reuse any text or photos. On the plus side, I helped our team organize and upload our photographs to a single GitHub repository a few months before. From there I was able to browse for some photos.
+Unfortunately, our team's previous website had little content. So I couldn't really reuse any text or photos. On the plus side, I helped our team organize and upload our photographs to a GitHub repository a few months prior. I was able to browse for photos there.
 
 After adding the images, I styled some elements with light blue and yellow, which are our team colors.
 
@@ -83,9 +83,9 @@ I fixed this by adding a hamburger menu. Also, I made competition cards fit the 
 
 ## My Favorite Parts
 
-### Sponsor carousal
+### Sponsor carousel
 
-I had the most fun making the carousal that displayed the club's sponsors. After imagining this effect, I found a [repository](https://github.com/biigpongsatorn/vue-infinite-slide-bar) that implemented this feature. For some reason, the scroll effect didn't work unless I put a set width on the element. Unfortunately, that's a limitation that probably won't be fixed.
+I had the most fun making the carousel that displayed the club's sponsors. After imagining this effect, I found a [repository](https://github.com/biigpongsatorn/vue-infinite-slide-bar) that implemented this feature. For some reason, the scroll effect didn't work unless I put a set width on the element. Unfortunately, that's a limitation that probably won't be fixed.
 
 ![robotics-website-5](../image/robotics-website/robotics-website-5.gif)
 
@@ -93,13 +93,13 @@ I had the most fun making the carousal that displayed the club's sponsors. After
 
 I enjoyed animating the photograph card on hover. You can see it in   the gif below: On moues hover, the card floats up, the shadow increases, and the "enlarge" icon fades in and slides to the left.
 
-The page that shows the enlarged image was pretty cool. At the time, I didn't know any best practices that allowed the image to stay on refresh. For a temporary-permanent solution, I base64 encoded the data that described the image in the URI. Because `/` is the 63rd character in the base64 format, it created extra routes that were not intended. As a result, I replaced forward slashes with exclamation marks. I had to convert the exclamation marks to forward slashes before decoding the string.
+The page that shows the enlarged image was pretty cool. At the time, I didn't know any best practices that allowed the image to stay on refresh. For a temporary-permanent solution, I base64 encoded the data that described the image in the URI. Because `/` is the 63rd character in the base64 format (starting from 0), it created extra routes that were not intended. As a result, I replaced forward slashes with exclamation marks. I had to convert the exclamation marks to forward slashes before decoding the string.
 
 ![robotics-website-enlarge-image-feature](../image/robotics-website/enlarge-image-feature.gif)
 
 ### Photo album
 
-The photo album is probably the most used feature on this site. Earlier I said that I had to browse for team photos directly through the GitHub interface. By creating this photo gallery, team members search for photos easily.
+The photo album is probably the most used feature on this site. Earlier I said that I had to browse for team photos directly through the GitHub interface. By creating this photo gallery, team members can search for photos easily.
 
 ![robotics-website-5](../image/robotics-website/photo-album.png)
 
