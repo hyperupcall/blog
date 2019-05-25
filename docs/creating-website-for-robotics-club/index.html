@@ -6,8 +6,8 @@
 <meta name="generator" content="Hugo 0.51" />
 
 
-<title>Developing my Robotics Teams&#39; Website - Edwin&#39;s Blog</title>
-<meta property="og:title" content="Developing my Robotics Teams&#39; Website - Edwin&#39;s Blog">
+<title>Developing a website for my Robotics Team - Edwin&#39;s Blog</title>
+<meta property="og:title" content="Developing a website for my Robotics Team - Edwin&#39;s Blog">
 
 
 
@@ -50,7 +50,7 @@
 
 <main class="content" role="main">
   <article class="article">
-    <h1 class="article-title">Developing my Robotics Teams&#39; Website</h1>
+    <h1 class="article-title">Developing a website for my Robotics Team</h1>
     
     <span class="article-date">2019-05-14</span>
     
@@ -91,7 +91,7 @@
 &lt;/<span style="color:#6ab825;font-weight:bold">template</span>&gt;</code></pre></div>
 <p>If you&rsquo;re not familiar, the <code>&lt;router-view/&gt;</code> component changes based on the current URL, such as <code>/home</code> or <code>/about</code>.</p>
 
-<p>There was a Page Heading component inside of <code>router-view</code>, which I later moved out to the parent component. This component consists of the title of the page and sub-pages of a route. Previously, I was duplicating the page heading across several components (each of which corresponded to a specific route). This seemed wasteful at best, so I refactored to improve the structure. Looking back, there were other ways to create an abstraction, but that sufficed for the time.</p>
+<p>There was a Page Heading component inside of <code>router-view</code>, which I later moved out to the parent component. This component consisted of the page title and sub-pages of a route. Previously, I was duplicating the page heading across several components (each of which corresponded to a specific route). This seemed wasteful at best, so I refactored to improve the structure. Looking back, there were other ways to create an abstraction, but that sufficed for the time.</p>
 <div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#6ab825;font-weight:bold">template</span>&gt;
   &lt;<span style="color:#6ab825;font-weight:bold">div</span> <span style="color:#bbb">id</span>=<span style="color:#ed9d13">&#34;app&#34;</span>&gt;
     &lt;<span style="color:#6ab825;font-weight:bold">navbar</span> /&gt;
@@ -109,7 +109,7 @@
 
 <h2 id="colors">Colors</h2>
 
-<p>Unfortunately, our team&rsquo;s previous website had little content. So I couldn&rsquo;t really reuse any text or photos. On the plus side, I helped our team organize and upload our photographs to a single GitHub repository a few months before. From there I was able to browse for some photos.</p>
+<p>Unfortunately, our team&rsquo;s previous website had little content. So I couldn&rsquo;t really reuse any text or photos. On the plus side, I helped our team organize and upload our photographs to a GitHub repository a few months prior. I was able to browse for photos there.</p>
 
 <p>After adding the images, I styled some elements with light blue and yellow, which are our team colors.</p>
 
@@ -127,9 +127,9 @@
 
 <h2 id="my-favorite-parts">My Favorite Parts</h2>
 
-<h3 id="sponsor-carousal">Sponsor carousal</h3>
+<h3 id="sponsor-carousel">Sponsor carousel</h3>
 
-<p>I had the most fun making the carousal that displayed the club&rsquo;s sponsors. After imagining this effect, I found a <a href="https://github.com/biigpongsatorn/vue-infinite-slide-bar">repository</a> that implemented this feature. For some reason, the scroll effect didn&rsquo;t work unless I put a set width on the element. Unfortunately, that&rsquo;s a limitation that probably won&rsquo;t be fixed.</p>
+<p>I had the most fun making the carousel that displayed the club&rsquo;s sponsors. After imagining this effect, I found a <a href="https://github.com/biigpongsatorn/vue-infinite-slide-bar">repository</a> that implemented this feature. For some reason, the scroll effect didn&rsquo;t work unless I put a set width on the element. Unfortunately, that&rsquo;s a limitation that probably won&rsquo;t be fixed.</p>
 
 <p><img src="../image/robotics-website/robotics-website-5.gif" alt="robotics-website-5" /></p>
 
@@ -137,13 +137,13 @@
 
 <p>I enjoyed animating the photograph card on hover. You can see it in   the gif below: On moues hover, the card floats up, the shadow increases, and the &ldquo;enlarge&rdquo; icon fades in and slides to the left.</p>
 
-<p>The page that shows the enlarged image was pretty cool. At the time, I didn&rsquo;t know any best practices that allowed the image to stay on refresh. For a temporary-permanent solution, I base64 encoded the data that described the image in the URI. Because <code>/</code> is the 63rd character in the base64 format, it created extra routes that were not intended. As a result, I replaced forward slashes with exclamation marks. I had to convert the exclamation marks to forward slashes before decoding the string.</p>
+<p>The page that shows the enlarged image was pretty cool. At the time, I didn&rsquo;t know any best practices that allowed the image to stay on refresh. For a temporary-permanent solution, I base64 encoded the data that described the image in the URI. Because <code>/</code> is the 63rd character in the base64 format (starting from 0), it created extra routes that were not intended. As a result, I replaced forward slashes with exclamation marks. I had to convert the exclamation marks to forward slashes before decoding the string.</p>
 
 <p><img src="../image/robotics-website/enlarge-image-feature.gif" alt="robotics-website-enlarge-image-feature" /></p>
 
 <h3 id="photo-album">Photo album</h3>
 
-<p>The photo album is probably the most used feature on this site. Earlier I said that I had to browse for team photos directly through the GitHub interface. By creating this photo gallery, team members search for photos easily.</p>
+<p>The photo album is probably the most used feature on this site. Earlier I said that I had to browse for team photos directly through the GitHub interface. By creating this photo gallery, team members can search for photos easily.</p>
 
 <p><img src="../image/robotics-website/photo-album.png" alt="robotics-website-5" /></p>
 
