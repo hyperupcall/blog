@@ -1,5 +1,5 @@
 +++
-title = "Developing a website for my Robotics Team"
+title = "Developing a Website for my Robotics Team"
 slug = "creating-website-for-robotics-club"
 author = "Edwin Kofler"
 date = 2019-05-14T22:58:47-07:00
