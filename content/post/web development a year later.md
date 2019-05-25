@@ -15,6 +15,8 @@ Because it was so fun, I wanted to create a larger programming project. Some pro
 
 I did have a little experience with html and css, but that was ~~six~~ [3 years ago](https://www.khanacademy.org/computer-programming/project-travel-webpage/5930419250659328). Very basic knowledge. I had an application idea in mind, but wasn't sure if it was possible to code it with web technologies. I knew for a fact though that I despised Java Swing.
 
+## Summer
+
 ## My Idea
 
 My first project idea was a flashcard application that I wanted to look as good as [Quizlet](https://quizlet.com), but had as much functionality as [Anki](https://apps.ankiweb.net). So I began to create a mockup.
@@ -58,28 +60,23 @@ The new interface alone would cause people to use this hypothetical periodic tab
 
 After I figures out how my website should look, I began to research tools to build it.
 
-That's when I started to die a bit inside. It's kind of hard to explain what it was like researching the JavaScript tooling ecosystem, especially if you're not a beginner and I'm no longer a beginner.
+That's when I started to die a bit inside. It's kind of hard to explain what it was like researching the JavaScript tooling ecosystem, especially if you're not a beginner.
 
-So take any of these terms
+Let's take the topic of managing and bundling your JavaScript files into something that can be distributed to users. This subject area is pretty broad and diverse; we're going to reference a few popular tools or some techniques used to do this.
 
-```
-RequireJS, CommonJS, AMD, UMD, ESM, Node, Express, Koa, Electron, EJS, AngularJS, Angular2+, React, Vue, Browserify, Grunt, Gulp, Webpack, Rollup, Typescript, CoffeeScript, Dart, ES2015, ES6, Babel, jQuery, npm, yarn, Sass, Less, Stylus, PostCSS
-```
+Read the following excerpts
 
-And describe the purpose of each one in two or three words, without using any technical terms. What you get is a super hazy high-level "explanation".
-
-```
+```md
 Browserify lets you require('modules') in the browser by bundling up all your dependencies
 
 Webpack is a static module bundler for modern JavaScript applications.
 
-Gulp is a toolkit for automating painful or time-consuming tasks in your development workflow, so you can stop messing around and build something.
-
 CommonJS defines a module format. ...there are CommonJS spec proposals for Transport formats and an asynchronous require.
 ```
-^ How would people with little experience programming interpret that?
 
-Anyways, in the midst of this, I chose (what I believe now to be) the right options. I chose VueJS as a JavaScript framework, bundled my crap with Webpack, styled up my components with Sass, and of course used Babel to transpile my JS.
+Try to get your mind to where it was when you just started web development. I don't remember how well I understood the difference between these tools, but luckily I found the right combos to use.
+
+Anyways, in the midst of this, I chose (what I believe now to be) the right options. I chose VueJS as a JavaScript framework and styled my components with Sass. When the app got further down the road, I remembered to bundle my modules with Webpack (using babel Babel to transpile my JS in the process). 
 
 Anyways, after I chose my tools, I realized that it would be difficult to set everything up all at once. Besides, it would be easier to introduce one tool at a time so I can understand why they were needed.
 
@@ -146,64 +143,63 @@ Version 2 of the website was massively slower than the original, Even though the
 
 It was around the end of May when I finally decided to switch back to the original code base. It's basically the codebase I had after 4 or 5 months (of developing version 1). Except that I wasted 7 months.
 
-I didn't have time to be pissed because I wanted to finish the app. That was just a few days ago.
+I didn't have time to be pissed because I wanted to finish the app. In doing so I was required to go back to the first version.
 
-## other actions
+## Other Summer Contributions
 
-Luckily, the pomodoro application was not the only thing I worked on during the summer and fall.
+Although a significant amount of time was invested in the Periodic Table application, it was not the only thing I worked on.
 
-During the summer I also worked on
+I made a few contributions to [vuesax](https://lusaxweb.github.io/vuesax). It's a library for creating pretty spectacular UI components for VueJS. Because my experience with frontend development was limited, my contributions mostly consisted of documentation improvements. This helped me learn the basic workflows for contributing to open source projects.
 
-[vuesax](https://lusaxweb.github.io/vuesax/)
+The pomodoro application was not the only thing I worked on during the summer and fall.
 
-fall
+## Fall
 
 [blog](https://github.com/eankeen/blog)
 
-- learning about networking, data storage
+During the fall, I created my blog. It helped me understand more workflows that allow developers to create some website. Since, the only way I knew how to create a site was using Webpack, and serving the static assets with Node or something.
 
+## Spring
 
-in the spring I worked on
+During the Spring, I wanted to use other computers to do programming work. Of course, they did not have the tools and libraries necessary to do that. I found that Cmder is a great, portable terminal emulator. All I had to do was find ways to facilitate downloading tools / applications, and hook up the binaries to Cmder. The next step was to automate this process. My [portable-workstation](https://github.com/eankeen/portable-workstation) repository was the result of this thinking. I've recently been picking it back up and making it easier to use. To use it, you just need to copy and paste a command in some terminal window.
 
-[portable-workstation](https://github.com/eankeen/portable-workstation)
+I also started a repository for interfacing with [JsonStoreIO](https://jsonstore.io). It's a very primitive mechanism for storing data. So I created [isomorphic-json-store-io](https://github.com/eankeen/isomorphic-json-store-io) which essentially wrapped around simple `http` request. I'm making unit and integration testing a priority, which is why the project has been slow moving. I also haven't been working on it that much.
 
-[jsonstore-iso](https://github.com/eankeen/isomorphic-json-store-io)
+I'm an active member of the [repl.it](https://repl.it) community. Somewhat recently, some people decided to create a GitHub repository for people that were in the Discord chat and wanted to contribute. One one of the first projects created was a [repl-it-electron](https://github.com/repl-it-discord/repl-it-electron) repository. Essentially, it was an electron app that showed the repl.it website. It's not of huge use now, but some features such as theming and multi-window editing are in the works.
 
-recently I've been working on
-
-[repl-it-electron](https://github.com/repl-it-discord/repl-it-electron)
-
-[carnival](https://github.com/repl-it-discord/carnival)
-
+[carnival](https://github.com/repl-it-discord/carnival) is another repository that's a part of the repl-it-discord GitHub organization. It's meant to show off community games created on [repl.it](https://repl.it). But even more, it's going to include leaderboards, commenting, voting systems, among many other cool features.
 
 ## what to learn next year
 
-I learned a lot about frontend development this year. Usually, first learning to program is the most difficult. Once you wrap around the basics of something, I believe you learn a bit faster about that subject. So I made a list, organized around category rather than priority. Some of the stuff I wand to do with, others I want to learn about.
+I learned a lot about frontend development this year. Usually, first learning to program is the most difficult. Once you wrap around the basics of something, I believe you learn a bit faster about that subject.
 
-This is mostly just a list for me so I remember what I plan to do before I forget what to do.
+So I made a list of things that I want to learn in the following year. My goal is to be proficient in most of them such that I can use related tools and services without not knowing what to do. Some of them, I want to be at an advanced level.
 
-* asm w/ gat & intel syntax
-* c
-* cygwin
-* linux stuff
-  * stuff in general
-  * scripting
-  * boot process, core services
-  * kernel
-  * os, installing something like arch linux, then gentoo, etc.
-  * usint it as a main system
-* using vim/emacs
-* go, rust
-* git (and hg)
-* nginx, net etc.
-* web
-  * svelte framework, similar, etc.
-  * webassembly
-  * understanding small and big picture of
-    * js, css, html
-    * etc. read
-* data structures
-* networking
-* working on a few ideas of web apps to put in prod
+Advanced
 
-Some of the stuff listed above interoperate together, some knowledge may be interdependent. I'm pretty pissed that I realized I loved programming and computers in general so late into high school. And even more so that my learning stagnated after school started. Now that I better understand learning techniques and my weaknesses I'm confident that I can tackle the skills above (of course not to a complete extent) :smile: Hopefully after this year, I won't have to play catch-up anymore
+* Git
+* Computer networking
+* Web Technologies
+  * JS APIs
+  * Root web functionality
+  * CSS, HTML
+
+Intermediate
+
+* Asm
+* C
+* Linux
+  * Scripting
+  * Boot process
+  * Kernel magic
+  * Installation
+  * Customization
+* Rust
+* Go
+* Mercurial
+* Nginx
+* Data structures
+
+I'm aware of the Dunning-Kruger effect, so most of these categorizations are prone to adjusting, especially after reading substantial material on a particular topic. These categorizations are probably sorted solely based on relative topical skill differences, or predicted time-to-learn values. But what are goals if they're not wrong sometimes? I'm using the word 'Advanced' pretty losing here. Pretty much meaning understanding of a topic that enables me to read the topic specifications (definitions) or understanding that enables me to perform 'Intermediate' tasks without significant outside assistance. And to know what I'm going.
+
+Some of the stuff listed above interoperate together, some knowledge may be interdependent. I'm pretty pissed that I realized I loved programming and computers in general so late into high school. And even more so that my learning stagnated after school started. Now that I better understand learning techniques (and my weaknesses) I'm confident that I can tackle the skills above (of course not to a complete extent) :smile: Hopefully I can play this game of catch-up well.
