@@ -6,23 +6,26 @@ date = 2019-05-23T10:25:05-07:00
 categories = []
 tags = []
 draft = true
+code = "alfa golf"
 +++
 
-Last summer I learned something totally foreign and new. I learned how to become a website developer. With some Java experience, I jumped into building frontend single page applications with the JavaScript framework Vue. I used a combination of Webpack, Babel, PostCSS, and other related tooling to accomplish this. I learned a monstrous amount of skills required for JavaScript development. But in actually, that's not a lot. I barely scratched the surface in things that I had to be proficient in.
+Last summer I learned something totally foreign and new. I learned how to become a website developer. With some Java experience, I jumped into building frontend single page applications with the JavaScript framework Vue. I used a combination of Webpack, Babel, PostCSS, and other related tooling to accomplish this. It felt great learning huge amounts about something new from the ground up and I wanted to repeat the process.
 
-Like last summer, I want to learn totally foreign and new. I want to learn some new skills that I'll use in the future. But this time, I want to learn something that will be significantly easier learning *now*, rather than years down the line. At younger ages, brain elasticity and fluidity is maximized and slowly declines over time. I must leverage this particular mechanic of my brain before its too late.
+Like last summer, I want to learn totally foreign and new. New skills that I'll use in the future. But this time, I want to learn something that will be significantly easier learning *now*, rather than years down the line. At younger ages, brain elasticity and fluidity is maximized and slowly declines over time. I want to leverage this brain mechanic as soon as possible.
 
-Naturally, I realized learning a language fits the aforementioned prerequisites. Like last year, I want to learn a ton, but it will still account for barely anything in the grand scheme of things. I learned Spanish in a classroom-like environment during the first few years of High School. I don't want to go back to that language because it'll be too familiar. Something that I have an insubstantial knowledge of. I had a few languages in mind: German, Vietnamese, or Korean.
+Naturally, I realized learning a second language fits the aforementioned prerequisites. It's something that's extremely difficult the first time around. Learning the third or fourth language is significantly less difficult than the second because the brain has already been "optimized" for thinking in extra languages.
 
-What if I learned two languages this summer?
+So I realized that I need to choose some language to learn. I didn't want to learn Spanish. Spanish would be too familiar for my liking, since I already took some Spanish classes. German, Vietnamese, and Korean were also primary candidates. After thinking about it for a while, I finally decided on German. But, how would that compare to learning German in addition to another language?
 
-We know that learning an extra language requires significant remapping of neural connections in brain tissues. The first extra language does a lot of the remapping. This may be why learning an extra language is so difficult. But after consecutive languages, learning difficulty significantly decreases. Because I probably won't be performing this challenge in the future, it may be easier to learn 2 rather than 1. This would set up my brain structure for learning extra languages down the road.
+If you think about it, it might be wise learning two languages (strategically). Learning the languages concurrently, or at least back to back would set my brain up to learn additional language in the future, as previously mentioned. I'll benefit most if I don't plan to learn more languages soon after this challenge.
+
+Whether I learn one or two languages, I'll want to maximize my efficiency. I've laid out some of my plans below. Even though my plans may be obvious, I'll write them down anyways - I've learned that consciously thinking about learning techniques really helps.
 
 ## Technique
 
-Of course, I wouldn't jump straight into learning two languages without planning beforehand. Significant preparation needs to be made so unnecessary difficulty is reduced. For example, we know that learning two languages that are too similar is a terrible idea. So I must either learn German and Vietnamese or German and Korean.
+I hope to minimize unnecessary difficulty by preparing my learning techniques beforehand.
 
-I found at least 3 things that I need to optimize.
+I intend to optimize the following steps
 
 1. Brain preparation
 2. Learning Material
@@ -30,13 +33,16 @@ I found at least 3 things that I need to optimize.
 
 ### Brain Preparation
 
-I need to get ready to current my brain's current knowledge with the knowledge I'm about to learn. If there's no connection, then it would be harder to find that material. More connections may imply there are more ways to access that information. What are we connecting? One or more foreign languages with English. Do I know English? Not really. I can think it, speak it, and write it, but I don't understand it. I wouldn't be able to tell you with absolute certainty what categories words belong in, what tenses words are in, or what kind of combinations are possible with words. This is really important! Let's use a 'present participle verb' for example. Before I even start learning another language, I want to know what it is, how it works with adjacent words, and how it relates to similar grammar ideals. That way, when I come across the German or Korean (if one even exists) variants, I know exactly where it fits within the language - and understand what kind of structures I can use it in. Writing down some kind of mine map is a requirement.
+![human brain on white background](../image/learning-language/brain.jpg)
+*[human brain on white background](https://www.flickr.com/photos/flamephoenix1991/8376271918)* by *\_DJ\_* in accordance with the [ShareAlike 2.0 Generic License](https://creativecommons.org/licenses/by-sa/2.0/).
 
-I used to believe that learning a foreign language helps you learn your native language. Typically it does, but I think that might be a more inefficient or misguided approach. It may be easier to learn a foreign language when you already have those English connections - that are ready to connect.
+By preparing, I intend to prepare to connect current knowledge with future (potential) knowledge. Not just connecting English words with German words, but also phrases, sentences, and grammatical differences / inconsistencies. Really learning English would help, like knowing what categories words belong in, what tenses words are in, or what kind of combinations are possible with words. For example, I'd like to know what a 'present participle verb' is, understand how it works with adjacent words, and know relations with present participle verbs with other words. That way, when I come across similar concepts in other languages, I'll understand the structures I'm dealing with. Writing down some kind of mine map is a requirement.
+
+I used to believe that learning a foreign language helps you learn your native language. Typically it does, but I think that might be a more inefficient or misguided approach. It may be easier to learn a foreign language when you already know the language constructs in your native language.
 
 ### Learning Material
 
-Kind of like computer neural networks, if you feed your brain crap, you'll memorize (and recall) crap. This goes further than just using the *correct* material. Preferably, the material has a structure that can follow for each stage of learning. Sites like StackOverflow are the exact opposite. Your information comes from a single page. There are absolutely no connections to similar materials. That's why it can be hard to memorize programming stuff if you only use StackOverflow for learning. We're looking for something like a book, where there are distinct chapters and sections, each representing a meaningful chunk of subject material. Also, our knowledge will be able to stick better if we use multiple sources. In regular classes, you're not only using your textbook, but also your notes, online videos, forum posts, or other blogs to digest information. We need to be able to find a variety of sources that past the aforementioned criteria, and that compliment  each other.
+Kind of like computer neural networks, if you feed your brain crap, you'll memorize (and recall) crap. I think this means more than using the *correct* material. The material must have some structure. Sites like StackOverflow are the exact opposite since you're given a single answer without relation to similar answers. That's why it can be hard to memorize programming stuff if you only use StackOverflow for learning. Stuff with meaningful and distinct chunk of subject material are perfect. Also, our knowledge will be able to stick better if we use multiple sources. In regular classes, you're not only using your textbook, but also your notes, online videos, forum posts, or other blogs to digest information. We need to be able to find a variety of sources that past the aforementioned criteria, and that compliment  each other.
 
 ### Memorization / Recall Technique
 

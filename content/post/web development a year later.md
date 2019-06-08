@@ -9,54 +9,63 @@ katex = false
 draft = true
 +++
 
-So I was reintroduced to programming during the fall of 2017. I was learning Java in my AP Computer Science A class. The class was another one of those supposed "college-level" "advanced placement" (AP) classes, which actually became really fun near the end. You see, I was finishing up a really fun [final project](https://github.com/EanKeen/word-finder) (written in Java). It was basically an anagram finder, with a few extra features (including local multiplayer).
+So I was reintroduced to programming during the fall of 2017. I was learning Java in my AP Computer Science A class. The class was another one of those "college-level" "advanced placement" (AP) classes, which actually became really fun near the end.
 
-Because it was so fun, I wanted to create a larger programming project. Some project that people can look at without downloading anything. Naturally, I realized the web was perfect for this. No need to download anything - people can see your program just by opening up a link!
+You see, I was finishing up a really fun [final project](https://github.com/EanKeen/word-finder) (written in Java). It was basically an anagram finder, with a few extra features (including local multiplayer). I had so much fine making it - I then had the urge to create another programming project. I wanted to create some program that people could use without downloading Java, or any other software. Naturally, I turned to web programming. No need to download anything - just a link to visit!
 
-I did have a little experience with html and css, but that was ~~six~~ [3 years ago](https://www.khanacademy.org/computer-programming/project-travel-webpage/5930419250659328). Very basic knowledge. I had an application idea in mind, but wasn't sure if it was possible to code it with web technologies. I knew for a fact though that I despised Java Swing.
+I did have a little experience with HTML and CSS, but that was [3 years](https://www.khanacademy.org/computer-programming/project-travel-webpage/5930419250659328) prior to the Java class. It was very basic knowledge. I wasn't sure if my new idea was able to be coded with web technologies.
+
+So a bit before the beginning of summer, I decided to execute... ?
 
 ## Summer
 
 ## My Idea
 
-My first project idea was a flashcard application that I wanted to look as good as [Quizlet](https://quizlet.com), but had as much functionality as [Anki](https://apps.ankiweb.net). So I began to create a mockup.
-![Pascal's Triangle](../image/web-dev-a-year-later/sigag-mockup.png)
+My first project idea consisted of a desktop app that would help students create and manage flashcards. I wanted the UI to look as good as [Quizlet](https://quizlet.com), but offer more or less the same functionality as [Anki](https://apps.ankiweb.net) (an amazing desktop-based flashcard app for power users).
 
-Keep in mind, the only other program I created at this point is a terminal-based [anagram finder](https://github.com/EanKeen/word-finder). It's somewhat silly brainstorming a substantially more complex project in retrospect, but I think it helped motivate me.
+This idea motivated me to work on some preliminary sketches of the application.
 
-Whilst brainstorming, I realized I need to know the technologies and tools to enable me to build this app. I came across [Electron](https://electronjs.org), which, in a nutshell, allows you to create your app with HTML/CSS/JS. I don't remember why I decided to use Electron rather than creating an actual website, but I made the choice.
+![Mockup of Sigag](../image/web-dev-a-year-later/sigag-mockup.png)
+
+Pretty cool, huh? I guess it's somewhat silly brainstorming a project substantially more complex than my [previous project](https://github.com/EanKeen/word-finder), but I think it helped motivate me.
+
+Whilst brainstorming, I realized I need to know the technologies and tools to enable me to build this app. I came across [Electron](https://electronjs.org), which, in a nutshell, allows you to create a desktop app with HTML/CSS/JS. So, after all, I decided not to create a website, in a traditional sense, but a desktop application.
 
 ## Failure to Implement Initial Idea
 
-I thought it was kind of funny that I just 'decided' to create some desktop app with web technologies when I had nil experience. Luckily, I found amazing video series about Electron.
+I thought it was kind of funny that I just 'decided' to create some desktop app with web technologies when I had nil experience.
 
-This is where I learned about using node, electron, and npm. All that beginner stuff.
+This is where I learned about using node, electron, and npm. All that beginner stuff. This knowledge was gained by watching video tutorial series, rather than checking documentation, or reading blogs.
 
-Everything was super foreign to me because I didn't know JavaScript. I didn't even let myself change the standard Electron boilerplate since I was afraid I could break (and not know how to fix) the app. I used Git as a VCS and knew I could rollback any changes if I needed to.
+Everything was super foreign to me because I didn't know JavaScript. I didn't even let myself change the standard Electron boilerplate since I was afraid I could break (and not know how to fix) the app. Although I used Git as a VCS and knew I could rollback any changes if I needed to, I still didn't want to edit the config.
 
 After a few weeks, I was able to create a [lame sidebar menu](https://github.com/eankeen/Baeuda/tree/a05e8ee7c62ea0b44e6a29af07b723c463fd6485). Huzzah!
 
-At that point I realized that I needed to learn more before talking this huge "flashcard project". *D'oh!* Right then and there I decided to build a pomodoro timer to give me the experience I needed.
+[INSERT PHOTOGRAPH]
+
+At that point I realized that I needed to learn more before talking this huge "flashcard project". It didn't take a trivial amount of time to build the sidebar, and I realized that's something I should probably know how to do at the back of my hand. *D'oh!*
+
+To gain much needed experience, I chose to build a Pomodoro timer.
 
 ## Pomodoro Timer
 
-A pomodoro timer switches the duration it counts down at. Typically, its counts down for 25 minutes, then 5 minutes, and repeats. Sometimes longer breeks (such as 10 minutes) after 5 or so work durations.
+A Pomodoro timer, is basically an ordinary count-down timer, except that after every "count-down", it switches numbers it counts down from. Typically, its counts down for 25 minutes at first, but then it switches to 5 minute (for a break), then back to 25 minutes. Sometimes, longer break intervals are added in after a few short break intervals have been completed.
 
-I called this smaller project [Sigag](https://github.com/EanKeen/sigag). Starting the project was a bit easier since I already used Electron (and npm) previously.
+I called this smaller project [sigag](https://github.com/EanKeen/sigag). Starting the project was a bit easier since I used Electron and `npm` before.
 
-This was the app that taught me how to create a user interface that didn't look like absolute crap. The progressions in quality are quite noticeable from the third to the fourth iteration.
+The main thing I remember is how the UI developed. Initially, it looked like crap. But progressions in quality after successive intervals are quite noticeable, especially from the third to the fourth iteration.
 
-![Pascal's Triangle](../image/web-dev-a-year-later/sigag-ui-development.png)
+![sigag-ui-development](../image/web-dev-a-year-later/sigag-ui-development.png)
 
-After some iterations of the shape and position of the text, buttons, and sliders, something finally clicked. Naturally, I observed other sites, and mimicked the parts I liked most. Eventually, I opted to remove most color, since I couldn't find any good color combinations. It could look better, but the improvements over each iteration is noticeable.
+It seemed that something finally clicked after the third or fourth iteration. It can definitely look better, but I think that most people will agree it's not complete garbage.
 
-Before I was even able to finish a MVP for this pomodoro application, my attention drifted to another application idea.
+But I never finished this project idea either, like the previous project. The UI was alright, but the timer didn't actually do anything besides count down for 25 minutes, then stop. I had another idea, and was willing to do anything to execute.
 
-## Yet another app idea
+## Periodic Table Web App
 
-You see, I took chemistry the summer before and used [Ptable](https://ptable.com) to look up information about each atomic element. However, the current design (at the time) was created in the mid-to-late 2000s. So the periodic table was way too big for phones and way to small for regular-sized computer monitors. And for me personally, the UI (and UX) was disappointing. I extrapolated the UI from my pomodoro timer app and imagined how it would look if it was some periodic table. That's when I imagined my gorgeous periodic table user interface.
+You see, I took chemistry the summer before and used [Ptable](https://ptable.com) to look up information about each atomic element. However, the current design (at the time) was created in the mid-to-late 2000s. So the periodic table was way too big for phones and way to small for regular-sized computer monitors. And for me personally, the UI (and UX) was disappointing. I extrapolated the UI from my pomodoro timer app and imagined how it would look if it was some periodic table. That's when I imagined my gorgeous periodic table user interface. A lot of the beauty was pretty hypothetical because I had no idea how to implement it.
 
-The new interface alone would cause people to use this hypothetical periodic table website. However, I wanted to differentiate my product further. I brainstormed a large list of potential features.
+I believed this new interface alone would cause people to use this hypothetical periodic table website. However, I wanted to differentiate my product further. I brainstormed a large list of potential features.
 
 After I figures out how my website should look, I began to research tools to build it.
 
@@ -64,7 +73,7 @@ That's when I started to die a bit inside. It's kind of hard to explain what it 
 
 Let's take the topic of managing and bundling your JavaScript files into something that can be distributed to users. This subject area is pretty broad and diverse; we're going to reference a few popular tools or some techniques used to do this.
 
-Read the following excerpts
+Check out  the following excerpts
 
 ```md
 Browserify lets you require('modules') in the browser by bundling up all your dependencies
@@ -199,7 +208,8 @@ Intermediate
 * Mercurial
 * Nginx
 * Data structures
+* TeX / LaTeX
 
-I'm aware of the Dunning-Kruger effect, so most of these categorizations are prone to adjusting, especially after reading substantial material on a particular topic. These categorizations are probably sorted solely based on relative topical skill differences, or predicted time-to-learn values. But what are goals if they're not wrong sometimes? I'm using the word 'Advanced' pretty losing here. Pretty much meaning understanding of a topic that enables me to read the topic specifications (definitions) or understanding that enables me to perform 'Intermediate' tasks without significant outside assistance. And to know what I'm going.
+I'm aware of the Dunning-Kruger effect, so most of these categorizations are prone to adjusting, especially after reading substantial material on a particular topic. These categorizations are probably sorted solely based on relative (predicted) topical skill differences, or predicted time-to-learn values. But what are goals if they're not wrong sometimes? I'm using the word 'Advanced' pretty losing here. Pretty much meaning understanding of a topic that enables me to read the topic specifications (definitions) or understanding that enables me to perform 'Intermediate' tasks without significant outside assistance. And to know what I'm going.
 
 Some of the stuff listed above interoperate together, some knowledge may be interdependent. I'm pretty pissed that I realized I loved programming and computers in general so late into high school. And even more so that my learning stagnated after school started. Now that I better understand learning techniques (and my weaknesses) I'm confident that I can tackle the skills above (of course not to a complete extent) :smile: Hopefully I can play this game of catch-up well.
