@@ -2,94 +2,83 @@
 title = "Web Development: My First Year Reflection"
 slug = "web-development-first-year-reflection"
 author = "Edwin Kofler"
-date = 2019-04-27T07:23:39-07:00
+date = 2019-06-17T00:47:57-07:00
 categories = []
 tags = []
 katex = false
 draft = true
+code = "first hotel"
 +++
 
 So I was reintroduced to programming during the fall of 2017. I was learning Java in my AP Computer Science A class. The class was another one of those "college-level" "advanced placement" (AP) classes, which actually became really fun near the end.
 
-You see, I was finishing up a really fun [final project](https://github.com/EanKeen/word-finder) (written in Java). It was basically an anagram finder, with a few extra features (including local multiplayer). I had so much fine making it - I then had the urge to create another programming project. I wanted to create some program that people could use without downloading Java, or any other software. Naturally, I turned to web programming. No need to download anything - just a link to visit!
+You see, I was finishing up a really fun [final project](https://github.com/EanKeen/word-finder) (written in Java). It was basically an anagram finder, with a few extra features (including local multiplayer). I had so much fun making it. So much fun, that I had an urge to create another programming project. I wanted to create some program that people could use without downloading Java, or any other software. Naturally, I turned to web programming. People would only need a link to my site - no downloading required!
 
-I did have a little experience with HTML and CSS, but that was [3 years](https://www.khanacademy.org/computer-programming/project-travel-webpage/5930419250659328) prior to the Java class. It was very basic knowledge. I wasn't sure if my new idea was able to be coded with web technologies.
+I did have a little experience with HTML and CSS, but that was [3 years](https://www.khanacademy.org/computer-programming/project-travel-webpage/5930419250659328) prior to the Java class. It was very basic knowledge, not even close to enough knowledge for me to execute a plan.
 
-So a bit before the beginning of summer, I decided to execute... ?
+A month or so before summer began, I started to work on this website idea.
 
-## Summer
+## Pre-Summer
 
-## My Idea
+### My Idea (Flashcard Application)
 
-My first project idea consisted of a desktop app that would help students create and manage flashcards. I wanted the UI to look as good as [Quizlet](https://quizlet.com), but offer more or less the same functionality as [Anki](https://apps.ankiweb.net) (an amazing desktop-based flashcard app for power users).
+My first project idea consisted of a desktop app that would help students create and manage flashcards. I wanted the UI to look as good as [Quizlet](https://quizlet.com), but offer similar functionality as [Anki](https://apps.ankiweb.net) (a desktop-based flashcard app for power users (no eye candy included)).
 
 This idea motivated me to work on some preliminary sketches of the application.
 
 ![Mockup of Sigag](../image/web-dev-a-year-later/sigag-mockup.png)
 
-Pretty cool, huh? I guess it's somewhat silly brainstorming a project substantially more complex than my [previous project](https://github.com/EanKeen/word-finder), but I think it helped motivate me.
+Pretty cool, huh? The sketches focused more on the menu navigation rather then the actual flashcard set. I guess it's somewhat silly brainstorming a project substantially more complex than my [previous project](https://github.com/EanKeen/word-finder), but I think it helped motivate me.
 
-Whilst brainstorming, I realized I need to know the technologies and tools to enable me to build this app. I came across [Electron](https://electronjs.org), which, in a nutshell, allows you to create a desktop app with HTML/CSS/JS. So, after all, I decided not to create a website, in a traditional sense, but a desktop application.
+While brainstorming, I realized I need to know the technologies and tools to enable me to build this app. I came across [Electron](https://electronjs.org), which, in a nutshell, allows you to create a desktop app with HTML/CSS/JS. So, after all, I decided not to create a website, in a traditional sense, but a desktop application (with web technologies).
 
-## Failure to Implement Initial Idea
+This is where I learned about using git, node, npm, and electron. All that beginner stuff. Most of my knowledge was extracted from watching video tutorials, rather than official documentation or blog posts.
 
-I thought it was kind of funny that I just 'decided' to create some desktop app with web technologies when I had nil experience.
-
-This is where I learned about using node, electron, and npm. All that beginner stuff. This knowledge was gained by watching video tutorial series, rather than checking documentation, or reading blogs.
-
-Everything was super foreign to me because I didn't know JavaScript. I didn't even let myself change the standard Electron boilerplate since I was afraid I could break (and not know how to fix) the app. Although I used Git as a VCS and knew I could rollback any changes if I needed to, I still didn't want to edit the config.
+Everything was super foreign to me because I didn't know JavaScript. I didn't even let myself change the standard Electron boilerplate since I was afraid I could break (and not know how to fix) the app (despite using Git for a VCS).
 
 After a few weeks, I was able to create a [lame sidebar menu](https://github.com/eankeen/Baeuda/tree/a05e8ee7c62ea0b44e6a29af07b723c463fd6485). Huzzah!
 
-[INSERT PHOTOGRAPH]
+![sigag-ui-development](../image/web-dev-a-year-later/baeuda-development.png)
 
-At that point I realized that I needed to learn more before talking this huge "flashcard project". It didn't take a trivial amount of time to build the sidebar, and I realized that's something I should probably know how to do at the back of my hand. *D'oh!*
+At that point I realized that I needed to learn more before taking on this huge "flashcard project". Since building the sidebar wasn't exactly easy, I knew that I would need more experience before continuing with the project. *D'oh!*
 
-To gain much needed experience, I chose to build a Pomodoro timer.
+To gain experience, I chose to build a Pomodoro timer.
 
-## Pomodoro Timer
+### Pomodoro Timer
 
 A Pomodoro timer, is basically an ordinary count-down timer, except that after every "count-down", it switches numbers it counts down from. Typically, its counts down for 25 minutes at first, but then it switches to 5 minute (for a break), then back to 25 minutes. Sometimes, longer break intervals are added in after a few short break intervals have been completed.
 
-I called this smaller project [sigag](https://github.com/EanKeen/sigag). Starting the project was a bit easier since I used Electron and `npm` before.
+I called this smaller project [sigag](https://github.com/EanKeen/sigag). Starting the project was a bit easier since I used Electron and npm before. And actually, the project turned out to be somewhat successful.
 
-The main thing I remember is how the UI developed. Initially, it looked like crap. But progressions in quality after successive intervals are quite noticeable, especially from the third to the fourth iteration.
+From *sigag*, I learned how to create better user interfaces.
 
 ![sigag-ui-development](../image/web-dev-a-year-later/sigag-ui-development.png)
 
-It seemed that something finally clicked after the third or fourth iteration. It can definitely look better, but I think that most people will agree it's not complete garbage.
+It seemed that something finally clicked after the third or fourth iteration. It can definitely look better, but I think that most people will agree the last image is not complete garbage.
 
-But I never finished this project idea either, like the previous project. The UI was alright, but the timer didn't actually do anything besides count down for 25 minutes, then stop. I had another idea, and was willing to do anything to execute.
+But I never finished this project idea either, like the previous project. The UI was alright, but the timer didn't actually do anything besides count down for 25 minutes, then stop. I had another idea, and was willing to do anything to work on it. But before I tell you about the idea, I'll give you some background.
 
-## Periodic Table Web App
+## Summer
 
-You see, I took chemistry the summer before and used [Ptable](https://ptable.com) to look up information about each atomic element. However, the current design (at the time) was created in the mid-to-late 2000s. So the periodic table was way too big for phones and way to small for regular-sized computer monitors. And for me personally, the UI (and UX) was disappointing. I extrapolated the UI from my pomodoro timer app and imagined how it would look if it was some periodic table. That's when I imagined my gorgeous periodic table user interface. A lot of the beauty was pretty hypothetical because I had no idea how to implement it.
+Around the time I stopped working on *sigag*, my pomodoro timer, it was nearing the end of school. There was about a month left. This is when I had that idea - a periodic table web application that looked as good as it functioned.
 
-I believed this new interface alone would cause people to use this hypothetical periodic table website. However, I wanted to differentiate my product further. I brainstormed a large list of potential features.
+### Periodic Table Web App
+
+For some background, I took this chemistry the summer before and used [Ptable](https://ptable.com) to look up information about each atomic element. Ptable, in a way, was already a periodic table web app, but it was created in the mid-to-late 2000s. So the periodic table was way too big for phones and way to small for regular-sized computer monitors. And for me personally, the UI (and UX) was disappointing.
+
+I extrapolated the UI from my pomodoro timer app and imagined how a similar-looking UI would function as a periodic table web app. That's when I imagined my gorgeous periodic table user interface. This vision singlehandedly gave me the motivation to work on the project, especially during the more difficult parts.
+
+I believed this new interface alone would cause people to use this hypothetical periodic table website. Since it would have mobile and tablet support. However, I wanted to differentiate my product further. I brainstormed a large list of potential features.
 
 After I figures out how my website should look, I began to research tools to build it.
 
-That's when I started to die a bit inside. It's kind of hard to explain what it was like researching the JavaScript tooling ecosystem, especially if you're not a beginner.
+That's when I started to die a bit inside. It's kind of hard to explain what it was like researching the JavaScript tooling ecosystem from the perspective of a beginner. Partly because I don't remember that much and partly because I'm no longer a beginner. I looked up so many explanations on Babel, Webpack. Gulp, Grunt, Browserify, RequireJS, CommonJS, AMD, UMD, TypeScript, CoffeeScript, Sass, Less, PostCSS, Vue, React, Angular, Backbeone etc. I tried to understand stuff that I couldn't understand. Fundamentally, I didn't have the proper experience to completely understand it.
 
-Let's take the topic of managing and bundling your JavaScript files into something that can be distributed to users. This subject area is pretty broad and diverse; we're going to reference a few popular tools or some techniques used to do this.
+Somehow, I choose the right tools. I chose VueJS as a JavaScript framework and styled my components with Sass. Down the road, I began to bundle my modules with Webpack (also using babel Babel to transpile my JS in the process).
 
-Check out  the following excerpts
+After I chose my tools, I realized that it would be difficult to set up all the tools at once. So I just linked to the Vue CDN and started working.
 
-```md
-Browserify lets you require('modules') in the browser by bundling up all your dependencies
-
-Webpack is a static module bundler for modern JavaScript applications.
-
-CommonJS defines a module format. ...there are CommonJS spec proposals for Transport formats and an asynchronous require.
-```
-
-Try to get your mind to where it was when you just started web development. I don't remember how well I understood the difference between these tools, but luckily I found the right combos to use.
-
-Anyways, in the midst of this, I chose (what I believe now to be) the right options. I chose VueJS as a JavaScript framework and styled my components with Sass. When the app got further down the road, I remembered to bundle my modules with Webpack (using babel Babel to transpile my JS in the process). 
-
-Anyways, after I chose my tools, I realized that it would be difficult to set everything up all at once. Besides, it would be easier to introduce one tool at a time so I can understand why they were needed.
-
-So (on May 13) I just created an HTML file and worked on my app, using the VueJS CDN. What's great is that my text editor (Atom at the time) had plugins. I used a SASS plugin that compiled Sass down to Css and some HTML preview page (that live updated). :relieved:
+I started on this periodic table app on May 13, starting with the VueJS CDN. What's great is that my text editor (Atom at the time) had plugins that compiled Sass to Css and showed a live website preview. :relieved:
 
 About a month later I kept on adding to that HTML file until it grew to a near 100 line monstrosity. Also, I was adding a bunch of `script` tags near the end (in addition to a `main.vue` file, which was really just a plain JS file). That was the time I decided to use Webpack. Plus, my school was basically finished so I had much more free time on my hands.
 
@@ -100,33 +89,35 @@ I'm not even joking, I think I almost died.
 
 ![commit history showing integration of webpack into project](../image/web-dev-a-year-later/webpack-babel-combo.png)
 
-I don't even remember how many times I tried to get Webpack to work. I'm laughing (and dying) a bit inside just thinking about what was going on during that week. I had near-daily commits since May 30, and that week or so of "nothing" was me just trying to get Webpack to work. (that `00a20dd` commit was probably me starting from scratch again). I remember thinking if I should use Webpack without Babel, or just Babel without Webpack, but I decided not to, since many tutorials combined them.
+I don't even remember how many times I tried to get Webpack to work. I'm laughing (and dying) a bit inside just thinking about what was going on during that week. I had near-daily commits since May 30, and that week or so of "nothing" was me just trying to get Webpack to work. (that `00a20dd` commit was probably me starting from scratch again). I remember not being sure if I should even add Webpack and Babel at the same time.
 
-The final config? It looked like this
+The final Webpack config looked like this
 
 ![webpack config](../image/web-dev-a-year-later/first-webpack-config.png)
 
 It's deceivingly simple, just because that one's correct :joy:
-I wish I could see all the ones that I thought would work, but didn't.
+I wish I could see all my failed attempts.
 
-Anyways, I also used Webpack to compile my Scss into Css, which was much easier.
+Anyways, I also used Webpack to compile my Scss into Css (later), which was much easier.
 
-Another month passed by (July 13)
+## A month after summer
 
-At first I began to dread using Webpack, because now I had to use loaders for my svg, font files, and similar. But later I accepted the challenge and realized its utility. This was when I was using `webpack-merge` to create separate development and production builds. Integrating UglifyJS, MiniCssExtractPlugins, OptimizeCssAssetsPlugin, CopyWebpackPlugin, etc. wasn't so bad. I remember failing to export separate chunks (which would be lazily-loaded as I changed routes) with Webpack. I didn't mind missing out on that feature so much.
+At first I began to dread using Webpack, because now I had to use loaders for my svg, font files, and similar. But later I accepted the challenge and realized its utility. This was when I was using `webpack-merge` to create separate development and production builds. Integrating stuff like UglifyJS, MiniCssExtractPlugins, OptimizeCssAssetsPlugin, CopyWebpackPlugin, became easier over time, as I became more accustomed to Webpack. On thing I failed to do was export separate chunks (which would be lazily-loaded as I changed routes) with Webpack. I didn't mind missing out on that feature so much. I just wanted my program to work.
 
-As July turned to August, I basically started to refine most of my application. This was when I started harvesting data about the elements of the periodic table. I had to write some scripts in the Wolfram Language to get data about each element. I exported much of the data as one large JSON. I used Gulp to transform the bundle and move stuff to the backend (which I also recently created).
+As July turned to August, I basically started to refine most of my application. This was when I started harvesting data about the elements of the periodic table. I had to write some scripts in the Wolfram Language to get data about each element. I exported much of the data as one large JSON. I used Gulp to transform the bundle and move stuff to the backend (which was recently created).
 
 It was around this time I became sort of close to burning out. You see, when school finished I poured all my available free time into building this application. At first, I was working maybe 6 hours a day, but that quickly grew to 10, then 14. The few weeks I was working 18 hours a day on the application took a huge toll. I could have gotten so much more done if I was not sleep deprived. :confused: I took a few days break after that to prevent myself from burning out. A few other sporadic breaks helped keep my sanity.
 
-I originally planned to finish the application before school started, but I realized that really was not going to happen during September. I wanted to release my application as a birthday present, but I ended up pushing a half-baked application that didn't really work. It didn't even have any data.
+## Fall
+
+When fall was around the corner, I realized that I couldn't finish the website before the start of school. However, I still wanted to release my application as a birthday present (early November). I ended up pushing a half-baked application to production that didn't really work. It didn't even have any data.
 
 It basically looked something like this
 ![periodic table later revision](../image/web-dev-a-year-later/periodic-table-later-design.png)
 
-All the styling super sexy, but I just wasn't sure how to manipulate the data in a way which would be maintainable. Now that I reflect, I was thinking too hard about it. I should have just built something. Since I had no experience building any other website, that was the best course of action.
+All the styling is kinda sexy, but I just wasn't sure how to manipulate the data in a way which would be maintainable. Now that I reflect, I was thinking too hard about it. Since I had no experience building any other website, it was ridiculous that I thought so much about it instead of *just building it*.
 
-Eventually, Vue Cli 3 came out, which basically automatically created a Webpack config which transformed Vue, JS, Css, etc. all files for you. That's when I decided to rewrite everything from scratch. Since I learned a lot about Vue in the summer I used it, it would be good anyways, it would make the codebase more maintainable.
+At around that time, Vue Cli 3 came out, which basically automatically setup Webpack, Babel, and friends. That's when I decided to rewrite everything from scratch. Since I learned a lot about Vue that previous summer, the opportunity would allow me to make a maintainable codebase.
 
 **Big Mistake**
 
@@ -140,49 +131,41 @@ When I switched to a brand new codebase, my productivity dropped.
 
 ![commits](../image/web-dev-a-year-later/periodic-table-v2-commits.png)
 
-It actually took a few months to start on Version 2. It was a complete rewrite - from the ground up. Why did I decide to do that?
+It actually took a few months to start on Version 2. It was a complete rewrite - from the ground up. What were some other reasons why I decided on a rewrite, apart from Vue Cli 3's release?
 
-I knew my codebase was pretty crap and it was inefficient. How I styled the Vue components was inefficient. The way i stored data was inefficient. The way I wrote my html was inefficient.
+I knew my codebase was pretty crap and it was inefficient. The Vue components were styled inefficiently, data storage in the Vuex Store was not efficient, and the way I wrote my html was inefficient.
 
-With Version 2, the bundles webpack generated were smaller and much better. I wrote smaller and more modular components. I styled elements more efficiently (except the theme part).
+With Version 2, I tried to fix these errors. I wrote smaller and more modular components. I styled elements more efficiently. And, the bundles Webpack generated had a much lighter footprint.
 
 But what was the problem?
 
-Version 2 of the website was massively slower than the original, Even though there were less features. It was driving me nuts! Was it the fact that I was namespacing my Vuex stores? Was it because I created more components, and the child components were being rerendered too often? Was it the fact that I was making too many variables reactive (like binding a bunch of CSS variables to `styles`)? I had no idea and couldn't seem to find an answer.
+Version 2 of the website was massively slower than the original, Even though there were less features. It was driving me nuts! Was it the fact that I was namespacing my Vuex stores? Was it because I created more components, and the child components were being re-rerendered too often? Was it the fact that I was making too many variables reactive? I had no idea and couldn't seem to find an answer.
 
-It was around the end of May when I finally decided to switch back to the original code base. It's basically the codebase I had after 4 or 5 months (of developing version 1). Except that I wasted 7 months.
+It was around the end of May when I finally decided to switch back to the original code base. I was back to 4 or 5 months after I started working on the program. I had wasted 7 months.
 
-I didn't have time to be pissed because I wanted to finish the app. In doing so I was required to go back to the first version.
+That's where I'm at now. I'm trying to get back into working on this website, but it's difficult with so many other ideas and projects.
 
 ## Other Summer Contributions
 
-Although a significant amount of time was invested in the Periodic Table application, it was not the only thing I worked on.
+Although a significant amount of time was invested in the Periodic Table application, it was not the only thing I worked on (during the summer).
 
-I made a few contributions to [vuesax](https://lusaxweb.github.io/vuesax). It's a library for creating pretty spectacular UI components for VueJS. Because my experience with frontend development was limited, my contributions mostly consisted of documentation improvements. This helped me learn the basic workflows for contributing to open source projects.
+I made a few contributions to [Vuesax](https://lusaxweb.github.io/vuesax). It's a library for creating pretty spectacular UI components for VueJS. Because my experience with frontend development was limited, my contributions mostly consisted of documentation improvements. This helped me learn the basic Git workflows for contributing to open source projects.
 
-The pomodoro application was not the only thing I worked on during the summer and fall.
+## More Fall Contributions
 
-## Fall
-
-[blog](https://github.com/eankeen/blog)
-
-During the fall, I created my blog. It helped me understand more workflows that allow developers to create some website. Since, the only way I knew how to create a site was using Webpack, and serving the static assets with Node or something.
+During the fall, I started work on my [blog](https://github.com/eankeen/blog)! By creating the blog, I learned development workflows that did not involve nodejs or related tooling.
 
 ## Spring
 
-During the Spring, I wanted to use other computers to do programming work. Of course, they did not have the tools and libraries necessary to do that. I found that Cmder is a great, portable terminal emulator. All I had to do was find ways to facilitate downloading tools / applications, and hook up the binaries to Cmder. The next step was to automate this process. My [portable-workstation](https://github.com/eankeen/portable-workstation) repository was the result of this thinking. I've recently been picking it back up and making it easier to use. To use it, you just need to copy and paste a command in some terminal window.
+In the Spring, I found a need for programming on the school computers. Out of necessity, I created the [portable-workstation](https://github.com/eankeen/portable-workstation) repository. It uses Cmder, a portable console emulator, and hooks it up with with PowerShell Core 6.1. More recently, I've picked it back up. I finished some auto installation scripts, and I'm trying to get Scoop to integrate nicely.
 
-I also started a repository for interfacing with [JsonStoreIO](https://jsonstore.io). It's a very primitive mechanism for storing data. So I created [isomorphic-json-store-io](https://github.com/eankeen/isomorphic-json-store-io) which essentially wrapped around simple `http` request. I'm making unit and integration testing a priority, which is why the project has been slow moving. I also haven't been working on it that much.
+Since the Spring, I joined the [repl.it](https://repl.it) community. Some administrators decided to create a GitHub repository for the people active in the Discord chat. One one of the first projects created was the [repl-it-electron](https://github.com/repl-it-discord/repl-it-electron) repository. Essentially, it was an electron app that showed the repl.it website. I started contributing to that, adding some features and improving the build process. It's not of huge use now, but some features such as theming and multi-window editing are in the works.
 
-I'm an active member of the [repl.it](https://repl.it) community. Somewhat recently, some people decided to create a GitHub repository for people that were in the Discord chat and wanted to contribute. One one of the first projects created was a [repl-it-electron](https://github.com/repl-it-discord/repl-it-electron) repository. Essentially, it was an electron app that showed the repl.it website. It's not of huge use now, but some features such as theming and multi-window editing are in the works.
+[carnival](https://github.com/repl-it-discord/carnival) is another repository that's a part of the repl-it-discord GitHub organization. It's meant to show off community games created on [repl.it](https://repl.it). But even more, it's going to include leaderboards, commenting, voting systems, among many other cool features. Me and a few other community members are ramping that project up.
 
-[carnival](https://github.com/repl-it-discord/carnival) is another repository that's a part of the repl-it-discord GitHub organization. It's meant to show off community games created on [repl.it](https://repl.it). But even more, it's going to include leaderboards, commenting, voting systems, among many other cool features.
+## Next Year: Goals
 
-## what to learn next year
-
-I learned a lot about frontend development this year. Usually, first learning to program is the most difficult. Once you wrap around the basics of something, I believe you learn a bit faster about that subject.
-
-So I made a list of things that I want to learn in the following year. My goal is to be proficient in most of them such that I can use related tools and services without not knowing what to do. Some of them, I want to be at an advanced level.
+I learned a lot about frontend development this year. I made a list of things that I want to learn this next year. I'm uncertain of how proficient I want to be for each element in the list, but I made some rough categories.
 
 Advanced
 
@@ -190,7 +173,7 @@ Advanced
 * Computer networking
 * Web Technologies
   * JS APIs
-  * Root web functionality
+  * Web protocols
   * CSS, HTML
 
 Intermediate
@@ -210,6 +193,4 @@ Intermediate
 * Data structures
 * TeX / LaTeX
 
-I'm aware of the Dunning-Kruger effect, so most of these categorizations are prone to adjusting, especially after reading substantial material on a particular topic. These categorizations are probably sorted solely based on relative (predicted) topical skill differences, or predicted time-to-learn values. But what are goals if they're not wrong sometimes? I'm using the word 'Advanced' pretty losing here. Pretty much meaning understanding of a topic that enables me to read the topic specifications (definitions) or understanding that enables me to perform 'Intermediate' tasks without significant outside assistance. And to know what I'm going.
-
-Some of the stuff listed above interoperate together, some knowledge may be interdependent. I'm pretty pissed that I realized I loved programming and computers in general so late into high school. And even more so that my learning stagnated after school started. Now that I better understand learning techniques (and my weaknesses) I'm confident that I can tackle the skills above (of course not to a complete extent) :smile: Hopefully I can play this game of catch-up well.
+Hopefully I'm not falling prey to the Dunning-Kruger effect - I'll be the first to admit that this list is probably sorted mostly based on relative (predicted) topical skill differences, or predicted time-to-learn values. But what are goals if they're not wrong sometimes? I will blog about some of the cooler things that I've learened.
