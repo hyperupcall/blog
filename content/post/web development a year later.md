@@ -1,6 +1,6 @@
 +++
-title = "1st Year Reflection of Front-End Web Development"
-slug = "web-development-first-year-reflection"
+title = "Front-End Web Dev: A Year's Reflection"
+slug = "front-end-web-dev-a-years-reflection"
 author = "Edwin Kofler"
 date = 2019-06-17T00:47:57-07:00
 categories = ["web"]
