@@ -6,7 +6,7 @@ date = 2019-05-23T10:25:05-07:00
 categories = []
 tags = []
 draft = true
-code = "summer hotel"
+code = "summer golf"
 +++
 
 Last summer I learned something totally foreign and new. I learned how to become a website developer. With some Java experience, I jumped into building frontend single page applications with the JavaScript framework Vue. I used a combination of Webpack, Babel, PostCSS, and other related tooling to accomplish this. It felt great learning huge amounts about something new from the ground up and I wanted to repeat the process.

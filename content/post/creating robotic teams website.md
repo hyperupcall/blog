@@ -1,9 +1,9 @@
 +++
-title = "Developing a Website for my Robotics Team"
+title = "Development of my Robotics Teams' Homepage"
 slug = "creating-website-for-robotics-club"
 author = "Edwin Kofler"
 date = 2019-05-14T22:58:47-07:00
-categories = ["Web"]
+categories = ["web"]
 tags = ["vue", "frontend"]
 draft = false
 +++

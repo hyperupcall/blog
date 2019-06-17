@@ -6,22 +6,12 @@
     <description>Recent content in Categories on Edwin&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 15 Sep 2018 11:26:16 -0700</lastBuildDate>
     
 	<atom:link href="https://eankeen.github.io/blog/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Blog Updates</title>
-      <link>https://eankeen.github.io/blog/categories/blog-updates/</link>
-      <pubDate>Sat, 15 Sep 2018 11:26:16 -0700</pubDate>
-      
-      <guid>https://eankeen.github.io/blog/categories/blog-updates/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Math</title>
+      <title>math</title>
       <link>https://eankeen.github.io/blog/categories/math/</link>
       <pubDate>Thu, 20 Dec 2018 11:41:42 -0800</pubDate>
       
@@ -30,16 +20,25 @@
     </item>
     
     <item>
-      <title>Tutorials</title>
-      <link>https://eankeen.github.io/blog/categories/tutorials/</link>
+      <title>tutorial</title>
+      <link>https://eankeen.github.io/blog/categories/tutorial/</link>
       <pubDate>Sat, 15 Sep 2018 11:26:16 -0700</pubDate>
       
-      <guid>https://eankeen.github.io/blog/categories/tutorials/</guid>
+      <guid>https://eankeen.github.io/blog/categories/tutorial/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Web</title>
+      <title>update</title>
+      <link>https://eankeen.github.io/blog/categories/update/</link>
+      <pubDate>Sat, 15 Sep 2018 11:26:16 -0700</pubDate>
+      
+      <guid>https://eankeen.github.io/blog/categories/update/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>web</title>
       <link>https://eankeen.github.io/blog/categories/web/</link>
       <pubDate>Tue, 14 May 2019 22:58:47 -0700</pubDate>
       

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Math on Edwin&#39;s Blog</title>
+    <title>math on Edwin&#39;s Blog</title>
     <link>https://eankeen.github.io/blog/categories/math/</link>
-    <description>Recent content in Math on Edwin&#39;s Blog</description>
+    <description>Recent content in math on Edwin&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 20 Dec 2018 11:41:42 -0800</lastBuildDate>

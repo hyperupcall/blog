@@ -1,10 +1,10 @@
 +++
-title = "Web Development: My First Year Reflection"
+title = "1st Year Reflection of Front-End Web Development"
 slug = "web-development-first-year-reflection"
 author = "Edwin Kofler"
 date = 2019-06-17T00:47:57-07:00
-categories = []
-tags = []
+categories = ["web"]
+tags = ["reflection", "frontend"]
 katex = false
 draft = true
 code = "first hotel"

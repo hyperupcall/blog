@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Web on Edwin&#39;s Blog</title>
+    <title>web on Edwin&#39;s Blog</title>
     <link>https://eankeen.github.io/blog/categories/web/</link>
-    <description>Recent content in Web on Edwin&#39;s Blog</description>
+    <description>Recent content in web on Edwin&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 14 May 2019 22:58:47 -0700</lastBuildDate>
@@ -12,7 +12,7 @@
     
     
     <item>
-      <title>Developing a Website for my Robotics Team</title>
+      <title>Development of my Robotics Teams&#39; Homepage</title>
       <link>https://eankeen.github.io/blog/creating-website-for-robotics-club/</link>
       <pubDate>Tue, 14 May 2019 22:58:47 -0700</pubDate>
       
