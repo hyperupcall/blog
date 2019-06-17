@@ -6,10 +6,20 @@
     <description>Recent content in web on Edwin&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 14 May 2019 22:58:47 -0700</lastBuildDate>
+    <lastBuildDate>Mon, 17 Jun 2019 00:47:57 -0700</lastBuildDate>
     
 	<atom:link href="https://eankeen.github.io/blog/categories/web/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>1st Year Reflection of Front-End Web Development</title>
+      <link>https://eankeen.github.io/blog/web-development-first-year-reflection/</link>
+      <pubDate>Mon, 17 Jun 2019 00:47:57 -0700</pubDate>
+      
+      <guid>https://eankeen.github.io/blog/web-development-first-year-reflection/</guid>
+      <description>So I was reintroduced to programming during the fall of 2017. I was learning Java in my AP Computer Science A class. The class was another one of those &amp;ldquo;college-level&amp;rdquo; &amp;ldquo;advanced placement&amp;rdquo; (AP) classes, which actually became really fun near the end.
+You see, I was finishing up a really fun final project (written in Java). It was basically an anagram finder, with a few extra features (including local multiplayer).</description>
+    </item>
     
     <item>
       <title>Development of my Robotics Teams&#39; Homepage</title>
