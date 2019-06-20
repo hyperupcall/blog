@@ -1,5 +1,5 @@
 +++
-title = "Front-End Web Dev: A Year's Reflection"
+title = "Front End Web Dev: A Year's Reflection"
 slug = "front-end-web-dev-a-years-reflection"
 author = "Edwin Kofler"
 date = 2019-06-17T00:47:57-07:00
@@ -28,21 +28,21 @@ This idea motivated me to work on some preliminary sketches of the application.
 
 ![Mockup of Sigag](../image/web-dev-a-year-later/sigag-mockup.png)
 
-Pretty cool, huh? The sketches focused more on the menu navigation rather then the actual flashcard set. I guess it's somewhat silly brainstorming a project substantially more complex than my [previous project](https://github.com/EanKeen/word-finder), but I think it helped motivate me.
+Pretty cool, huh? The sketches focused more on the menu navigation rather then the actual flashcard set. I guess it's somewhat silly brainstorming a project substantially more complex than my [previous project](https://github.com/EanKeen/word-finder), but I really think it helped motivate me.
 
-While brainstorming, I realized I need to know the technologies and tools to enable me to build this app. I came across [Electron](https://electronjs.org), which, in a nutshell, allows you to create a desktop app with HTML/CSS/JS. So, after all, I decided not to create a website, in a traditional sense, but a desktop application (with web technologies).
+While brainstorming, I realized I need to know the technologies and tools to enable me to build this app. I came across [Electron](https://electronjs.org), which, in a nutshell, allows you to create a desktop app with HTML/CSS/JS. So it seems I ended up deciding not to create a website, in a traditional sense, but a desktop application (with web technologies).
 
 This is where I learned about using git, node, npm, and electron. All that beginner stuff. Most of my knowledge was extracted from watching video tutorials, rather than official documentation or blog posts.
 
-Everything was super foreign to me because I didn't know JavaScript. I didn't even let myself change the standard Electron boilerplate since I was afraid I could break (and not know how to fix) the app (despite using Git for a VCS).
+Everything was super foreign to me because I didn't know JavaScript. I didn't even let myself change the standard Electron boilerplate since I was afraid I could break (and not know how to fix) the app (despite using Git VCS).
 
 After a few weeks, I was able to create a [lame sidebar menu](https://github.com/eankeen/Baeuda/tree/a05e8ee7c62ea0b44e6a29af07b723c463fd6485). Huzzah!
 
 ![sigag-ui-development](../image/web-dev-a-year-later/baeuda-development.png)
 
-At that point I realized that I needed to learn more before taking on this huge "flashcard project". Since building the sidebar wasn't exactly easy, I knew that I would need more experience before continuing with the project. *D'oh!*
+After I made the lame sidebar, I realized that I needed to learn more before taking on this huge "flashcard project". Since building the sidebar wasn't exactly easy, I knew that I would need more experience before continuing with the project. *D'oh!*
 
-To gain experience, I chose to build a Pomodoro timer.
+To gain experience, I built a Pomodoro timer.
 
 ### Pomodoro Timer
 
@@ -66,21 +66,21 @@ Around the time I stopped working on *sigag*, my pomodoro timer, it was nearing 
 
 For some background, I took this chemistry the summer before and used [Ptable](https://ptable.com) to look up information about each atomic element. Ptable, in a way, was already a periodic table web app, but it was created in the mid-to-late 2000s. So the periodic table was way too big for phones and way to small for regular-sized computer monitors. And for me personally, the UI (and UX) was disappointing.
 
-I extrapolated the UI from my pomodoro timer app and imagined how a similar-looking UI would function as a periodic table web app. That's when I imagined my gorgeous periodic table user interface. This vision singlehandedly gave me the motivation to work on the project, especially during the more difficult parts.
+I extrapolated the (final) UI from my pomodoro timer app and imagined how a similar-looking UI would function as a periodic table web app. That's when I imagined my gorgeous periodic table user interface. This vision singlehandedly gave me the motivation to work on the project, especially during the more difficult parts.
 
 I believed this new interface alone would cause people to use this hypothetical periodic table website. Since it would have mobile and tablet support. However, I wanted to differentiate my product further. I brainstormed a large list of potential features.
 
-After I figures out how my website should look, I began to research tools to build it.
+After I figured out how my website should look, I began to research tools to build it.
 
-That's when I started to die a bit inside. It's kind of hard to explain what it was like researching the JavaScript tooling ecosystem from the perspective of a beginner. Partly because I don't remember that much and partly because I'm no longer a beginner. I looked up so many explanations on Babel, Webpack. Gulp, Grunt, Browserify, RequireJS, CommonJS, AMD, UMD, TypeScript, CoffeeScript, Sass, Less, PostCSS, Vue, React, Angular, Backbeone etc. I tried to understand stuff that I couldn't understand. Fundamentally, I didn't have the proper experience to completely understand it.
+That's when I started to die a bit inside. It's kind of hard to explain what it was like researching the JavaScript tooling ecosystem from the perspective of a beginner. Partly because I don't remember too much of it, and partly because I'm no longer a beginner. I looked up so many explanations on Babel, Webpack. Gulp, Grunt, Browserify, RequireJS, CommonJS, AMD, UMD, TypeScript, CoffeeScript, Sass, Less, PostCSS, Vue, React, Angular etc. I tried to understand stuff that I couldn't understand. Fundamentally, I didn't have the proper experience to completely understand it.
 
 Somehow, I choose the right tools. I chose VueJS as a JavaScript framework and styled my components with Sass. Down the road, I began to bundle my modules with Webpack (also using babel Babel to transpile my JS in the process).
 
-After I chose my tools, I realized that it would be difficult to set up all the tools at once. So I just linked to the Vue CDN and started working.
+After I chose my tools, I realized that it would be difficult to set up all the tools at once. So I just linked to the Vue CDN and started working an `index.html` file.
 
 I started on this periodic table app on May 13, starting with the VueJS CDN. What's great is that my text editor (Atom at the time) had plugins that compiled Sass to Css and showed a live website preview. :relieved:
 
-About a month later I kept on adding to that HTML file until it grew to a near 100 line monstrosity. Also, I was adding a bunch of `script` tags near the end (in addition to a `main.vue` file, which was really just a plain JS file). That was the time I decided to use Webpack. Plus, my school was basically finished so I had much more free time on my hands.
+About a month later I kept on adding to that HTML file until it grew to a near 100 line monstrosity. Also, I was adding a bunch of `script` tags near the end (in addition to a `main.vue` file, which was really just a plain JS file). That was the time I decided to use Webpack. Plus, my school was basically finished so I had much more free time on my hands (I knew it was going to be difficult).
 
 :weary: I think that was the most painful moment in my life, trying to use Webpack for the first time. :weary:
 [#NeverForget](https://webpack.js.org)
@@ -102,9 +102,11 @@ Anyways, I also used Webpack to compile my Scss into Css (later), which was much
 
 ## A month after summer
 
-At first I began to dread using Webpack, because now I had to use loaders for my svg, font files, and similar. But later I accepted the challenge and realized its utility. This was when I was using `webpack-merge` to create separate development and production builds. Integrating stuff like UglifyJS, MiniCssExtractPlugins, OptimizeCssAssetsPlugin, CopyWebpackPlugin, became easier over time, as I became more accustomed to Webpack. On thing I failed to do was export separate chunks (which would be lazily-loaded as I changed routes) with Webpack. I didn't mind missing out on that feature so much. I just wanted my program to work.
+At first I began to dread using Webpack, because now I had to use loaders for my svg, font files, and similar. But later I accepted the challenge and realized its utility. This was when I was using `webpack-merge` to create separate development and production builds. Integrating stuff like `UglifyJS`, `MiniCssExtractPlugin`, `OptimizeCssAssetsPlugin`, and `CopyWebpackPlugin` became easier over time since I became more accustomed to Webpack (and its concepts). One thing I failed to do was export separate chunks (which would be lazily-loaded as I changed routes) with Webpack. I didn't mind failing to implement that feature because it was not completely critical.
 
-As July turned to August, I basically started to refine most of my application. This was when I started harvesting data about the elements of the periodic table. I had to write some scripts in the Wolfram Language to get data about each element. I exported much of the data as one large JSON. I used Gulp to transform the bundle and move stuff to the backend (which was recently created).
+As July turned to August, I started to refine most of my application. This was when I started harvesting data about the elements of the periodic table. I had to write some scripts in the Wolfram Language to get data about each element. That was a lot of fun. I exported the data as a few giant JSON files. I used Gulp to transform the bundle and move stuff to the backend.
+
+Doing the backend made me feel more complete. Since that would end up serving the bundled files. It was also tricky getting my frontend to grab routes from the backend. It was difficult finding resources online since it's such a basic thing when you're experienced.
 
 It was around this time I became sort of close to burning out. You see, when school finished I poured all my available free time into building this application. At first, I was working maybe 6 hours a day, but that quickly grew to 10, then 14. The few weeks I was working 18 hours a day on the application took a huge toll. I could have gotten so much more done if I was not sleep deprived. :confused: I took a few days break after that to prevent myself from burning out. A few other sporadic breaks helped keep my sanity.
 
@@ -117,11 +119,13 @@ It basically looked something like this
 
 All the styling is kinda sexy, but I just wasn't sure how to manipulate the data in a way which would be maintainable. Now that I reflect, I was thinking too hard about it. Since I had no experience building any other website, it was ridiculous that I thought so much about it instead of *just building it*.
 
-At around that time, Vue Cli 3 came out, which basically automatically setup Webpack, Babel, and friends. That's when I decided to rewrite everything from scratch. Since I learned a lot about Vue that previous summer, the opportunity would allow me to make a maintainable codebase.
+Oh, and when I actually got my app to production, that's when I experienced the most fun. It felt good to put that crappy app on those DigitalOcean (my hosting provider) servers. I pulled an all-nighter configuring my Ubuntu server, getting `ssh`, `nginx`, `systemctl`, and `pm2` all configured properly. I had no idea what I was doing, which made it even more cool. And I didn't snooze off the following school day!
+
+So getting back on track, around the time I pushed the app to production, Vue Cli 3 came out, which basically sets up Webpack, Babel, and friends automatically. That's when I decided to rewrite everything from scratch. The bundles webpack generated would be smaller and faster to load. Also, since I learned a lot about Vue that previous summer, the opportunity would allow me to make a maintainable codebase.
 
 **Big Mistake**
 
-When I switched to a brand new codebase, my productivity dropped.
+When I switched to a brand new codebase (version 2), my productivity dropped significantly.
 
 *Version 1*
 
@@ -161,7 +165,7 @@ In the Spring, I found a need for programming on the school computers. Out of ne
 
 Since the Spring, I joined the [repl.it](https://repl.it) community. Some administrators decided to create a GitHub repository for the people active in the Discord chat. One one of the first projects created was the [repl-it-electron](https://github.com/repl-it-discord/repl-it-electron) repository. Essentially, it was an electron app that showed the repl.it website. I started contributing to that, adding some features and improving the build process. It's not of huge use now, but some features such as theming and multi-window editing are in the works.
 
-[carnival](https://github.com/repl-it-discord/carnival) is another repository that's a part of the repl-it-discord GitHub organization. It's meant to show off community games created on [repl.it](https://repl.it). But even more, it's going to include leaderboards, commenting, voting systems, among many other cool features. Me and a few other community members are ramping that project up.
+[carnival](https://github.com/repl-it-discord/carnival) is another repository that's a part of the repl-it-discord GitHub organization. It's meant to show off community games created on [repl.it](https://repl.it). But even more, it's going to include leaderboards, commenting, voting systems, among many other cool features. Me and a few other community members are ramping that project up. I'll probably include it in next years reflection.
 
 ## Next Year: Goals
 
@@ -193,4 +197,4 @@ Intermediate
 * Data structures
 * TeX / LaTeX
 
-Hopefully I'm not falling prey to the Dunning-Kruger effect - I'll be the first to admit that this list is probably sorted mostly based on relative (predicted) topical skill differences, or predicted time-to-learn values. But what are goals if they're not wrong sometimes? I guess until I dive into these topics, I won't know for sure how much I'll want to know. I'll be sure to block about some of my learning experiences.
+Hopefully I'm not falling prey to the Dunning-Kruger effect - I'll be the first to admit that this list is probably sorted mostly based on relative (predicted) topical skill differences, or predicted time-to-learn values. But what are goals if they're not wrong sometimes? I guess until I dive into these topics, I won't know for sure how much I'll want to know. I'll be sure to blog about some of my learning experiences.
