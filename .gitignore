@@ -1,3 +1,7 @@
+server/
+dist/
+
+# ide
 .idea/
 .vscode/
-server/
+
