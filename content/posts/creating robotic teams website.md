@@ -25,7 +25,7 @@ Keeping that in mind, I build a basic page showing what the layout would roughly
 ![robotics-website-1](/image/robotics-website/robotics-website-1.png)
 [See commit on GitHub](https://github.com/eshsrobotics/WebsiteChallenge2019/commit/6be6748794d08b85783afcfad2da3a96a132b5f8)
 
-As you can see, I did not opt for any UI framework. I don't recall the exact reason, but I think I wanted to learn how to create good-looking components on my own. Even if this slowed down development, I enjoyed creating the components. Besides, it made the website look more unique. From my last website I learned that colors and icons can really make or break the look of a website. Luckily I found the great [Open Color](https://yeun.github.io/open-color) color pallette and used [Feather Icons](https://feathericons.com).
+As you can see, I did not opt for any UI framework. I don't recall the exact reason, but I think I wanted to learn how to create good-looking components on my own. Even if this slowed down development, I enjoyed creating the components. Besides, it made the website look more unique. From my last website I learned that colors and icons can really make or break the look of a website. Luckily I already knew about the great [Open Color](https://yeun.github.io/open-color) color pallette and the amazing [Feather Icons](https://feathericons.com) icons set.
 
 ## Simple Architecture Changes
 
@@ -75,9 +75,10 @@ After adding the images, I styled some elements with light blue and yellow, whic
 ## Mobile Support
 
 Although the desktop version of the site looked fine, the mobile version still needed a lot of work. The pictures were too small and the navigation bar overflowed passed the width of the screen.
+
 ![robotics-website-4](/image/robotics-website/robotics-website-4.png)
 
-I fixed this by adding a hamburger menu. Also, I made competition cards fit the width of the screen on smaller devices.
+I fixed this by adding a hamburger menu. Also, I adjusted the width of competition cards to fit small devices.
 
 ![robotics-website-mobile-view](/image/robotics-website/robotics-website-mobile.gif)
 
@@ -107,4 +108,4 @@ Since all of our team's photographs are in a GitHub [repository](https://gitub.c
 
 ## Wrap
 
-When I started this project, it wasn't clear to me exactly how the final project will look. But, I had a whole lot of fun and learning experience by making incremental changes to the codebase. Although I had to drop some features (like a blogging system and a video album), I absolutely love the final product! I continue to revisit the repository and make incremental changes.
+When I started this project, it wasn't clear to me exactly how the final project will look. But, I had a whole lot of fun and learning experience by making incremental changes to the codebase. Although I had to drop some features (like a blogging system and a video album), I absolutely love the final product! From time to time, I revisit the codebase and make incremental changes.
