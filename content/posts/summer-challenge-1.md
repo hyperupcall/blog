@@ -31,7 +31,7 @@ I intend to optimize the following steps
 
 ### Brain Preparation
 
-![human brain on white background](../image/learning-language/brain.jpg)
+![human brain on white background](/image/learning-language/brain.jpg)
 *[human brain on white background](https://www.flickr.com/photos/flamephoenix1991/8376271918)* by *\_DJ\_* in accordance with the [ShareAlike 2.0 Generic License](https://creativecommons.org/licenses/by-sa/2.0/).
 
 By preparing, I intend to prepare to connect current knowledge with future (potential) knowledge. Not just connecting English words with German words, but also phrases, sentences, and grammaticasl differences / inconsistencies. Really learning English would help, like knowing what categories words belong in, what tenses words are in, or what kind of combinations are possible with words. For example, I'd like to know what a 'present participle verb' is, understand how it works with adjacent words, and know relations with present participle verbs with other words. That way, when I come across similar concepts in other languages, I'll understand the structures I'm dealing with. Writing down some kind of mine map is a requirement.

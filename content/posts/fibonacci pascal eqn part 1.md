@@ -10,7 +10,7 @@ katex = true
 draft = false
 +++
 
-If you're familiar with the intricacies of Pascal's Triangle, see how I did it by going to [part 2](../fibonacci-equation-using-pascals-triangle-part-2/).
+If you're familiar with the intricacies of Pascal's Triangle, see how I did it by going to [part 2](/fibonacci-equation-using-pascals-triangle-part-2/).
 
 # Background of Pascal's Triangle
 
@@ -76,13 +76,13 @@ $$
 
 What exactly is this relatiponship? First, draw diagonal lines intersecting various rows of the Fibonacci sequence. Then, add the terms up within each diagronal line to obtain the $$z_{th}$$ element of the Fibonacci sequence.
 
-![Pascal's Triangle](../image/pascals-triangle/pascals-triangle.png)
+![Pascal's Triangle](/image/pascals-triangle/pascals-triangle.png)
 
 The green lines represent the division between each term in the Fibonacci sequence and the red terms represent each $$z_{th}$$ term, the sum of all black numbers sandwiched within the green borders. In this case, the green lines are initially at an angle of $$\frac{\pi}{9}$$ radians, and gradually become less steep as $$z$$ increases.
 
 Like I said, I'm going to be using $$_nC_k$$ symbols to express relationships to Pascal's triangle, so here's the triangle expressed with different symbols.
 
-![Pascal's Triangle](../image/pascals-triangle/pascals-triangle-2.png)
+![Pascal's Triangle](/image/pascals-triangle/pascals-triangle-2.png)
 
 We can write the first 5 equations. We want to generate the $$_nC_r$$ terms using some formula (starting from 1).
 
@@ -100,4 +100,4 @@ $$...$$
 
 Is it possible to succinctly write the $$z$$th term ($$Fib(z)$$, or $$F(z)$$) of the Fibonacci as a summation of $$_nC_k$$ Pascal's triangle terms? The number of terms being summed up depends on the $$z$$th term. Both $$n$$ and $$k$$ (within $$_nC_k$$) depend on the value of the summation index (I'll use $$\varphi$$). See any patterns yet? Note that I'm using $$z$$th term rather than $$n$$th term because $$n$$ is used when representing $$_nC_k$$. See if you can figure it out for yourself before continuing! This is a great challenge for Algebra 2 / Pre-Calculus students!
 
-See how I did it in [part 2](../fibonacci-equation-using-pascals-triangle-part-2/)!
+See how I did it in [part 2](/fibonacci-equation-using-pascals-triangle-part-2/)!

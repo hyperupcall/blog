@@ -1,5 +1,5 @@
 +++
-title = "Front End Web Dev: My First Year"
+title = "Frontend Web Development: My First Year"
 slug = "front-end-web-dev-a-years-reflection"
 author = "Edwin Kofler"
 date = 2019-06-17T00:47:57-07:00
@@ -12,7 +12,9 @@ code = "first hotel"
 
 So I was reintroduced to programming during the fall of 2017. I was learning Java in my AP Computer Science A class. The class was another one of those "college-level" "advanced placement" (AP) classes, which actually became really fun near the end.
 
-You see, I was finishing up a really fun [final project](https://github.com/EanKeen/word-finder) (written in Java). It was basically an anagram finder, with a few extra features (including local multiplayer). I had so much fun making it. So much fun, that I had an urge to create another programming project. I wanted to create some program that people could use without downloading Java, or any other software. Naturally, I turned to web programming. People would only need a link to my site - no downloading required!
+You see, I was finishing up a really fun [final project](https://github.com/EanKeen/word-finder) (written in Java). It was basically an anagram finder, with a few extra features (including local multiplayer). I had so much fun making it. So much fun, that I had an urge to create another programming project. That's when I realized I loved programming, near the end of this Java class.
+
+I wanted to create some program that people could use without downloading Java, or any other software. Naturally, I turned to web programming. People would only need a link to my site - no downloading required!
 
 I did have a little experience with HTML and CSS, but that was [3 years](https://www.khanacademy.org/computer-programming/project-travel-webpage/5930419250659328) prior to the Java class. It was very basic knowledge, not even close to enough knowledge for me to execute a plan.
 
@@ -26,7 +28,7 @@ My first project idea consisted of a desktop app that would help students create
 
 This idea motivated me to work on some preliminary sketches of the application.
 
-![Mockup of Sigag](../image/web-dev-a-year-later/sigag-mockup.png)
+![Mockup of Sigag](/image/web-dev-a-year-later/sigag-mockup.png)
 
 Pretty cool, huh? The sketches focused more on the menu navigation rather then the actual flashcard set. I guess it's somewhat silly brainstorming a project substantially more complex than my [previous project](https://github.com/EanKeen/word-finder), but I really think it helped motivate me.
 
@@ -38,7 +40,7 @@ Everything was super foreign to me because I didn't know JavaScript. I didn't ev
 
 After a few weeks, I was able to create a [lame sidebar menu](https://github.com/eankeen/Baeuda/tree/a05e8ee7c62ea0b44e6a29af07b723c463fd6485). Huzzah!
 
-![sigag-ui-development](../image/web-dev-a-year-later/baeuda-development.png)
+![sigag-ui-development](/image/web-dev-a-year-later/baeuda-development.png)
 
 After I made the lame sidebar, I realized that I needed to learn more before taking on this huge "flashcard project". Since building the sidebar wasn't exactly easy, I knew that I would need more experience before continuing with the project. *D'oh!*
 
@@ -52,7 +54,7 @@ I called this smaller project [sigag](https://github.com/EanKeen/sigag). Startin
 
 From *sigag*, I learned how to create better user interfaces.
 
-![sigag-ui-development](../image/web-dev-a-year-later/sigag-ui-development.png)
+![sigag-ui-development](/image/web-dev-a-year-later/sigag-ui-development.png)
 
 It seemed that something finally clicked after the third or fourth iteration. It can definitely look better, but I think that most people will agree the last image is not complete garbage.
 
@@ -87,13 +89,13 @@ About a month later I kept on adding to that HTML file until it grew to a near 1
 
 I'm not even joking, I think I almost died.
 
-![commit history showing integration of webpack into project](../image/web-dev-a-year-later/webpack-babel-combo.png)
+![commit history showing integration of webpack into project](/image/web-dev-a-year-later/webpack-babel-combo.png)
 
 I don't even remember how many times I tried to get Webpack to work. I'm laughing (and dying) a bit inside just thinking about what was going on during that week. I had near-daily commits since May 30, and that week or so of "nothing" was me just trying to get Webpack to work. (that `00a20dd` commit was probably me starting from scratch again). I remember not being sure if I should even add Webpack and Babel at the same time.
 
 The final Webpack config looked like this
 
-![webpack config](../image/web-dev-a-year-later/first-webpack-config.png)
+![webpack config](/image/web-dev-a-year-later/first-webpack-config.png)
 
 It's deceivingly simple, just because that one's correct :joy:
 I wish I could see all my failed attempts.
@@ -115,7 +117,7 @@ It was around this time I became sort of close to burning out. You see, when sch
 When fall was around the corner, I realized that I couldn't finish the website before the start of school. However, I still wanted to release my application as a birthday present (early November). I ended up pushing a half-baked application to production that didn't really work. It didn't even have any data.
 
 It basically looked something like this
-![periodic table later revision](../image/web-dev-a-year-later/periodic-table-later-design.png)
+![periodic table later revision](/image/web-dev-a-year-later/periodic-table-later-design.png)
 
 All the styling is kinda sexy, but I just wasn't sure how to manipulate the data in a way which would be maintainable. Now that I reflect, I was thinking too hard about it. Since I had no experience building any other website, it was ridiculous that I thought so much about it instead of *just building it*.
 
@@ -129,11 +131,11 @@ When I switched to a brand new codebase (version 2), my productivity dropped sig
 
 *Version 1*
 
-![commits](../image/web-dev-a-year-later/periodic-table-v1-commits.png)
+![commits](/image/web-dev-a-year-later/periodic-table-v1-commits.png)
 
 *Version 2*
 
-![commits](../image/web-dev-a-year-later/periodic-table-v2-commits.png)
+![commits](/image/web-dev-a-year-later/periodic-table-v2-commits.png)
 
 It actually took a few months to start on Version 2. It was a complete rewrite - from the ground up. What were some other reasons why I decided on a rewrite, apart from Vue Cli 3's release?
 
