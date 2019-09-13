@@ -1,5 +1,5 @@
 +++
-title = "Front End Web Dev: A Year's Reflection"
+title = "Front End Web Dev: My First Year"
 slug = "front-end-web-dev-a-years-reflection"
 author = "Edwin Kofler"
 date = 2019-06-17T00:47:57-07:00
