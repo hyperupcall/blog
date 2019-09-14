@@ -1,5 +1,5 @@
 +++
-title = "Web Developer using a 2012 MacBook in 2019"
+title = "Modern Web Development using a 2012 MacBook"
 slug = "web-dev-on-a-2012-mac"
 author = "Edwin Kofler"
 date = 2019-08-18T22:45:01-07:00

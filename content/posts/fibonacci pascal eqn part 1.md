@@ -10,7 +10,7 @@ katex = true
 draft = false
 +++
 
-If you're familiar with the intricacies of Pascal's Triangle, see how I did it by going to [part 2](/fibonacci-equation-using-pascals-triangle-part-2/).
+If you're familiar with the intricacies of Pascal's Triangle, see how I did it by going to [part 2](/posts/fibonacci-equation-using-pascals-triangle-part-2/).
 
 # Background of Pascal's Triangle
 
@@ -100,4 +100,4 @@ $$...$$
 
 Is it possible to succinctly write the $$z$$th term ($$Fib(z)$$, or $$F(z)$$) of the Fibonacci as a summation of $$_nC_k$$ Pascal's triangle terms? The number of terms being summed up depends on the $$z$$th term. Both $$n$$ and $$k$$ (within $$_nC_k$$) depend on the value of the summation index (I'll use $$\varphi$$). See any patterns yet? Note that I'm using $$z$$th term rather than $$n$$th term because $$n$$ is used when representing $$_nC_k$$. See if you can figure it out for yourself before continuing! This is a great challenge for Algebra 2 / Pre-Calculus students!
 
-See how I did it in [part 2](/fibonacci-equation-using-pascals-triangle-part-2/)!
+See how I did it in [part 2](/posts/fibonacci-equation-using-pascals-triangle-part-2/)!
