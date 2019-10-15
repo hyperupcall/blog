@@ -16,7 +16,7 @@ I felt more and more bloated as I begrudgingly used graphical install wizards, a
 
 I transferred all my data to my dear Mid-2012 MacBook Pro. Contrary to what you might believe, it is a *total powerhouse*. It sports a slick Gigabit Ethernet port, a *blazing fast* FireWire 800 port, along with two USB 3.0 ports, an SD card reader, a fricking DVD drive, and an anti-theft lock mechanism. Did I mention that it had a headphone jack? Chances are, your MacBook ain't got one. But mine does :smirk:
 
-However, despite this monster of a computer, there is some *small* detail you might have to be aware of. The computer is allergic to bloat. It's not uncommon for recently manufactured completed to have such allergies, but old computers generally don't have immunizations that are up to date.
+However, despite this *monster* of a computer, there is some *small* detail you might have to be aware of. The computer is allergic to bloat. It's not uncommon for recently manufactured completed to have such allergies, but old computers generally don't have immunizations that are up to date.
 
 For example, pick any bloated GNU/Linux distribution - say... Ubuntu. If I wanted to run Ubuntu, I would be running the GNOME desktop environment, which, from an outside observer, appears to slow my computer down around 30%. But, if I'm running a high quality desktop environment such as XFCE, my keystrokes will yield higher responses rates than response rates I would be getting from Windows from the more powerful computers.
 
@@ -26,4 +26,4 @@ We can always add more layers, expanding to more than just kernels and desktop e
 
 Which brings me to my point. You will be able to deal with bloat, so long as you do not have a long chain at the bottom of the stack. Modern web development does not come without (useful) bloat. Webpack and other module bundlers that chain loaders such as Babel and PostCSS are slow, but they are indispensable tools when building a full application. So long as your kernel, display manager, display manager have minimal bloat, my computer will be able to manage.
 
-But what is it like really? I say that my computer will "manage", but does it *actually* facilitate rapid iterative programming?
+But what is it like really? I say that my computer will "manage", but is it actually fast enough?
