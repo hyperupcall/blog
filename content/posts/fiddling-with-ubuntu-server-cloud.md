@@ -14,11 +14,11 @@ To fix this, I hypothesized that I could somehow redirect the command's stderr t
 
 I decided to sidestep the issue by installing Debian Stretch instead. Because I used the 'CD installer' (rather than the DVD installer), many of the 'popular packages' were not pre-installed. I underestimated the limitations of this setup, and I bailed out of setting up Debian. I only bailed out after manually configuring the network, when `systemd-resolved` did not seem to be reading the `DNS=` entry in my `systemd.network (5)` configuration file.
 
-This then decided to retry installing Ubuntu. I decided to download and use an Ubuntu Cloud image because I knew it did not have an installation wizard.
+I then decided to retry installing Ubuntu, but by using an Ubuntu Cloud image because I knew it did not have an installation wizard.
 
 ## Copying the rootfs
 
-First, install the Ubuntu Cloud image from the official source.
+I installed the Ubuntu Cloud image from the official source.
 
 ```sh
 wget https://cloud-images.ubuntu.com/bionic/current/bionic-server-cloudimg-amd64.img
@@ -27,7 +27,10 @@ wget https://cloud-images.ubuntu.com/bionic/current/bionic-server-cloudimg-amd64
 Because the downloaded image is in `qcow` format, I converted into a `raw` format. (you can use `qemu-img info` to query for this information).
 
 ```sh
-qemu-img convert -f qcow2 bionic-server-cloudimg-amd64.img -O raw bionic.img -p
+qemu-img convert \
+  -f qcow2 bionic-server-cloudimg-amd64.img \
+  -O raw bionic.img \
+  -p
 ```
 
 Because we will be accessing the filesystem as a block device, we mount the file to a loop device.
@@ -39,10 +42,11 @@ sudo losetup -fP bionic.img
 Now, we can finally `dd` the data to an actual partition.
 
 ```sh
-sudo dd if=/dev/loop7p1 of=/dev/vg/ubuntu-server status=progress conv=fsync bs=2048
+sudo dd if=/dev/loop7p1 of=/dev/vg/ubuntu-server \
+  status=progress conv=fsync bs=2048
 ```
 
-If you want, you can remount the partition, chroot into it, and / or make any needed changes.
+After this process, I remounted the partition, chrooted into it, and added a password for the root user.
 
 ## Making the Server Bootable
 
