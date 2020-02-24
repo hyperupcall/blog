@@ -50,7 +50,7 @@ After this process, I remounted the partition, chrooted into it, and added a pas
 
 ## Making the Server Bootable
 
-The distribution's files for the EFI System Partition (ESP) are in `dev/loop7/p3` (or your equivalent). It only contains grub-related files. Rather than simply copying the grub files over and manually creating an NVRAM varaible entry for UEFI, I simply created an `\EFI\ubuntu-server` folder in my ESP, and moved the bootloader and EFI stub kernel into it, from `/boot/`. I then created an fstab entry to mount the ESP to `/efi`, and from that, bind mount `/efi/EFI/ubuntu-server` to `/boot` and bind mount `/efi` to `/boot/efi`. At the time, I crossed my fingers that nothing related to updating the kernels and initramfs required features not supported by vfat, such as symlinks (spoiler alert, it does).
+The distribution's files for the EFI System Partition (ESP) are in `dev/loop7p3` (or your equivalent). It only contains grub-related files. Rather than simply copying the grub files over and manually creating an NVRAM varaible entry for UEFI, I simply created an `\EFI\ubuntu-server` folder in my ESP, and moved the bootloader and EFI stub kernel into it, from `/boot/`. I then created an fstab entry to mount the ESP to `/efi`, and from that, bind mount `/efi/EFI/ubuntu-server` to `/boot` and bind mount `/efi` to `/boot/efi`. At the time, I crossed my fingers that nothing related to updating the kernels and initramfs required features not supported by vfat, such as symlinks (spoiler alert, it does).
 
 Now we have all the files needed to boot, we just have to tell our boot loader (or boot manager) to use them. Because I was already using an SSD with Refind installed, I added an entry for my Ubuntu Server. I did not configure GRUB.
 
