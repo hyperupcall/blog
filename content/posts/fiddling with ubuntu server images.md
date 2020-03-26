@@ -3,7 +3,7 @@ title = "Fiddling with Ubuntu Server Images"
 slug = "fiddling-with-ubuntu-server-images"
 author = "Edwin Kofler"
 date = 2020-02-23T13:23:00-08:00
-categories = []
+categories = ["linux"]
 tags = ["linux", "ubuntu"]
 draft = false
 +++
