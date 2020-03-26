@@ -5,7 +5,7 @@ author = "Edwin Kofler"
 date = 2020-03-26T14:07:45-07:00
 categories = ["linux"]
 tags = ["linux", "network", "dhcp", "dns"]
-draft = true
+draft = false
 +++
 
 Somewhat recently, I finalized the purchase of some computers and computer parts on Craigslist. I was able to bargain for some cheap discounts - and I wanted to plug these computers into my network. Little did I know that I would be in for a wild ride...
