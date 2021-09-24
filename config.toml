@@ -1,4 +1,4 @@
-baseURL = "https://eankeen.github.io/blog/"
+baseURL = "https://hyperupcall.github.io/blog/"
 languageCode = "en-us"
 title = "Edwin's Blog"
 theme = "hugo-natrium-theme"
