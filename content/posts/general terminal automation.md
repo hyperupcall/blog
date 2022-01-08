@@ -3,16 +3,17 @@ title = "Terminal Automation with Expect"
 slug = "terminal-automation-with-expect"
 author = "Edwin Kofler"
 date = 2022-01-03T22:00:41-08:00
-categories = []
-tags = []
-draft = true
+categories = ["tutorial"]
+tags = ["linux"]
 +++
 
 [Expect](https://core.tcl-lang.org/expect/index) is _THE_ tool for automating tasks in the terminal. It is extremely helpful if you need to automate sending input to a program directly on the command line.
 
-This guide is targeted towards developers that wish to automate sending and receiving input from a program, without having to read long manual pages or out-of-date answers. I'm going to skimp on technical details relating to Expect and the concepts around it; for that, there are [plenty](https://www.poor.dev/blog/terminal-anatomy) [of](https://core.tcl-lang.org/expect/index) [resources](https://www.linusakesson.net/programming/tty) online
+This guide is targeted towards developers that wish to automate sending and receiving input from a program, without having to read long manual pages or fragmented StackOverflow answers. I'm going to skimp on technical details relating to Expect and the concepts around it; for that, there are [plenty](https://www.poor.dev/blog/terminal-anatomy) [of](https://core.tcl-lang.org/expect/index) [resources](https://www.linusakesson.net/programming/tty) online
 
-Here is a result of what using Expect might look like. Note that I am not touching the keyboard after invoking the program `./test`
+Here is a result of what using Expect might look like. Note that I am not touching the keyboard after invoking the program `./automate.tcl`!
+
+[![asciicast](https://asciinema.org/a/460725.svg)](https://asciinema.org/a/460725)
 
 ## Installation
 
@@ -46,7 +47,7 @@ If you're using [MacOS](https://formulae.brew.sh/formula/expect), the de facto p
 brew install expect
 ```
 
-For Windows users, you're out of luck, as per usual. There are [some ports](https://wiki.tcl-lang.org/page/Expect+for+Windows) for Windows, but I cannot vouch for their reliability or popularity. I'll also add that the way "consoles" work on Windows is fundamentally different compared to Unix systems.
+For Windows users, you're out of luck, as per usual. There are [some ports](https://wiki.tcl-lang.org/page/Expect+for+Windows) for Windows, but I cannot vouch for their reliability or popularity. I'll also add that the way "terminals" (consoles) work on Windows is fundamentally different compared to Unix systems.
 
 ## Hello World (tcl)
 
@@ -152,7 +153,7 @@ send "Edwin\r"
 expect eof
 ```
 
-If you are curious, the `expect eof` essentially makes Expect continue running until the `./test.py` program finishes executing. Otherwise, Expect would have quit prematurely. And, the `\r` denotes a _return character_, like pressing `Return` on your keyboard
+If you are curious, the `expect eof` essentially makes Expect continue running until the `./test.py` program finishes executing. Otherwise, Expect would have quit prematurely. And, the `\r` denotes a _return character_, like pressing Return on your keyboard (`\n` works as well)
 
 Cool! Let's run it! As you can see, I've called the file `automate.tcl`
 
@@ -222,7 +223,7 @@ Fox
 Woah~, the Fox is a pretty cool animal!
 ```
 
-This is extremely useful if you have a program that asks for a lot of user input, but you only are testing something at the way end
+This is extremely useful if you want to automate the beginning of a program, but also want to manually input text near the end.
 
 ### Miscellaneous tips
 
@@ -236,7 +237,7 @@ If you are expecting the string `What is your name?`, you don't have to write it
 expect "What is your name?"
 ```
 
-Instead, a glob pattern. The asterisks means "zero or more characters"
+Instead, use a glob pattern. The asterisks means "zero or more characters"
 
 ```tcl
 expect "*your name?*"
@@ -267,7 +268,7 @@ Note that you only have to set the `send_human` variable once, best placed at th
 > The first two elements are average interarrival time of characters in seconds. The first is used  by default. The second is used at word endings, to simulate the subtle pauses that occasionally occur at such transitions. The third parameter is a measure of variability where .1 is quite variable, 1 is reasonably variable, and 10 is quite invariable.  The extremes are 0 to infinity.  The last two parameters are, respectively, a minimum and maximum interarrival time.  The minimum and maximum are used last and "clip" the  final time.  The ultimate average can be quite different from the given average if the minimum and maximum clip enough values
 
 
-3. Type with a slight pause. Sometimes, it may be useful to type something, and wait for the underling program to catch up (ex. Slow languages like Java). You can use a function for this
+3. Type with a slight pause. Sometimes, it may be useful to type something, and wait for the underling program to catch up (ex. Slow languages like Java). You can use a Tcl procedure for this
 
 ```tcl
 #!/usr/bin/expect -f
@@ -279,3 +280,7 @@ proc send_with_delay {str} {
 # Use it like so...
 send_with_delay "Fox\r"
 ```
+
+### Wrap
+
+Expect has many more features, but those are the ones you'll be using the most often! If this helped you or if you have _any_ feedback, [let me know](https://twitter.com/hyperupcall)! Thank youu~ and have a fantastic rest-of-the-day!
