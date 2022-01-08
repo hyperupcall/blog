@@ -79,8 +79,8 @@ Tcl is a simple, yet powerful scripting language. Think of it like Python, but f
 
 ## Hello World (expect)
 
-Expect is essentially a library for Tcl that adds extra functions which enables us to supply input and parse the output of a program.
-Using Expect is very similar. Below, we use an Expect function called `sleep`, which sort of pauses the program for the amount of seconds specified. In this case, it pauses for `1` second in between printing those two statements.
+Expect is essentially a library for Tcl that adds extra functions which enables us to supply input and check the output of a program.
+Using Expect is very similar. Below, we use an Expect function called `sleep`, which sort of pauses the program for the amount of seconds specified:
 
 ```tcl
 #!/usr/bin/expect -f
@@ -92,7 +92,6 @@ puts "Hello again! ^w^"
 To run, invoke `expect` with the `-f` flag
 
 ```sh
-$ chmod +x ./script.tcl # remember to mark the file as executable
 $ expect -f ./script.tcl
 Hello, World!
 Hello again! ^w^
@@ -101,6 +100,7 @@ Hello again! ^w^
 Just like last time, you can also execute the script directly
 
 ```sh
+$ chmod +x ./script.tcl # remember to mark the file as executable
 $ ./script.tcl
 Hello, World!
 Hello again! ^w^
