@@ -2,7 +2,7 @@
 title = "Terminal Automation with Expect"
 slug = "terminal-automation-with-expect"
 author = "Edwin Kofler"
-date = 2022-01-08T14:48:33-08:00
+date = 2022-01-08T00:48:33-08:00
 categories = ["tutorial"]
 tags = ["linux"]
 +++
