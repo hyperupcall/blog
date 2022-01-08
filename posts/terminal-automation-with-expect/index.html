@@ -1,0 +1,107 @@
+<!doctype html><html lang=en-us><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=generator content="Hugo 0.85.0"><title>Terminal Automation with Expect - Edwin's Blog</title><meta property="og:title" content="Terminal Automation with Expect - Edwin's Blog"><link href=https://hyperupcall.github.io/blog/index.xml rel=alternate type=application/rss+xml title="Edwin's Blog"><link rel=stylesheet href=https://hyperupcall.github.io/blog/css/open-color.css media=all><link rel=stylesheet href=https://hyperupcall.github.io/blog/css/main.css media=all><link rel=stylesheet href=https://hyperupcall.github.io/blog/css/fonts.css></head><body><div class=wrapper><header class=header><nav class=nav><a href=https://hyperupcall.github.io/blog/ class=nav-logo><img src=https://hyperupcall.github.io/blog/images/logo.jpg width=50 height=50 alt=Logo></a><ul class=nav-links><li><a href=../../categories>Categories</a></li><li><a href=../../tags>Tags</a></li><li><a href=../../about/>About</a></li></ul></nav></header><main class=content role=main><article class=article><h1 class=article-title>Terminal Automation with Expect</h1><div class=article-content><p><a href=https://core.tcl-lang.org/expect/index>Expect</a> is <em>THE</em> tool for automating tasks in the terminal. It is extremely helpful if you need to automate sending input to a program directly on the command line.</p><p>This guide is targeted towards developers that wish to automate sending and receiving input from a program, without having to read long manual pages or fragmented StackOverflow answers. I&rsquo;m going to skimp on technical details relating to Expect and the concepts around it; for that, there are <a href=https://www.poor.dev/blog/terminal-anatomy>plenty</a> <a href=https://core.tcl-lang.org/expect/index>of</a> <a href=https://www.linusakesson.net/programming/tty>resources</a> online</p><p>Here is a result of what using Expect might look like. Note that I am not touching the keyboard after invoking the program <code>./automate.tcl</code>!</p><p><a href=https://asciinema.org/a/460725><img src=https://asciinema.org/a/460725.svg alt=asciicast></a></p><h2 id=installation>Installation</h2><p>Of course, program installation is a prerequisite for program usage</p><p>If you&rsquo;re using Linux, the installation is more-or-less distro-dependent. If you don&rsquo;t wish to install with a GUI, I have provided the commands below</p><div class=highlight><pre style=color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=color:#999;font-style:italic># For Debian, Ubuntu, PopOS, Linux Mint, etc.</span>
+sudo apt install expect
+</code></pre></div><div class=highlight><pre style=color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=color:#999;font-style:italic># For Arch Linux, Manjaro, Endeavour, Artix, etc.</span>
+sudo pacman -S expect
+</code></pre></div><div class=highlight><pre style=color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=color:#999;font-style:italic># For Fedora, CentOS Streams, RHEL, Rocky, Alma etc.</span>
+sudo dnf install expect
+</code></pre></div><div class=highlight><pre style=color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=color:#999;font-style:italic># For OpenSUSE, etc.</span>
+sudo zypper install expect
+</code></pre></div><p>If you&rsquo;re using <a href=https://formulae.brew.sh/formula/expect>MacOS</a>, the de facto package manager is <a href=https://formulae.brew.sh/formula/expect>brew</a></p><div class=highlight><pre style=color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>brew install expect
+</code></pre></div><p>For Windows users, you&rsquo;re out of luck, as per usual. There are <a href=https://wiki.tcl-lang.org/page/Expect+for+Windows>some ports</a> for Windows, but I cannot vouch for their reliability or popularity. I&rsquo;ll also add that the way &ldquo;terminals&rdquo; (consoles) work on Windows is fundamentally different compared to Unix systems.</p><h2 id=hello-world-tcl>Hello World (tcl)</h2><p>Expect programs are written in a language called <a href=https://www.tcl.tk>tcl</a> (pronounced tickle). Before I show anything related to Expect, I would like to show you a tcl Hello World</p><p>First, create a <code>hello.tcl</code> file&mldr;</p><div class=highlight><pre style=color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-tcl data-lang=tcl><span style=color:#999;font-style:italic>#!/usr/bin/tclsh
+</span><span style=color:#999;font-style:italic></span><span style=color:#24909d>puts</span> <span style=color:#ed9d13>&#34;Hello, World!&#34;</span>
+</code></pre></div><p>Then, run it</p><div class=highlight><pre style=color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>$ tclsh ./hello.tcl
+Hello, World!
+</code></pre></div><p>Because the <a href=https://en.wikipedia.org/wiki/Shebang_(Unix)>shebang</a> is at the top, we can also execute it like so:</p><div class=highlight><pre style=color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>$ chmod +x ./hello.tcl <span style=color:#999;font-style:italic># remember to mark the file as executable</span>
+$ ./hello.tcl
+Hello, World!
+</code></pre></div><p>Tcl is a simple, yet powerful scripting language. Think of it like Python, but faster and a bit more antique. If you want to learn more about Tcl, I would recommend reading the <a href=https://wiki.tcl-lang.org>Tcl Wiki</a></p><h2 id=hello-world-expect>Hello World (expect)</h2><p>Expect is essentially a library for Tcl that adds extra functions which enables us to supply input and parse the output of a program.
+Using Expect is very similar. Below, we use an Expect function called <code>sleep</code>, which sort of pauses the program for the amount of seconds specified. In this case, it pauses for <code>1</code> second in between printing those two statements.</p><div class=highlight><pre style=color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-tcl data-lang=tcl><span style=color:#999;font-style:italic>#!/usr/bin/expect -f
+</span><span style=color:#999;font-style:italic></span><span style=color:#24909d>puts</span> <span style=color:#ed9d13>&#34;Hello, World!&#34;</span>
+<span style=color:#40ffff>sleep</span> <span style=color:#3677a9>1</span>
+<span style=color:#24909d>puts</span> <span style=color:#ed9d13>&#34;Hello again! ^w^&#34;</span>
+</code></pre></div><p>To run, invoke <code>epxect</code> with the <code>-f</code> flag</p><div class=highlight><pre style=color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>$ chmod +x ./script.tcl <span style=color:#999;font-style:italic># remember to mark the file as executable</span>
+$ expect -f ./script.tcl
+Hello, World!
+Hello again! ^w^
+</code></pre></div><p>Just like last time, you can also execute the script directly</p><div class=highlight><pre style=color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>$ ./script.tcl
+Hello, World!
+Hello again! ^w^
+</code></pre></div><h2 id=actual-automation>Actual Automation</h2><p>Now that we have a basic understanding of Expect, it is time to actually use it for its primary purpose: automation of interactive terminal programs.</p><p>First, we&rsquo;ll start off with a program that we want to automate: a simple name printer. I&rsquo;ve supplied versions in Python and C++, but it doesn&rsquo;t matter at all which language you use</p><div class=highlight><pre style=color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#999;font-style:italic>#!/usr/bin/env python3</span>
+<span style=color:#24909d>print</span>(<span style=color:#ed9d13>&#34;What is your name?&#34;</span>)
+name = <span style=color:#24909d>input</span>()
+
+<span style=color:#24909d>print</span>(<span style=color:#ed9d13>f</span><span style=color:#ed9d13>&#34;Hewwo </span><span style=color:#ed9d13>{</span>name<span style=color:#ed9d13>}</span><span style=color:#ed9d13>! Nice to meet you~ ^w^&#34;</span>)
+</code></pre></div><div class=highlight><pre style=color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=color:#cd2828;font-weight:700>#include</span> <span style=color:#cd2828;font-weight:700>&lt;iostream&gt;</span><span style=color:#cd2828;font-weight:700>
+</span><span style=color:#cd2828;font-weight:700></span>
+<span style=color:#6ab825;font-weight:700>int</span> <span style=color:#447fcf>main</span>() {
+  std::cout &lt;&lt; <span style=color:#ed9d13>&#34;What is your name?&#34;</span> &lt;&lt; std::endl;
+  std::string name;
+  std::getline(std::cin, name);
+
+  std::cout &lt;&lt; <span style=color:#ed9d13>&#34;Hewwo &#34;</span> + name + <span style=color:#ed9d13>&#34;! Nice to meet you~ ^w^&#34;</span> &lt;&lt; std::endl;
+}
+</code></pre></div><p>Now, run the program, paying actual attention to what is outputed to the screen, and when the user needs to enter in information</p><div class=highlight><pre style=color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>$ python3 test.py
+What is your name?
+Edwin
+Hewwo Edwin! Nice to meet you~ ^w^
+</code></pre></div><p>So, the user executes the program, and <em>expects</em> the program to prompt for a name. Once the program prints the prompt, the user <em>sends</em> their name. This can easily be codified as such:</p><div class=highlight><pre style=color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-tcl data-lang=tcl><span style=color:#999;font-style:italic>#!/usr/bin/expect -f
+</span><span style=color:#999;font-style:italic></span><span style=color:#40ffff>spawn</span> <span style=color:#ed9d13>&#34;python3&#34;</span> <span style=color:#ed9d13>&#34;test.py&#34;</span>
+
+<span style=color:#40ffff>expect</span> <span style=color:#ed9d13>&#34;What is your name?&#34;</span>
+<span style=color:#40ffff>send</span> <span style=color:#ed9d13>&#34;Edwin\r&#34;</span>
+
+<span style=color:#40ffff>expect</span> eof
+</code></pre></div><p>If you are curious, the <code>expect eof</code> essentially makes Expect continue running until the <code>./test.py</code> program finishes executing. Otherwise, Expect would have quit prematurely. And, the <code>\r</code> denotes a <em>return character</em>, like pressing Return on your keyboard (<code>\n</code> works as well)</p><p>Cool! Let&rsquo;s run it! As you can see, I&rsquo;ve called the file <code>automate.tcl</code></p><div class=highlight><pre style=color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>$ expect -f ./automate.tcl
+spawn python3 test.py
+What is your name?
+Edwin
+Hewwo Edwin! Nice to meet you~ ^w^
+</code></pre></div><p>Woah~! We didn&rsquo;t even have to do anything and the user input was supplied automatically!</p><h2 id=handing-control-back-to-the-user>Handing control back to the user</h2><p>90% of the time, you&rsquo;re either going to be using the <code>expect</code> or <code>send</code> functions. There are times where you would want to do other things, though, such as giving control back to the user, so they can input data themselves. Let&rsquo;s try that.</p><p>First, we&rsquo;ll modify the program to ask another question:</p><div class=highlight><pre style=color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#999;font-style:italic>#!/usr/bin/env python3</span>
+<span style=color:#24909d>print</span>(<span style=color:#ed9d13>&#34;What is your name?&#34;</span>)
+name = <span style=color:#24909d>input</span>()
+<span style=color:#24909d>print</span>(<span style=color:#ed9d13>f</span><span style=color:#ed9d13>&#34;Hewwo </span><span style=color:#ed9d13>{</span>name<span style=color:#ed9d13>}</span><span style=color:#ed9d13>! Nice to meet you~ ^w^&#34;</span>)
+
+<span style=color:#24909d>print</span>(<span style=color:#ed9d13>&#34;What is your favorite animal?&#34;</span>)
+animal = <span style=color:#24909d>input</span>()
+<span style=color:#24909d>print</span>(<span style=color:#ed9d13>f</span><span style=color:#ed9d13>&#34;Woah~, the </span><span style=color:#ed9d13>{</span>animal<span style=color:#ed9d13>}</span><span style=color:#ed9d13> is a pretty cool animal!&#34;</span>)
+</code></pre></div><p>Let&rsquo;s run the same Expect script, just to see what happens</p><div class=highlight><pre style=color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>$ expect -f automate.tcl
+spawn python3 test.py
+What is your name?
+Edwin
+Hewwo Edwin! Nice to meet you~ ^w^
+What is your favorite animal?
+
+</code></pre></div><p>It hangs! This is because at this point, Expect has reached the <code>expect eof</code> line. Here, Expect is just sort of waiting until the program exits (try to type a response and press enter, nothing will happen). Instead of waiting, we want the user to <em>interact</em> with the program</p><p>To do this, just replace the <code>expect eof</code> with <code>interact</code></p><div class=highlight><pre style=color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=color:#cd2828;font-weight:700>#!/usr/bin/expect -f
+</span><span style=color:#cd2828;font-weight:700></span>spawn <span style=color:#ed9d13>&#34;python3&#34;</span> <span style=color:#ed9d13>&#34;test.py&#34;</span>
+
+expect <span style=color:#ed9d13>&#34;What is your name?&#34;</span>
+send <span style=color:#ed9d13>&#34;Edwin\r&#34;</span>
+
+interact
+</code></pre></div><p>The output <em>looks</em> the same, but if you type and press enter, the Python program actually receives the input and prints out a response! Here is my output:</p><div class=highlight><pre style=color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>$ expect -f automate.tcl
+spawn python3 test.py
+What is your name?
+Edwin
+Hewwo Edwin! Nice to meet you~ ^w^
+What is your favorite animal?
+Fox
+Woah~, the Fox is a pretty cool animal!
+</code></pre></div><p>This is extremely useful if you want to automate the beginning of a program, but also want to manually input text near the end.</p><h3 id=miscellaneous-tips>Miscellaneous tips</h3><p>There are a few things that you may want to be aware of</p><ol><li>Using asterisks!</li></ol><p>If you are expecting the string <code>What is your name?</code>, you don&rsquo;t have to write it out in full like so:</p><div class=highlight><pre style=color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-tcl data-lang=tcl><span style=color:#40ffff>expect</span> <span style=color:#ed9d13>&#34;What is your name?&#34;</span>
+</code></pre></div><p>Instead, use a glob pattern. The asterisks means &ldquo;zero or more characters&rdquo;</p><div class=highlight><pre style=color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-tcl data-lang=tcl><span style=color:#40ffff>expect</span> <span style=color:#ed9d13>&#34;*your name?*&#34;</span>
+</code></pre></div><ol start=2><li>Use <code>--</code> if want to input something that starts with a hyphen</li></ol><p>Sort of like invoking command line arguments programs <code>ls</code>, <code>mkdir</code>, adding <code>--</code> will prevent any ambiguity. In other words, <code>send</code> will interpret <code>-cool</code> as a string to send, rather than an option that modifies its behavior</p><div class=highlight><pre style=color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-tcl data-lang=tcl><span style=color:#999;font-style:italic># ❌ INCORRECT
+</span><span style=color:#999;font-style:italic></span><span style=color:#40ffff>send</span> <span style=color:#ed9d13>&#34;-cool&#34;</span>
+
+<span style=color:#999;font-style:italic># ✅ CORRECT
+</span><span style=color:#999;font-style:italic></span><span style=color:#40ffff>send</span> -- <span style=color:#ed9d13>&#34;-cool&#34;</span>
+</code></pre></div><ol start=2><li>Pass <code>-h</code> to send if you want to make it seem like a human typed it (slower typing, with variant intermidant delays)</li></ol><div class=highlight><pre style=color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-tcl data-lang=tcl><span style=color:#6ab825;font-weight:700>set</span> send_human <span style=color:#6ab825;font-weight:700>{</span><span style=color:#40ffff>.1</span> .3 <span style=color:#3677a9>1</span> .05 <span style=color:#3677a9>2</span><span style=color:#6ab825;font-weight:700>}</span>
+
+<span style=color:#40ffff>send</span> -h <span style=color:#ed9d13>&#34;It looks like a human is typing this&#34;</span>
+</code></pre></div><p>Note that you only have to set the <code>send_human</code> variable once, best placed at the top of the file. For more information about the 5 numbers, here is a snippet from the man page</p><blockquote><p>The first two elements are average interarrival time of characters in seconds. The first is used by default. The second is used at word endings, to simulate the subtle pauses that occasionally occur at such transitions. The third parameter is a measure of variability where .1 is quite variable, 1 is reasonably variable, and 10 is quite invariable. The extremes are 0 to infinity. The last two parameters are, respectively, a minimum and maximum interarrival time. The minimum and maximum are used last and &ldquo;clip&rdquo; the final time. The ultimate average can be quite different from the given average if the minimum and maximum clip enough values</p></blockquote><ol start=3><li>Type with a slight pause. Sometimes, it may be useful to type something, and wait for the underling program to catch up (ex. Slow languages like Java). You can use a Tcl procedure for this</li></ol><div class=highlight><pre style=color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-tcl data-lang=tcl><span style=color:#999;font-style:italic>#!/usr/bin/expect -f
+</span><span style=color:#999;font-style:italic></span><span style=color:#6ab825;font-weight:700>proc</span> send_with_delay <span style=color:#6ab825;font-weight:700>{</span><span style=color:#40ffff>str</span><span style=color:#6ab825;font-weight:700>}</span> <span style=color:#6ab825;font-weight:700>{</span>
+  <span style=color:#40ffff>send</span> <span style=color:#40ffff>$str</span>
+  <span style=color:#40ffff>sleep</span> <span style=color:#3677a9>0.3</span>
+<span style=color:#6ab825;font-weight:700>}</span>
+
+<span style=color:#999;font-style:italic># Use it like so...
+</span><span style=color:#999;font-style:italic></span><span style=color:#40ffff>send_with_delay</span> <span style=color:#ed9d13>&#34;Fox\r&#34;</span>
+</code></pre></div><h3 id=wrap>Wrap</h3><p>Expect has many more features, but those are the ones you&rsquo;ll be using the most often! If this helped you or if you have <em>any</em> feedback, <a href=https://twitter.com/hyperupcall>let me know</a>! Thank youu~ and have a fantastic rest-of-the-day!</p></div><ul class=article-taxonomy><hr><li><i class="fa fa-category"></i><a href=../../categories/tutorial>tutorial</a></li><li><i class="fa fa-tags"></i><a href=../../tags/linux>linux</a></li></article></main><footer class=footer><ul class=footer-links><li><a href=https://hyperupcall.github.io/blog/index.xml type=application/rss+xml target=_blank><i class="fa fa-rss"></i> RSS feed</a></li><li><a href=../../>Home</a></li><li><a href=https://hyperupcall.github.io/blog/site-notice>Site notice</a></li></ul></footer></div></body><script async src="https://www.googletagmanager.com/gtag/js?id=UA-88833922-3"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','UA-88833922-3')</script></html>
