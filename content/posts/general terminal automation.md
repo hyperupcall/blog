@@ -2,7 +2,7 @@
 title = "Terminal Automation with Expect"
 slug = "terminal-automation-with-expect"
 author = "Edwin Kofler"
-date = 2022-01-03T22:00:41-08:00
+date = 2022-01-08T14:48:33-08:00
 categories = ["tutorial"]
 tags = ["linux"]
 +++
@@ -89,7 +89,7 @@ sleep 1
 puts "Hello again! ^w^"
 ```
 
-To run, invoke `epxect` with the `-f` flag
+To run, invoke `expect` with the `-f` flag
 
 ```sh
 $ chmod +x ./script.tcl # remember to mark the file as executable
@@ -196,7 +196,7 @@ What is your favorite animal?
 
 ```
 
-It hangs! This is because at this point, Expect has reached the `expect eof` line. Here, Expect is just sort of waiting until the program exits (try to type a response and press enter, nothing will happen). Instead of waiting, we want the user to _interact_ with the program
+It hangs! This is because at this point, Expect has reached the `expect eof` line. Here, Expect is just sort of waiting until the program exits (try to type a response and press enter, nothing will happen). Instead of waiting, we want Expect to enable the user to _interact_ with the program
 
 To do this, just replace the `expect eof` with `interact`
 
