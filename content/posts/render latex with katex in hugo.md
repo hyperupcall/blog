@@ -5,7 +5,6 @@ author = "Edwin Kofler"
 date = 2018-09-15T11:26:16-07:00
 categories = ["update", "tutorial"]
 tags = ["LaTeX", "KaTeX"]
-markup = "mmark"
 katex = true
 draft = false
 +++
@@ -79,7 +78,7 @@ Now, using the KaTex partial is trivial. In your Hugo [front matter](https://goh
 ```yaml
 ---
 katex: true
-markup: "mmark"
+markup: 'mmark'
 ---
 ```
 
