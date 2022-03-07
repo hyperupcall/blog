@@ -29,11 +29,11 @@ $$
 
 My instructor stated that Pascal's triangle strongly relates to the coefficients of an expanded binomial. You've probably seen this before. A binomial to the $$n$$th power (where $$n \in \mathbb{N}$$) has the same coefficients as the $$n$$th row of Pascal's triangle. The overall relationship is known as the [binomial theorem](https://en.wikipedia.org/wiki/Binomial_theorem), which is expressed below.
 
-$$ (a+b)^n = \sum_{k=0}^{n} \binom{n}{k} a^{n-k} b^k $$
+$$ (a+b)^n = \sum\_{k=0}^{n} \binom{n}{k} a^{n-k} b^k $$
 
 $$\binom{n}{k}$$ means $$n$$ choose $$k$$, which has a relation to [statistics](https://en.wikipedia.org/wiki/Binomial_coefficient). As you can see, it's the coefficient of the $$k$$th term in the polynomial expansion $$(a+b)^n$$ For example, $$n=3$$ yields the following:
 
-$$ (a+b)^3 = \sum_{k=0}^{3} \binom{3}{k} a^{3-k} b^{k}$$
+$$ (a+b)^3 = \sum\_{k=0}^{3} \binom{3}{k} a^{3-k} b^{k}$$
 
 $$ a^3 + 3ab^2 + 3a^2b + 9b^3 = \binom{3}{0}a^3 + \binom{3}{1}a^2b + \binom{3}{2}b^2a + \binom{3}{3}b^3 $$
 
@@ -88,7 +88,7 @@ We can write the first 5 equations. We want to generate the $$_nC_r$$ terms usin
 
 $$z_1 = {_0C_0} = 1$$
 
-$$ z_2 = {_1C_0} = z_2 = 1$$
+$$ z_2 = {\_1C_0} = z_2 = 1$$
 
 $$z_3 = {_2C_0} + {_1C_1} = 2$$
 

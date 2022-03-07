@@ -8,17 +8,17 @@ tags = ["vue", "frontend"]
 draft = false
 +++
 
-During the November of 2018, I became aware of a [website](https://challenges.robotevents.com/challenge/95) competition. I had the opportunity to submit a website that showcased my robotics club by mid-January. Website creation tools (like ones from Wix or Weebly) were not prohibited.  After learning this, I thought this competition would be perfect to apply the frontend skills that I recently learned! I knew I probably wasn't going to win, but I wanted to give it my best shot.
+During the November of 2018, I became aware of a [website](https://challenges.robotevents.com/challenge/95) competition. I had the opportunity to submit a website that showcased my robotics club by mid-January. Website creation tools (like ones from Wix or Weebly) were not prohibited. After learning this, I thought this competition would be perfect to apply the frontend skills that I recently learned! I knew I probably wasn't going to win, but I wanted to give it my best shot.
 
-So I created a new repository that November and started working. I made sure to use similar tooling / technologies that I had experience with, because I was still sort of new to web development. I used the [Vue](https://vuejs.org) JavaScript framework. I remember feeling *ecstatic* because Vue Cli 3 just released. Meaning, I didn't have to create my own Webpack config for Vue + Babel + Sass compiling / transpiling & HMR etc. Gosh, that was a nightmare with my first website.
+So I created a new repository that November and started working. I made sure to use similar tooling / technologies that I had experience with, because I was still sort of new to web development. I used the [Vue](https://vuejs.org) JavaScript framework. I remember feeling _ecstatic_ because Vue Cli 3 just released. Meaning, I didn't have to create my own Webpack config for Vue + Babel + Sass compiling / transpiling & HMR etc. Gosh, that was a nightmare with my first website.
 
 ## Initial Structure
 
 I made sure to abide by some lessons I've learned firsthand from my previous website
 
-* Create components from repeated page elements
-* Do not make HTML templates large (split up into as many components as possible)
-* Avoid creating large `.css`/`.sass` stylesheets (so large that they don't fit in their corresponding `.vue` component)
+- Create components from repeated page elements
+- Do not make HTML templates large (split up into as many components as possible)
+- Avoid creating large `.css`/`.sass` stylesheets (so large that they don't fit in their corresponding `.vue` component)
 
 Keeping that in mind, I build a basic page showing what the layout would roughly look like.
 
@@ -33,11 +33,11 @@ After a few weeks, I realized the top-level architecture I had previously had to
 
 ```html
 <template>
-  <div id="app">
-    <navbar />
-    <router-view />
-    <foot />
-  </div>
+	<div id="app">
+		<navbar />
+		<router-view />
+		<foot />
+	</div>
 </template>
 ```
 
@@ -47,12 +47,12 @@ There was a Page Heading component inside of `router-view`, which I later moved 
 
 ```html
 <template>
-  <div id="app">
-    <navbar />
-    <page-heading />
-    <router-view />
-    <foot />
-  </div>
+	<div id="app">
+		<navbar />
+		<page-heading />
+		<router-view />
+		<foot />
+	</div>
 </template>
 ```
 
@@ -92,7 +92,7 @@ I had the most fun making the carousel that displayed the club's sponsors. After
 
 ### Enlarged photograph views
 
-I enjoyed animating the photograph card on hover. You can see it in   the gif below: On moues hover, the card floats up, the shadow increases, and the "enlarge" icon fades in and slides to the left.
+I enjoyed animating the photograph card on hover. You can see it in the gif below: On moues hover, the card floats up, the shadow increases, and the "enlarge" icon fades in and slides to the left.
 
 The page that shows the enlarged image was pretty cool. At the time, I didn't know any best practices that allowed the image to stay on refresh. For a temporary-permanent solution, I base64 encoded the data that described the image in the URI. Because `/` is the 63rd character in the base64 format (starting from 0), it created extra routes that were not intended. As a result, I replaced forward slashes with exclamation marks. I had to convert the exclamation marks to forward slashes before decoding the string.
 

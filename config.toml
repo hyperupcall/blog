@@ -13,7 +13,7 @@ paginate = 10
 pygmentsCodefences = true
 pygmentsStyle = "native"
 
- # https://gohugohq.com/partials/emojis-shortcode-for-hugo/
+# https://gohugohq.com/partials/emojis-shortcode-for-hugo/
 enableEmoji = true
 # [blackfriday]
 #     enableEmoji = true
@@ -23,33 +23,33 @@ enableEmoji = true
 # katex = false
 
 [taxonomies]
-    category = "categories"
-    tag = "tags"
+category = "categories"
+tag = "tags"
 
 [permalinks]
-    post = "/:slug/"
-    page = "/:slug/"
+post = "/:slug/"
+page = "/:slug/"
 
 [[menu.main]]
-    name = "About"
-    url = "/about/"
-    weight = -110
+name = "About"
+url = "/about/"
+weight = -110
 
 [[menu.main]]
-    name = "Tags"
-    url = "/tags"
-    weight = -120
+name = "Tags"
+url = "/tags"
+weight = -120
 
 [[menu.main]]
-    name = "Categories"
-    url = "/categories"
-    weight = -130
+name = "Categories"
+url = "/categories"
+weight = -130
 
 [params]
-    description = ""
+description = ""
 
-    [params.logo]
-    url = "logo.jpg"
-    width = 50
-    height = 50
-    alt = "Logo"
+[params.logo]
+url = "logo.jpg"
+width = 50
+height = 50
+alt = "Logo"

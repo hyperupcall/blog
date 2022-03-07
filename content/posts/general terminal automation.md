@@ -265,8 +265,7 @@ send -h "It looks like a human is typing this"
 
 Note that you only have to set the `send_human` variable once, best placed at the top of the file. For more information about the 5 numbers, here is a snippet from the man page
 
-> The first two elements are average interarrival time of characters in seconds. The first is used  by default. The second is used at word endings, to simulate the subtle pauses that occasionally occur at such transitions. The third parameter is a measure of variability where .1 is quite variable, 1 is reasonably variable, and 10 is quite invariable.  The extremes are 0 to infinity.  The last two parameters are, respectively, a minimum and maximum interarrival time.  The minimum and maximum are used last and "clip" the  final time.  The ultimate average can be quite different from the given average if the minimum and maximum clip enough values
-
+> The first two elements are average interarrival time of characters in seconds. The first is used by default. The second is used at word endings, to simulate the subtle pauses that occasionally occur at such transitions. The third parameter is a measure of variability where .1 is quite variable, 1 is reasonably variable, and 10 is quite invariable. The extremes are 0 to infinity. The last two parameters are, respectively, a minimum and maximum interarrival time. The minimum and maximum are used last and "clip" the final time. The ultimate average can be quite different from the given average if the minimum and maximum clip enough values
 
 3. Type with a slight pause. Sometimes, it may be useful to type something, and wait for the underling program to catch up (ex. Slow languages like Java). You can use a Tcl procedure for this
 

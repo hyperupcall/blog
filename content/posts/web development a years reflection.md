@@ -42,7 +42,7 @@ After a some time, I was able to create a [lame sidebar menu](https://github.com
 
 ![sigag-ui-development](/image/web-dev-a-year-later/baeuda-development.png)
 
-After I made the lame sidebar, I realized that I needed to learn more before taking on this huge "flashcard project". Since building the sidebar wasn't exactly easy, I knew that I would need more experience before continuing with the project. *D'oh!*
+After I made the lame sidebar, I realized that I needed to learn more before taking on this huge "flashcard project". Since building the sidebar wasn't exactly easy, I knew that I would need more experience before continuing with the project. _D'oh!_
 
 To gain experience, I built a Pomodoro timer.
 
@@ -52,7 +52,7 @@ A Pomodoro timer, is basically an ordinary count-down timer, except that after e
 
 I called this smaller project [sigag](https://github.com/EanKeen/sigag). Starting the project was a bit easier since I used Electron and npm before. And actually, the project turned out to be somewhat successful.
 
-From *sigag*, I learned how to create better user interfaces.
+From _sigag_, I learned how to create better user interfaces.
 
 ![sigag-ui-development](/image/web-dev-a-year-later/sigag-ui-development.png)
 
@@ -62,7 +62,7 @@ But I never finished this project idea either, like the previous project. The UI
 
 ## Summer
 
-Around the time I stopped working on *sigag*, my pomodoro timer, it was nearing the end of school. There was about a month left. This is when I had that idea - a periodic table web application that looked as good as it functioned.
+Around the time I stopped working on _sigag_, my pomodoro timer, it was nearing the end of school. There was about a month left. This is when I had that idea - a periodic table web application that looked as good as it functioned.
 
 ### Periodic Table Web App
 
@@ -118,7 +118,7 @@ When fall was around the corner, I realized that I couldn't finish the website b
 It basically looked something like this
 ![periodic table later revision](/image/web-dev-a-year-later/periodic-table-later-design.png)
 
-All the styling is *kinda* sexy, but I just wasn't sure how to store and manipulate the atomic data in a way which would be maintainable. Now that I reflect, I was thinking too hard about it. Since I had no experience building any other website, it was ridiculous that I thought so much about it instead of *just building it*.
+All the styling is _kinda_ sexy, but I just wasn't sure how to store and manipulate the atomic data in a way which would be maintainable. Now that I reflect, I was thinking too hard about it. Since I had no experience building any other website, it was ridiculous that I thought so much about it instead of _just building it_.
 
 Oh, and when I actually got my app to production, that's when I experienced the most fun. It felt good to put that crappy app on those DigitalOcean (my hosting provider) servers. I pulled an all-nighter configuring my Ubuntu server, getting `ssh`, `nginx`, `systemctl`, and `pm2` all configured properly. I had no idea what I was doing, which made it even more cool. And I didn't snooze off the following school day!
 
@@ -128,11 +128,11 @@ So getting back on track, around the time I pushed the app to production, Vue Cl
 
 When I switched to a brand new codebase (version 2), my productivity dropped significantly.
 
-*Version 1*
+_Version 1_
 
 ![commits](/image/web-dev-a-year-later/periodic-table-v1-commits.png)
 
-*Version 2*
+_Version 2_
 
 ![commits](/image/web-dev-a-year-later/periodic-table-v2-commits.png)
 
@@ -174,28 +174,28 @@ I learned a lot about frontend development this year. I made a list of things th
 
 Advanced
 
-* Git
-* Computer networking
-* Web Technologies
-  * JS APIs
-  * Web protocols
-  * CSS, HTML
+- Git
+- Computer networking
+- Web Technologies
+  - JS APIs
+  - Web protocols
+  - CSS, HTML
 
 Intermediate
 
-* Asm
-* C
-* Linux
-  * Scripting
-  * Boot process
-  * Kernel magic
-  * Installation
-  * Customization
-* Rust
-* Go
-* Mercurial
-* Nginx
-* Data structures
-* TeX / LaTeX
+- Asm
+- C
+- Linux
+  - Scripting
+  - Boot process
+  - Kernel magic
+  - Installation
+  - Customization
+- Rust
+- Go
+- Mercurial
+- Nginx
+- Data structures
+- TeX / LaTeX
 
 Hopefully I'm not falling prey to the Dunning-Kruger effect - I'll be the first to admit that this list is probably sorted mostly based on relative (predicted) topical skill differences, or predicted time-to-learn values. But what are goals if they're not wrong sometimes? I guess until I dive into these topics, I won't know for sure how much I'll want to know. I'll be sure to blog about some of my learning experiences.
