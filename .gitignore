@@ -1,6 +1,3 @@
 # Hugo
 .hugo_build.lock
 dist/
-
-# misc
-.vscode/
