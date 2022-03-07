@@ -32,7 +32,7 @@ sudo pacman -S expect
 ```
 
 ```sh
-# For Fedora, CentOS Streams, RHEL, Rocky, Alma etc.
+# For Fedora, CentOS Streams, RHEL, Rocky, Alma, etc.
 sudo dnf install expect
 ```
 
