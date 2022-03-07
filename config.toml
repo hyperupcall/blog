@@ -1,6 +1,6 @@
 baseURL = "https://hyperupcall.github.io/blog/"
 languageCode = "en-us"
-title = "Edwin's Blog"
+title = "Edwin Kofler"
 theme = "hugo-natrium-theme"
 
 publishDir = "dist"
