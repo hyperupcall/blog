@@ -9,6 +9,8 @@ katex = true
 draft = false
 +++
 
+NOTICE: This method will NO LONGER WORK on recent version of Hugo. I recommend reading [this post](https://mertbakir.gitlab.io/hugo/math-typesetting-in-hugo) for up-to-date instructions.
+
 Just recently, I added support to render LaTeX math equations with the rendering engine [KaTeX](https://katex.org/) for this blog. I chose it over MathJax because it performs [substantially faster](https://www.intmath.com/cg5/katex-mathjax-comparison.php). To integrate KaTeX in my Hugo blog, I used the [Mmark](https://github.com/mmarkdown/mmark) Markdown processor rather than Hugo's default [Blackfriday](https://github.com/russross/blackfriday) processor.
 
 There are three steps to follow so you can write LaTeX in markdown for KaTeX to use.
