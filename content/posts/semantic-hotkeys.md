@@ -5,7 +5,7 @@ author = "Edwin Kofler"
 date = 2018-09-03T11:52:21-07:00
 categories = ["hotkeys"]
 tags = ["user-interface"]
-draft = true
+draft = false
 +++
 
 Hotkeys are present in nearly all software. However, in my view, both software users and application developers do not realize the full potential of hotkeys
@@ -30,7 +30,7 @@ The third cost involves clobbering. This can occur in applications that provide 
 
 ## Definitions
 
-- _Semantic Hotkey_: A hotkey in which the keypresses that define it have semantics rooted in physicalities
+- _Semantic Hotkey_: A hotkey in which the keypresses that define it have semantics rooted in physicalities or positionalities
   - Example:  `WASD` and `HJKL` have semantics of orientation or directed movement based on the arrangement of said keys
   - Example: `Ctrl+Tab` and `Ctrl+Shift+Tab` to move view right and left, respectively.
     - `Tab` semantically equivalent to cycle (cycle through form fields, tabs, application windows, etc.)
@@ -57,43 +57,25 @@ Some other notes:
 
 ## Proposed Solution
 
-My solution assumes the following for each applicable application:
+My solution assumes that each applicable application:
 
 - Supports custom mapping from hotkey to action
-- Supported chording hotkeys
+- Supports chording hotkeys
 
-My three-pronged solution involves:
+For each application, from a common JSON file (with keys being semantic keys and values being the shortcuts themselves), configuration for each native application is created.
 
-1. Sharing hotkeys and conventions across applications
-
-2. Conventions to limit clobbering
-3. Intuitive semantics of semantic hotkeys
-
-Semantics can be more fine-tuned to fit into concrete categories. In the context of _DE Workspaces_, _Application Windows_, _Terminal Panes_, a unified language
-
-### Challanges
-
-A pertinent example is the use of `h`, `j`, `k`, `l`
-
-- GUI App
-- GUI App in VM
-
-- Terminal App
-- Terminal App in tmux
-- Terminal App in tmux in Kitty
-- Terminal App in tmux in Kitty in VM / Container
+Of course, there are many actions that don't correspond to a shortcut, or a shortcut has a nuanced meaning. But, those ca be accounted for via escape hatches
 
 ## Benefits
 
-A good example is the arbitrary positioning of a cursor in a grid. Imagine a grid of, say, 5 by 5.
+Benefits users because shortcuts:
 
-Agnostic to
-
-- keyboard layout
-- keyboard language
-- Employ two different sides of the keyboard for faster switching (DVORAK-esque)
+- Are an invariant with respect to keyboard layout and language
+- Help interface designers improve UX by making UI paths more explicit
 Become only more useful due to the gridification and flexification of layouts - convergence creates more consistency within interfaces
 
-- Interface designers improve UX by critically thining how UI paths compose for hotkeys
+## Challanges
 
-In the coming months, I'll have something: [github.com/semantic-hotkeys](https://github.com/semantic-hotkeys)
+Nested contexts are a challange. For example, in the case of Kitty wrapping tmux wrapping Vim as opposed to just Vim itself.
+
+See [github.com/semantic-hotkeys](https://github.com/semantic-hotkeys) to see this in action
