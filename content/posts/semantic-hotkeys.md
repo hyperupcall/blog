@@ -10,7 +10,7 @@ draft = false
 
 Hotkeys are present in nearly all software. However, in my view, both software users and application developers do not realize the full potential of hotkeys.
 
-I believe the full productivity of hotkeys can be unleashed through the concept of _semantic hoteys_. First I'll introduce some current problems with hotkeys, then I'll explain how _semantic hotkeys_ can provide a solution, and lastly, show what an implementation might look like.
+I believe the full productivity of hotkeys can be unleashed through the concept of _semantic hotkeys_. First I'll introduce some current problems with hotkeys, then I'll explain how _semantic hotkeys_ can provide a solution, and lastly, show what an implementation might look like.
 
 ## Current Woes
 
