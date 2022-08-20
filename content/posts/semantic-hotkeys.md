@@ -10,7 +10,7 @@ draft = false
 
 Hotkeys are present in nearly all software. However, in my view, both software users and application developers do not realize the full potential of hotkeys.
 
-I believe the full productivity of hotkeys can be unleashed through the concept of _semantic hoteys_. First I'll introduce some current problems with hotkeys, then I'll explain how _semantic hotkeys_ can provide a solution.
+I believe the full productivity of hotkeys can be unleashed through the concept of _semantic hoteys_. First I'll introduce some current problems with hotkeys, then I'll explain how _semantic hotkeys_ can provide a solution, and lastly, show what an implementation might look like.
 
 ## Current Woes
 
@@ -20,7 +20,7 @@ The crux of my claims boils down to consistency. In one perspective, there are t
 2. The cost of context-switching
 3. The cost of hotkey clobbering
 
-The first cost is somewhat-inevitable, especially for large enterprise softwares like [Blender](https://www.blender.org) or [Houdini](https://www.sidefx.com). Sometimes, this cost is rarely a consideration because it is easily amortized by ample use of the hotkeys themselves. But, with less frequently-used applications, it is often not worth learning the hotkeys. The cost of learning hotkeys of a particular application is typically not proportional to the total time using that application.
+The first cost is somewhat-inevitable, especially for large enterprise softwares like [Blender](https://www.blender.org) or [Houdini](https://www.sidefx.com). Sometimes, this cost is rarely a consideration because it is easily amortized by ample use of the hotkeys themselves. But, with less frequently-used or non-unique applications, it is often not worth learning the hotkeys. The cost of learning hotkeys of a particular application is typically not proportional to the total time using that application.
 
 The second cost deals with context switching among multiple applications (that have different sets of hotkeys). A high familiarity with each applications' hotkeys can mitigate this penalty somewhat, but it will always exist. As applications with incongruent hotkeys increase, the cost of context switching will only remain high.
 
@@ -32,15 +32,17 @@ An ideal solution involves constructing a set of shared keyboard shortcuts acros
 
 Introducing, semantic hotkeys:
 
-- _Semantic Hotkey_: A hotkey in which the keypresses that define it have semantics rooted in physicalities or commonalities
-  - Example:  `WASD` and `HJKL` have semantics of orientation or directed movement based on the arrangement of said keys
-  - Example: `Ctrl+Tab` and `Ctrl+Shift+Tab` to move view right and left, respectively.
+- _Semantic Hotkey_: A hotkey in which the keypresses that define it have semantics rooted in physicalities, geometries, or commonalities
+  - Example:  `WASD` and `HJKL` have semantics of orientation or directed movement based on the arrangement of said keys (physicality)
+  - Example: `Ctrl+Tab` and `Ctrl+Shift+Tab` to move view right and left, respectively. (commonality)
     - `Tab` semantically equivalent to cycle (cycle through form fields, tabs, application windows, etc.)
     - But still sightly less semantic compared to the previous example because the modifier `Shift` does not consistently mean "backwards" or "opposite".
-  - Example: `Ctrl+[`, `Ctrl+(`, `Ctrl+{` to move to end of discrete element (ex. symbol, closed brace, etc).
-    - The level of "curviness" of each brace may be meaningful in any particular context
+  - Example: `Ctrl+[`, `Ctrl+(`, `Ctrl+{` to move to end of discrete element (ex. symbol, closed brace, etc). (geometry)
+    - The level of "curviness" of each brace may also be meaningful in some contexts
+      - Still, somewhat unsemantic, as braces aren't arranged in order on keyboard layouts
+  - Example: Keys `I` and `O` may signal `On` and `Off` (geometry)
 
-The "physicalities" and "commonalities" part of semantic hotkeys ensure that the semantic are either shared or intuitive enough. The penalty of context switching would decrease.
+The "physicalities", "geometries", and "commonalities" part of semantic hotkeys ensure that the semantics are intuitive enough to mitigate the penalty of context switching.
 
 In contrast,
 
@@ -51,36 +53,31 @@ In contrast,
     - These are dedicated keys, so their semantic meaning is inherently superficial
     - Tangentially, not all keyboards have these buttons so their utility is questionable
 
-By defining and using semantic hotkeys more than syntactic hotkeys, the cost of learning new shortcuts is lower.
+The shortcut `Ctrl+P` may mean **p**rint, **p**revious, or **p**roject. Furthermore, users' native tongue, keyboard, or keyboard layout may differ; these changes affect the intuitiveness and sensibility of the shortcut.
 
-Furthermore, semantic hotkeys are more resilient to any changes of the Human Computer Interface itself
+That is, more generally, semantic hotkeys are more resilient to any changes of the Human Computer Interface itself.
 
-- Example: Changing the keyboard layout from QWERTY to DVORAK or changing the keyboard language from English to Deutsch will not significantly change the meaning or position of the shortcut.
+- Example: Changing the keyboard layout from QWERTY to DVORAK or changing the keyboard language from English to Deutsch will not change the meaning or position of the shortcut.
 - Example: Replacing the keybord with, say, gloves that have acceleration, orientation, etc. tracking could still yield similar "shortcuts" in whatever form they exist
 
-With semantic shortcuts, it may be possible for the Operating System to handle shortcut transformations, rather than the applications themselves.
-(If Cut, Copy, and Paste were semantic, then the Colemak keyboard would not need to exist)
-
-- Supports custom mapping from hotkey to action
-- Supports chording hotkeys
+Lastly, Incorporating these shortcuts encourage interface designers to thing about making UI paths more explicit and cohesive, eventually improving UX.
 
 ## Implementation
 
 For each application, from a common JSON file (with keys being semantic keys and values being the shortcuts themselves), configuration for each native application is created.
-A reasonable implementation assumes that each applicable application supports:
 
-Of course, there are many actions that don't correspond to a shortcut, or a shortcut has a nuanced meaning. But, those ca be accounted for via escape hatches
+A reasonable implementation assumes that each applicable application supports:
 
 - Custom mapping from hotkey to action
 - Chorded hotkeys
 
-The keys `h`, `j`, `k`, `l` are a great starting point - they correspond to directions. More specifically, they move a cursor, selection, or item directionally within a particular context.
+The keys `h`, `j`, `k`, `l` are a great starting point - they correspond to directions. More specifically, they move a cursor, selection, or item directionally within a particular context. For example:
 
-- Vim: Cursor within a buffer
-- Window Manager: Window within a virtual desktop
-- Terminal Multiplexer: Pane within a terminal
+- in a Terminal Text Editor, it may move a Cursor within a Buffer
+- in a Window Manager, it may move a Window within a Virtual Desktop
+- in a Terminal Multiplexer, it may move a Pane within a Window
 
-We can generalize:
+We can generalize to include the following actions:
 
 - Selection navigate within context
 - Selection move within context
@@ -88,26 +85,12 @@ We can generalize:
 - Context navigate relatively
 - Context move relatively
 
-Important to note that contexts can simultaneously be sections. Semantics can be more fine-tuned to fit into concrete categories. In the context of _DE Workspaces_, _Application Windows_, _Terminal Panes_, a unified language
+This blog post mainly exists to explain the problem and solution, and I haven't figured out a cohesive and intuitive solution. There are many more challenges involved:
 
-### Challenges
+- Contexts can sometimes treated As sections (sometimes simultaneously)
+  - Semantics can be more fine-tuned to fit into concrete categories
+- Applications shortcuts may nest
+  - A terminal app (raw mode) may be within the contest of a graphical terminal emulator, a terminal multiplexer, and a TUI interface to a virtual machine manager (ex. QEMU Monitor)
+- Applying this systems to programs with slightly different behaviors
 
-Challenges include nested applications
-
-For example, of an arbitrary terminal app, there are multiple possible nestings (which can affect shortcut semantics):
-
-- Terminal App
-- Terminal App in tmux
-- Terminal App in tmux in Kitty
-- Terminal App in tmux in Kitty in VM / Container
-
-## Similar ideas
-
-Benefits users because shortcuts:
-
-- Are an invariant with respect to keyboard layout and language
-- Help interface designers improve UX by making UI paths more explicit
-- Employ two different sides of the keyboard for faster switching (DVORAK-esque)
-Become only more useful due to the gridification and flexification of layouts - convergence creates more consistency within interfaces
-
-See [github.com/semantic-hotkeys](https://github.com/semantic-hotkeys) to see this in action
+Semantic Hotkeys are tricky to define since keyboards are both fixed and varied. But, applying such a system will improve productivity. I'm doing some preliminary work at [github.com/semantic-hotkeys](https://github.com/semantic-hotkeys) to apply this idea to everyday applications and websites. When its ready, you may find it useful, or employ a similar system in your program.
