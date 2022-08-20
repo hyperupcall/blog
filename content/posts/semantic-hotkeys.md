@@ -51,9 +51,9 @@ In contrast,
   - Example: `Ctrl+F` means **f**ind item in current document (rooted in English grammar)
   - Example: `Delete` and `PageUp`
     - These are dedicated keys, so their semantic meaning is inherently superficial
-    - Tangentially, not all keyboards have these buttons so their utility is questionable
+    - Not all keyboards have these buttons so their utility is questionable
 
-The shortcut `Ctrl+P` may mean **p**rint, **p**revious, or **p**roject. Furthermore, users' native tongue, keyboard, or keyboard layout may differ; these changes affect the intuitiveness and sensibility of the shortcut.
+Confusingly, the shortcut `Ctrl+P` may mean **p**rint, **p**revious, or **p**roject. Furthermore, users' native tongue, keyboard, or keyboard layout may differ; these differences affect the intuitiveness and sensibility of the shortcut.
 
 That is, more generally, semantic hotkeys are more resilient to any changes of the Human Computer Interface itself.
 
@@ -64,7 +64,7 @@ Lastly, Incorporating these shortcuts encourage interface designers to thing abo
 
 ## Implementation
 
-For each application, from a common JSON file (with keys being semantic keys and values being the shortcuts themselves), configuration for each native application is created.
+An implementation may start by creating a program that outputs application-specific hotkey configuration (binding key to action) from a common configuration file.
 
 A reasonable implementation assumes that each applicable application supports:
 
@@ -85,12 +85,12 @@ We can generalize to include the following actions:
 - Context navigate relatively
 - Context move relatively
 
-This blog post mainly exists to explain the problem and solution, and I haven't figured out a cohesive and intuitive solution. There are many more challenges involved:
+There are some other challanges:
 
-- Contexts can sometimes treated As sections (sometimes simultaneously)
-  - Semantics can be more fine-tuned to fit into concrete categories
+- Contexts can sometimes treated as sections (sometimes simultaneously)
+- Semantics may need to be more fine-tuned to fit into concrete categories
 - Applications shortcuts may nest
   - A terminal app (raw mode) may be within the contest of a graphical terminal emulator, a terminal multiplexer, and a TUI interface to a virtual machine manager (ex. QEMU Monitor)
 - Applying this systems to programs with slightly different behaviors
 
-Semantic Hotkeys are tricky to define since keyboards are both fixed and varied. But, applying such a system will improve productivity. I'm doing some preliminary work at [github.com/semantic-hotkeys](https://github.com/semantic-hotkeys) to apply this idea to everyday applications and websites. When its ready, you may find it useful, or employ a similar system in your program.
+This blog post mainly exists to explain the problem and solution - I don't have a full "semantic shortcut system". But, applying such a system will undoubtedly improve productivity, at least for me. I'm doing some preliminary work at [github.com/semantic-hotkeys](https://github.com/semantic-hotkeys) to apply this idea to everyday applications and websites. When its ready, you may find it useful, or employ a similar system in your program.
