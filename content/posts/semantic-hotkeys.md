@@ -2,7 +2,7 @@
 title = "Semantic Hotkeys"
 slug = "semantic-hotkeys"
 author = "Edwin Kofler"
-date = 2018-09-03T11:52:21-07:00
+date = 2022-08-19T11:52:21-07:00
 categories = ["hotkeys"]
 tags = ["user-interface"]
 draft = false
