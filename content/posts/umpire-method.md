@@ -1,10 +1,10 @@
 +++
 title = "The UMPIRE Method"
-slug = "umpire"
+slug = "umpire-method"
 author = "Edwin Kofler"
-date = 2020-02-23T13:23:00-08:00
-categories = ["linux"]
-tags = ["problem-solving", "ubuntu"]
+date = 2022-09-24T00:00:00-00:00
+categories = []
+tags = ["problem-solving", "framework"]
 draft = false
 +++
 
