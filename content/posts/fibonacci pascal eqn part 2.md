@@ -46,7 +46,7 @@ $$ Fib(4) =\sum_{\varphi=1}^{2}{_{n(\varphi)}}C _{k(\varphi)} =\ _2C_1 +\ _3C_0 
 
 We only know that $_2C_1$ and $_3C_0$ are summed due to the table I wrote above. We don't know why $n(1) = 2$ or why $k(2) = 0$ yet.
 
-There are a few other patterns held within the grid. I found it easier to find the pattern by changing which way the terms were summed. As you can see, I rearrange the order of the ${_{n(\varphi)}}C _{k(\varphi)}$ terms, making the $\varphi_1, \varphi_2, \ldots {\varphi} _{th}$
+There are a few other patterns held within the grid. I found it easier to find the pattern by changing which way the terms were summed. As you can see, I rearrange the order of the ${_{n(\varphi)}}C_{k(\varphi)}$ terms, making the $\varphi_1, \varphi_2, \ldots {\varphi} _{th}$
 
  $\varphi_1, \varphi_2, ... \varphi _{th} $ terms somewhat arbitrary (depending on the grid structure rather than concrete values).
 
@@ -99,4 +99,4 @@ $$=\ 1 + 7 + 15 + 10 + 1$$
 $$=\ 34$$
 
 Did make a proof? No.
-Although I can't conclusively say so, I do believe this works for any $n\ |\ n \in \mathbb{N}$.
+Although I can't conclusively say so, I want to believe that this works for any $n\ |\ n \in \mathbb{N}$.
