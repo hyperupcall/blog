@@ -9,11 +9,11 @@ draft = false
 +++
 
 
-As a part of the [CTI Accelerate Program](https://computingtalentinitiative.org/accelerate/), I learned about a problem-solving technique called 'UMPIRE'.
-
-Also used at [CodePath](https://www.codepath.org), UMPIRE is especially helpful for solving interview questions.
+As a part of the [CTI Accelerate Program](https://computingtalentinitiative.org/accelerate/), I learned about a problem-solving technique called 'UMPIRE'. Also used at [CodePath](https://www.codepath.org), UMPIRE is especially helpful for solving interview questions.
 
 I'm finding the framework especially useful as I haven't used any problem solving skills in years. It's time to end my reliance on pattern matching and inertial intuition!
+
+If you're not familiar with the framework, I'd recommend [CodePath's post](https://guides.codepath.com/compsci/UMPIRE-Interview-Strategy) about it to get the basics down - this post explains more about how I personally use it, rather than what it is.
 
 ## In Summary
 
