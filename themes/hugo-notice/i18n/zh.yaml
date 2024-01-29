@@ -1,0 +1,11 @@
+# Fallback for themes using macrolanguage code instead of language code.
+# See https://www.rfc-editor.org/rfc/rfc5646.html
+# Strings here are an exact copy of those in file `zh-cn.yaml`.
+- id: warning
+  translation: "警告"
+- id: note
+  translation: "注释"
+- id: info
+  translation: "信息"
+- id: tip
+  translation: "提示"
