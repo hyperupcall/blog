@@ -12,14 +12,15 @@
 {{ else }} {{ if .Description }}
 <meta property="description" content="{{ .Description }}" />
 {{ end }} {{ end }} {{ if .Keywords }} <meta property="keywords" content ="{{
-delimit .Keywords ", " }}"> {{ end }} {{ if .Site.RSSLink }}
+delimit .Keywords ", " }}"> {{ end }} {{- with .OutputFormats.Get "RSS" -}} {{
+if .Permalink }}
 <link
-	href="{{ .Site.RSSLink }}"
+	href="{{ .Permalink }}"
 	rel="alternate"
 	type="application/rss+xml"
-	title="{{ .Site.Title }}"
+	title="{{ $.Site.Title }}"
 />
-{{ end }}
+{{ end }} {{- end -}}
 
 <link
 	rel="apple-touch-icon"
