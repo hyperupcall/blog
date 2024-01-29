@@ -12,7 +12,7 @@ code = "first hotel"
 
 So I was reintroduced to programming during the fall of 2017. I was learning Java in my AP Computer Science A class. The class was another one of those "college-level" "advanced placement" (AP) classes, which actually became really fun near the end.
 
-You see, I was finishing up a really fun [final project](https://github.com/EanKeen/word-finder) (written in Java). It was basically an anagram finder, with a few extra features (including local multiplayer). I had so much fun making it. So much fun, that I had an urge to create another programming project. That's when I realized I loved programming, near the end of this Java class.
+You see, I was finishing up a really fun [final project](https://github.com/hyperupcall/word-finder) (written in Java). It was basically an anagram finder, with a few extra features (including local multiplayer). I had so much fun making it. So much fun, that I had an urge to create another programming project. That's when I realized I loved programming, near the end of this Java class.
 
 I wanted to create some program that people could use without downloading Java, or any other software. Naturally, I turned to web programming. People would only need a link to my site - no downloading required!
 
@@ -30,7 +30,7 @@ This idea motivated me to work on some preliminary sketches of the application.
 
 ![Mockup of Sigag](/image/web-dev-a-year-later/sigag-mockup.png)
 
-Pretty cool, huh? The sketches focused more on the menu navigation rather then the actual flashcard set. I guess it's somewhat silly brainstorming a project substantially more complex than my [previous project](https://github.com/EanKeen/word-finder), but I really think it helped motivate me.
+Pretty cool, huh? The sketches focused more on the menu navigation rather then the actual flashcard set. I guess it's somewhat silly brainstorming a project substantially more complex than my [previous project](https://github.com/hyperupcall/word-finder), but I really think it helped motivate me.
 
 While brainstorming, I realized I need to know the technologies and tools to enable me to build this app. I came across [Electron](https://electronjs.org), which, in a nutshell, allows you to create a desktop app with HTML/CSS/JS. So it seems I ended up deciding not to create a website, in a traditional sense, but a desktop application (with web technologies).
 
@@ -38,7 +38,7 @@ This is where I learned about using git, node, npm, and electron. All that begin
 
 Everything was super foreign to me because I didn't know JavaScript. I didn't even let myself change the standard Electron boilerplate since I was afraid I could break (and not know how to fix) the app (despite using Git VCS).
 
-After a some time, I was able to create a [lame sidebar menu](https://github.com/eankeen/Baeuda/tree/a05e8ee7c62ea0b44e6a29af07b723c463fd6485). Huzzah!
+After a some time, I was able to create a [lame sidebar menu](https://github.com/hyperupcall/Baeuda/tree/a05e8ee7c62ea0b44e6a29af07b723c463fd6485). Huzzah!
 
 ![sigag-ui-development](/image/web-dev-a-year-later/baeuda-development.png)
 
@@ -50,7 +50,7 @@ To gain experience, I built a Pomodoro timer.
 
 A Pomodoro timer, is basically an ordinary count-down timer, except that after every "count-down", it switches numbers it counts down from. Typically, its counts down for 25 minutes at first, but then it switches to 5 minute (for a break), then back to 25 minutes. Sometimes, longer break intervals are added in after a few short break intervals have been completed.
 
-I called this smaller project [sigag](https://github.com/EanKeen/sigag). Starting the project was a bit easier since I used Electron and npm before. And actually, the project turned out to be somewhat successful.
+I called this smaller project [sigag](https://github.com/hyperupcall/sigag). Starting the project was a bit easier since I used Electron and npm before. And actually, the project turned out to be somewhat successful.
 
 From _sigag_, I learned how to create better user interfaces.
 
@@ -158,11 +158,11 @@ I made a few contributions to [Vuesax](https://lusaxweb.github.io/vuesax). It's 
 
 ## More Fall Contributions
 
-During the fall, I started work on my [blog](https://github.com/eankeen/blog)! By creating the blog, I learned development workflows that did not involve nodejs or related tooling.
+During the fall, I started work on my [blog](https://github.com/hyperupcall/blog)! By creating the blog, I learned development workflows that did not involve nodejs or related tooling.
 
 ## Spring
 
-In the Spring, I wanted to be able to program on my school computers with the same tools I had at home. To solve this issue, I created the [portable-workstation](https://github.com/eankeen/portable-workstation) repository. It uses Cmder, a portable console emulator, and hooks it up with with PowerShell Core 6.1. More recently, I've picked it back up. I finished some auto installation scripts, and I'm trying to get Scoop to integrate nicely.
+In the Spring, I wanted to be able to program on my school computers with the same tools I had at home. To solve this issue, I created the [portable-workstation](https://github.com/hyperupcall/portable-workstation) repository. It uses Cmder, a portable console emulator, and hooks it up with with PowerShell Core 6.1. More recently, I've picked it back up. I finished some auto installation scripts, and I'm trying to get Scoop to integrate nicely.
 
 Since the Spring, I joined the [repl.it](https://repl.it) community, and their [Discord chat](https://repl.it/discord). The Discord moderators decided to create a GitHub organization for people that want to contribute to community projects. One one of the first projects created was the [repl-it-electron](https://github.com/repl-it-discord/repl-it-electron) repository. Essentially, it was an electron app that displayed the repl.it website. I started contributing to that, adding some features and improving the build process. Its feature set is not substantial, but hopefully it'll have features like theming and multi-window editing soon.
 
