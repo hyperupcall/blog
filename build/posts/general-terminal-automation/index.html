@@ -1,0 +1,237 @@
+<!DOCTYPE html><html lang="en"><head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Edwin's Blog</title>
+		<link rel="stylesheet" href="https://hyperupcall.github.io/blog/css/open-color.css" media="all">
+		<!-- TODO -->
+		<link rel="stylesheet" type="text/css" href="/css/fonts.css">
+		<link rel="stylesheet" type="text/css" href="/css/style.css">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css" integrity="sha384-wcIxkf4k558AjM3Yz3BBFQUbk/zgIYC2R0QpeeYb+TwlBVMrlgLqwRjRtGZiK7ww" crossorigin="anonymous">
+
+		<script defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js" integrity="sha384-hIoBPJpTUs74ddyc4bFZSM1TVlQDA60VBbJS0oA934VSz82sBx1X7kSx2ATBDIyd" crossorigin="anonymous"></script>
+		<script defer="">
+			function __initialize_katex() {
+				renderMathInElement(document.body, {
+					delimiters: [
+						{ left: '$$', right: '$$', display: true },
+						{ left: '$', right: '$', display: false },
+					],
+				})
+			}
+		</script>
+		<script defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js" integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk" crossorigin="anonymous" onload="__initialize_katex()"></script>
+	</head>
+	<body>
+		<header>
+			<a href="/">
+				<img src="https://hyperupcall.github.io/blog/images/logo.png" height="50px" width="50px" alt="Logo">
+			</a>
+			<nav>
+				<a href="/">Home</a>
+				<a href="/categories">Categories</a>
+				<a href="/tags">Tags</a>
+				<a href="/about">About</a>
+			</nav>
+		</header>
+		<hr>
+		<main class="article-content">
+<p><a href="https://core.tcl-lang.org/expect/index">Expect</a> is <em>THE</em> tool for automating tasks in the terminal. It is extremely helpful if you need to automate sending input to a program directly on the command line.</p>
+<p>This guide is targeted towards developers that wish to automate sending and receiving input from a program, without having to read long manual pages or fragmented StackOverflow answers. I'm going to skimp on technical details relating to Expect and the concepts around it; for that, there are <a href="https://www.poor.dev/blog/terminal-anatomy">plenty</a> <a href="https://core.tcl-lang.org/expect/index">of</a> <a href="https://www.linusakesson.net/programming/tty">resources</a> online</p>
+<p>Here is a result of what using Expect might look like. Note that I am not touching the keyboard after invoking the program <code>./automate.tcl</code>!</p>
+<p><a href="https://asciinema.org/a/460725"><img src="https://asciinema.org/a/460725.svg" alt="asciicast"></a></p>
+<h2>Installation</h2>
+<p>Of course, program installation is a prerequisite for program usage</p>
+<p>If you're using Linux, the installation is more-or-less distro-dependent. If you don't wish to install with a GUI, I have provided the commands below</p>
+<pre><code class="language-sh"># For Debian, Ubuntu, PopOS, Linux Mint, etc.
+sudo apt install expect
+</code></pre>
+<pre><code class="language-sh"># For Arch Linux, Manjaro, Endeavour, Artix, etc.
+sudo pacman -S expect
+</code></pre>
+<pre><code class="language-sh"># For Fedora, CentOS Streams, RHEL, Rocky, Alma, etc.
+sudo dnf install expect
+</code></pre>
+<pre><code class="language-sh"># For OpenSUSE, etc.
+sudo zypper install expect
+</code></pre>
+<p>If you're using <a href="https://formulae.brew.sh/formula/expect">MacOS</a>, the de facto package manager is <a href="https://formulae.brew.sh/formula/expect">brew</a></p>
+<pre><code class="language-sh">brew install expect
+</code></pre>
+<p>For Windows users, you're out of luck, as per usual. There are <a href="https://wiki.tcl-lang.org/page/Expect+for+Windows">some ports</a> for Windows, but I cannot vouch for their reliability or popularity. I'll also add that the way "terminals" (consoles) work on Windows is fundamentally different compared to Unix systems.</p>
+<h2>Hello World (tcl)</h2>
+<p>Expect programs are written in a language called <a href="https://www.tcl.tk">tcl</a> (pronounced tickle). Before I show anything related to Expect, I would like to show you a tcl Hello World</p>
+<p>First, create a <code>hello.tcl</code> file...</p>
+<pre><code class="language-tcl">#!/usr/bin/tclsh
+puts "Hello, World!"
+</code></pre>
+<p>Then, run it</p>
+<pre><code class="language-sh">$ tclsh ./hello.tcl
+Hello, World!
+</code></pre>
+<p>Because the <a href="https://en.wikipedia.org/wiki/Shebang_(Unix)">shebang</a> is at the top, we can also execute it like so:</p>
+<pre><code class="language-sh">$ chmod +x ./hello.tcl # remember to mark the file as executable
+$ ./hello.tcl
+Hello, World!
+</code></pre>
+<p>Tcl is a simple, yet powerful scripting language. Think of it like Python, but faster and a bit more antique. If you want to learn more about Tcl, I would recommend reading the <a href="https://wiki.tcl-lang.org">Tcl Wiki</a></p>
+<h2>Hello World (expect)</h2>
+<p>Expect is essentially a library for Tcl that adds extra functions which enables us to supply input and check the output of a program.
+Using Expect is very similar. Below, we use an Expect function called <code>sleep</code>, which sort of pauses the program for the amount of seconds specified:</p>
+<pre><code class="language-tcl">#!/usr/bin/expect -f
+puts "Hello, World!"
+sleep 1
+puts "Hello again! ^w^"
+</code></pre>
+<p>To run, invoke <code>expect</code> with the <code>-f</code> flag</p>
+<pre><code class="language-sh">$ expect -f ./script.tcl
+Hello, World!
+Hello again! ^w^
+</code></pre>
+<p>Just like last time, you can also execute the script directly</p>
+<pre><code class="language-sh">$ chmod +x ./script.tcl # remember to mark the file as executable
+$ ./script.tcl
+Hello, World!
+Hello again! ^w^
+</code></pre>
+<h2>Actual Automation</h2>
+<p>Now that we have a basic understanding of Expect, it is time to actually use it for its primary purpose: automation of interactive terminal programs.</p>
+<p>First, we'll start off with a program that we want to automate: a simple name printer. I've supplied versions in Python and C++, but it doesn't matter at all which language you use</p>
+<pre><code class="language-python">#!/usr/bin/env python3
+print("What is your name?")
+name = input()
+
+print(f"Hewwo {name}! Nice to meet you~ ^w^")
+</code></pre>
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+
+int main() {
+  std::cout &lt;&lt; "What is your name?" &lt;&lt; std::endl;
+  std::string name;
+  std::getline(std::cin, name);
+
+  std::cout &lt;&lt; "Hewwo " + name + "! Nice to meet you~ ^w^" &lt;&lt; std::endl;
+}
+</code></pre>
+<p>Now, run the program, paying actual attention to what is outputed to the screen, and when the user needs to enter in information</p>
+<pre><code class="language-sh">$ python3 test.py
+What is your name?
+Edwin
+Hewwo Edwin! Nice to meet you~ ^w^
+</code></pre>
+<p>So, the user executes the program, and <em>expects</em> the program to prompt for a name. Once the program prints the prompt, the user <em>sends</em> their name. This can easily be codified as such:</p>
+<pre><code class="language-tcl">#!/usr/bin/expect -f
+spawn "python3" "test.py"
+
+expect "What is your name?"
+send "Edwin\r"
+
+expect eof
+</code></pre>
+<p>If you are curious, the <code>expect eof</code> essentially makes Expect continue running until the <code>./test.py</code> program finishes executing. Otherwise, Expect would have quit prematurely. And, the <code>\r</code> denotes a <em>return character</em>, like pressing Return on your keyboard (<code>\n</code> works as well)</p>
+<p>Cool! Let's run it! As you can see, I've called the file <code>automate.tcl</code></p>
+<pre><code class="language-sh">$ expect -f ./automate.tcl
+spawn python3 test.py
+What is your name?
+Edwin
+Hewwo Edwin! Nice to meet you~ ^w^
+</code></pre>
+<p>Woah~! We didn't even have to do anything and the user input was supplied automatically!</p>
+<h2>Handing control back to the user</h2>
+<p>90% of the time, you're either going to be using the <code>expect</code> or <code>send</code> functions. There are times where you would want to do other things, though, such as giving control back to the user, so they can input data themselves. Let's try that.</p>
+<p>First, we'll modify the program to ask another question:</p>
+<pre><code class="language-python">#!/usr/bin/env python3
+print("What is your name?")
+name = input()
+print(f"Hewwo {name}! Nice to meet you~ ^w^")
+
+print("What is your favorite animal?")
+animal = input()
+print(f"Woah~, the {animal} is a pretty cool animal!")
+</code></pre>
+<p>Let's run the same Expect script, just to see what happens</p>
+<pre><code class="language-sh">$ expect -f automate.tcl
+spawn python3 test.py
+What is your name?
+Edwin
+Hewwo Edwin! Nice to meet you~ ^w^
+What is your favorite animal?
+</code></pre>
+<p>It hangs! This is because at this point, Expect has reached the <code>expect eof</code> line. Here, Expect is just sort of waiting until the program exits (try to type a response and press enter, nothing will happen). Instead of waiting, we want Expect to enable the user to <em>interact</em> with the program</p>
+<p>To do this, just replace the <code>expect eof</code> with <code>interact</code></p>
+<pre><code class="language-sh">#!/usr/bin/expect -f
+spawn "python3" "test.py"
+
+expect "What is your name?"
+send "Edwin\r"
+
+interact
+</code></pre>
+<p>The output <em>looks</em> the same, but if you type and press enter, the Python program actually receives the input and prints out a response! Here is my output:</p>
+<pre><code class="language-sh">$ expect -f automate.tcl
+spawn python3 test.py
+What is your name?
+Edwin
+Hewwo Edwin! Nice to meet you~ ^w^
+What is your favorite animal?
+Fox
+Woah~, the Fox is a pretty cool animal!
+</code></pre>
+<p>This is extremely useful if you want to automate the beginning of a program, but also want to manually input text near the end.</p>
+<h3>Miscellaneous tips</h3>
+<p>There are a few things that you may want to be aware of</p>
+<ol>
+<li>Using asterisks!</li>
+</ol>
+<p>If you are expecting the string <code>What is your name?</code>, you don't have to write it out in full like so:</p>
+<pre><code class="language-tcl">expect "What is your name?"
+</code></pre>
+<p>Instead, use a glob pattern. The asterisks means "zero or more characters"</p>
+<pre><code class="language-tcl">expect "*your name?*"
+</code></pre>
+<ol start="2">
+<li>Use <code>--</code> if want to input something that starts with a hyphen</li>
+</ol>
+<p>Sort of like invoking command line arguments programs <code>ls</code>, <code>mkdir</code>, adding <code>--</code> will prevent any ambiguity. In other words, <code>send</code> will interpret <code>-cool</code> as a string to send, rather than an option that modifies its behavior</p>
+<pre><code class="language-tcl"># ❌ INCORRECT
+send "-cool"
+
+# ✅ CORRECT
+send -- "-cool"
+</code></pre>
+<ol start="2">
+<li>Pass <code>-h</code> to send if you want to make it seem like a human typed it (slower typing, with variant intermidant delays)</li>
+</ol>
+<pre><code class="language-tcl">set send_human {.1 .3 1 .05 2}
+
+send -h "It looks like a human is typing this"
+</code></pre>
+<p>Note that you only have to set the <code>send_human</code> variable once, best placed at the top of the file. For more information about the 5 numbers, here is a snippet from the man page</p>
+<blockquote>
+<p>The first two elements are average interarrival time of characters in seconds. The first is used by default. The second is used at word endings, to simulate the subtle pauses that occasionally occur at such transitions. The third parameter is a measure of variability where .1 is quite variable, 1 is reasonably variable, and 10 is quite invariable. The extremes are 0 to infinity. The last two parameters are, respectively, a minimum and maximum interarrival time. The minimum and maximum are used last and "clip" the final time. The ultimate average can be quite different from the given average if the minimum and maximum clip enough values</p>
+</blockquote>
+<ol start="3">
+<li>Type with a slight pause. Sometimes, it may be useful to type something, and wait for the underling program to catch up (ex. Slow languages like Java). You can use a Tcl procedure for this</li>
+</ol>
+<pre><code class="language-tcl">#!/usr/bin/expect -f
+proc send_with_delay {str} {
+  send $str
+  sleep 0.3
+}
+
+# Use it like so...
+send_with_delay "Fox\r"
+</code></pre>
+<h3>Wrap</h3>
+<p>Expect has many more features, but those are the ones you'll be using the most often! If this helped you or if you have <em>any</em> feedback, <a href="https://twitter.com/hyperupcall">let me know</a>! Thank youu~ and have a fantastic rest-of-the-day!</p>
+
+		</main>
+		<footer>
+			<ul class="footer-links">
+				<li><a href="/index.xml" type="application/rss+xml" target="_blank"><i class="fa fa-rss"></i> RSS feed</a></li>
+				<li><a href="/">Home</a></li>
+				<li><a href="/about">About</a></li>
+			</ul>
+		</footer>
+	
+
+</body></html>

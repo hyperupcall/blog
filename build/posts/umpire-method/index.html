@@ -1,0 +1,130 @@
+<!DOCTYPE html><html lang="en"><head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Edwin's Blog</title>
+		<link rel="stylesheet" href="https://hyperupcall.github.io/blog/css/open-color.css" media="all">
+		<!-- TODO -->
+		<link rel="stylesheet" type="text/css" href="/css/fonts.css">
+		<link rel="stylesheet" type="text/css" href="/css/style.css">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css" integrity="sha384-wcIxkf4k558AjM3Yz3BBFQUbk/zgIYC2R0QpeeYb+TwlBVMrlgLqwRjRtGZiK7ww" crossorigin="anonymous">
+
+		<script defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js" integrity="sha384-hIoBPJpTUs74ddyc4bFZSM1TVlQDA60VBbJS0oA934VSz82sBx1X7kSx2ATBDIyd" crossorigin="anonymous"></script>
+		<script defer="">
+			function __initialize_katex() {
+				renderMathInElement(document.body, {
+					delimiters: [
+						{ left: '$$', right: '$$', display: true },
+						{ left: '$', right: '$', display: false },
+					],
+				})
+			}
+		</script>
+		<script defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js" integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk" crossorigin="anonymous" onload="__initialize_katex()"></script>
+	</head>
+	<body>
+		<header>
+			<a href="/">
+				<img src="https://hyperupcall.github.io/blog/images/logo.png" height="50px" width="50px" alt="Logo">
+			</a>
+			<nav>
+				<a href="/">Home</a>
+				<a href="/categories">Categories</a>
+				<a href="/tags">Tags</a>
+				<a href="/about">About</a>
+			</nav>
+		</header>
+		<hr>
+		<main class="article-content">
+<p>As a part of the <a href="https://computingtalentinitiative.org/accelerate/">CTI Accelerate Program</a>, I learned about a problem-solving technique called 'UMPIRE'. Also used at <a href="https://www.codepath.org">CodePath</a>, UMPIRE is especially helpful for solving interview questions.</p>
+<p>I'm finding the framework especially useful as I haven't used any problem solving skills in years. It's time to end my reliance on pattern matching and inertial intuition!</p>
+<p>If you're not familiar with the framework, I'd recommend <a href="https://guides.codepath.com/compsci/UMPIRE-Interview-Strategy">CodePath's post</a> about it to get the basics down - this post explains more about how I personally use it, rather than what it is.</p>
+<h2>In Summary</h2>
+<p>There are six steps:</p>
+<ol>
+<li><strong>U</strong>nderstand</li>
+<li><strong>M</strong>atch</li>
+<li><strong>P</strong>lan</li>
+<li><strong>I</strong>mplement</li>
+<li><strong>R</strong>eview</li>
+<li><strong>E</strong>valuate</li>
+</ol>
+<p>I personally broke down this process into 3 larger steps:</p>
+<ol>
+<li><strong>U</strong>nderstand, <strong>M</strong>atch, and <strong>P</strong>lan</li>
+<li><strong>I</strong>mplement and <strong>R</strong>eview</li>
+<li><strong>E</strong>valuate</li>
+</ol>
+<p>Fewer steps allows me to fit the process into working memory. I'll name each of the three larger steps <em>comprehension</em>, <em>solution</em>, and <em>application</em>, respectively.</p>
+<h3>1. Comprehension</h3>
+<p>Its difficult to write code without understanding the problem. In my view, understanding is the most crucial part. Each subsequent subsection highlights key factors for consideration.</p>
+<p>For <em>understanding</em>,</p>
+<ul>
+<li>form of input (type, structure, guarantees, contracts)</li>
+<li>form of output (type, structure, guarantees, contracts)</li>
+<li>convert input to output manually</li>
+</ul>
+<p>For <em>matching</em>,</p>
+<ul>
+<li>similar problems</li>
+<li>similar solutions</li>
+<li>identify both similarities and differences</li>
+</ul>
+<p>For <em>planning</em>,</p>
+<ul>
+<li>break down problem (identify subcomponents)</li>
+<li>simplify problem (initially assume invariants, but relax them later)</li>
+<li>develop pseudocode</li>
+</ul>
+<h3>2. Solution</h3>
+<p>Once the problem space is understood enough, it's time to build a solution.</p>
+<p>For <em>implement</em> and <em>review</em>,</p>
+<ul>
+<li>Correct code (common cases)</li>
+<li>Complete code (corner cases)</li>
+<li>Clean / idiomatic code (less important)</li>
+<li>Debug, debug, debug!</li>
+</ul>
+<h3>3. Application</h3>
+<p>Effort exerted in previous steps would be in vain if the solution isn't used properly. This step helps identify the quality and applicability of the solution.</p>
+<p>For <em>evaluate</em>,</p>
+<ul>
+<li>Time complexity</li>
+<li>Space complexity</li>
+<li>Areas for improvement</li>
+</ul>
+<h3>Wrap</h3>
+<p>Practically speaking, there'll be frequent jumping between steps in the problem solving process. But, like most categories, it is important to make a distinction for the sake of improving the process as a whole.</p>
+<h2>In Practice</h2>
+<p>To apply this framework, I like to write the initials of each steps in code comments. For example:</p>
+<pre><code class="language-py"># u: input: int, int, int (some items)
+# u: output: array&lt;int&gt; (list of things)
+
+# m: linked list, but with ...
+
+# p: for integers 1 and 2 ...
+if True:
+  pass
+
+# p: for integer 3 ...
+if True:
+  pass
+
+# e: o(1) time
+# e: o(1) space
+# e: next time, use std::vector instead of std::list
+</code></pre>
+<h2>Wrap</h2>
+<p>It's an ongoing process to develop a variant of the UMPIRE method that works for me. When my technique invariably improves, I'll update this post to match.</p>
+<p>I wish to thank the organizers of the CTI program for their effort and dedication towards putting together such an awesome piece of curriculum and community! I encourage you to <a href="https://computingtalentinitiative.org/accelerate/">check them out</a>! :smile:</p>
+
+		</main>
+		<footer>
+			<ul class="footer-links">
+				<li><a href="/index.xml" type="application/rss+xml" target="_blank"><i class="fa fa-rss"></i> RSS feed</a></li>
+				<li><a href="/">Home</a></li>
+				<li><a href="/about">About</a></li>
+			</ul>
+		</footer>
+	
+
+</body></html>

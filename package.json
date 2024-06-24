@@ -1,0 +1,31 @@
+{
+	"name": "blog",
+	"version": "0.1.0",
+	"description": "",
+	"main": "index.js",
+	"type": "module",
+	"scripts": {
+		"dev": "nodemon -- ./build.js serve",
+		"build": "./build.js build",
+		"check": "./build.js check"
+	},
+	"keywords": [],
+	"author": "Edwin Kofler <edwin@kofler.dev> (https://edwinkofler.com/)",
+	"license": "MPL-2.0",
+	"nodemonConfig": {
+		"watch": "./build.js"
+	},
+	"dependencies": {
+		"cheerio": "1.0.0-rc.12",
+		"execa": "^9.3.0",
+		"handlebars": "^4.7.8",
+		"htmlparser2": "^9.1.0",
+		"marked": "^13.0.0",
+		"smol-toml": "^1.2.1"
+	},
+	"devDependencies": {
+		"browser-sync": "^3.0.2",
+		"chokidar": "^3.6.0",
+		"nodemon": "^3.1.4"
+	}
+}

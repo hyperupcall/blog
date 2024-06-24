@@ -1,0 +1,165 @@
+<!DOCTYPE html><html lang="en"><head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Edwin's Blog</title>
+		<link rel="stylesheet" href="https://hyperupcall.github.io/blog/css/open-color.css" media="all">
+		<!-- TODO -->
+		<link rel="stylesheet" type="text/css" href="/css/fonts.css">
+		<link rel="stylesheet" type="text/css" href="/css/style.css">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css" integrity="sha384-wcIxkf4k558AjM3Yz3BBFQUbk/zgIYC2R0QpeeYb+TwlBVMrlgLqwRjRtGZiK7ww" crossorigin="anonymous">
+
+		<script defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js" integrity="sha384-hIoBPJpTUs74ddyc4bFZSM1TVlQDA60VBbJS0oA934VSz82sBx1X7kSx2ATBDIyd" crossorigin="anonymous"></script>
+		<script defer="">
+			function __initialize_katex() {
+				renderMathInElement(document.body, {
+					delimiters: [
+						{ left: '$$', right: '$$', display: true },
+						{ left: '$', right: '$', display: false },
+					],
+				})
+			}
+		</script>
+		<script defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js" integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk" crossorigin="anonymous" onload="__initialize_katex()"></script>
+	</head>
+	<body>
+		<header>
+			<a href="/">
+				<img src="https://hyperupcall.github.io/blog/images/logo.png" height="50px" width="50px" alt="Logo">
+			</a>
+			<nav>
+				<a href="/">Home</a>
+				<a href="/categories">Categories</a>
+				<a href="/tags">Tags</a>
+				<a href="/about">About</a>
+			</nav>
+		</header>
+		<hr>
+		<main class="article-content">
+<p>I found myself needing to use cloud-init to automate the configuration of virtual machines and machine containers. I wanted to login information and ssh authentication for pre-defined users. I remember being rather confused and frusterated with my initial (and future) dealings with cloud-init. This guide will show you how to use it, starting from step zero, and some silly hung-ups I experienced.</p>
+<p>Because I was using Ubuntu, I knew I needed to get some Ubuntu image somewhere compatable with cloud init. I also new I had to write yaml files to declaratively state the stae of my machine, but it was hard finding a path to completion.</p>
+<h2>Finding Ubuntu Images</h2>
+<p>First, you need some 'base' image to use <code>cloud-init</code> on. Instead of downloading an <a href="https://ubuntu.com/download/server">Ubuntu server</a> image, download an <a href="https://ubuntu.com/download/cloud">Ubuntu cloud</a> image instead. If you're skimming the website, it's super easy to miss the <a href="https://cloud-images.ubuntu.com">link</a>. Cloud images are similar to Server images, except they do not contain the ncurses-based manual installation menus. This means that once you <code>dd</code> the image to a partition, it'll boot into a serial console.</p>
+<p>I'll be downloading <a href="https://cloud-images.ubuntu.com/bionic/current/bionic-server-cloudimg-amd64.tar.gz">Ubuntu bionic</a>.</p>
+<p>Extract the contents</p>
+<pre><code class="language-sh">tar -xzf bionic-server-cloudimg-amd64.tar.gz
+# =&gt; bionic-server-cloudimg-amd64.img
+</code></pre>
+<h2>Using Qemu to start the image</h2>
+<p>I will be invoking commands that create a virtual machine using the kvm hypervisor. I'll be using the <code>virsh</code> command to manage these virtual machines, which comes with the <code>libvirt-clients</code> package.</p>
+<p>Install qemu, libvirt, and necessary virtualization software</p>
+<pre><code class="language-sh">sudo apt-get install qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils
+</code></pre>
+<p><code>libvirt</code> is a utility written in C for managing virtual machines of different types. <code>virsh</code> uses this interface</p>
+<pre><code class="language-sh"># lists active domains, or running virtual machines
+virsh list
+
+# lists active and inactive domains
+virsh list --all
+</code></pre>
+<p>Before we create a virtual machine, let's get some information about the image we plan to use</p>
+<pre><code class="language-sh">$ qemu-img info bionic-server-cloudimg-amd64.img
+image: bionic-server-cloudimg-amd64.img
+file format: qcow2
+virtual size: 2.2G (2361393152 bytes)
+disk size: 329M
+cluster_size: 65536
+Format specific information:
+    compat: 0.10
+    refcount bits: 16
+</code></pre>
+<p>wow! so our image is in the <code>qcow2</code> format. it's a disk image format used by qemu. it's good at efficiently storing data, among a bunch of other things. when troubleshooting issues, i found it quite useful to know what format the image is in.</p>
+<p>Copy the original image.</p>
+<pre><code class="language-sh">cp bionic-server-cloudimg-amd64.img bionic-server-cloudimg-amd64.qcow2
+</code></pre>
+<p>I like to convert my <code>qcow2</code> image to raw format.</p>
+<pre><code class="language-sh">qemu-img convert \
+  -f qcow2 bionic-server-cloudimg-amd64.qcow2 \
+  -O raw bionic.img \
+  -p
+</code></pre>
+<p>note that once you use <code>bionic.img</code> in a <code>virt-install</code> script, that image will be continued to be written by virsh etc. so be sure to use a new one every time (ex. generate one with qemu-img convert). (i have a script later below)</p>
+<pre><code class="language-sh">virt-install \
+  --name ubuntu-image \
+  --disk bionic.img,device=disk,bus=virtio \
+  --os-variant ubuntu18.04 \
+  --network default \
+  --memory 2048 \
+  --graphics none \
+  --virt-type kvm \
+  --hvm \
+  --import
+</code></pre>
+<p>now, we got it. "ctrl + [" to exit</p>
+<p><img src="/image/cloud-init/no-cloud-init.png" alt="ubuntu booting up without cloud init"></p>
+<p>you will notice that you don't see any cloud-init output; just systemd.</p>
+<h2>Adding Clout Init to the Image</h2>
+<p>Now for the fun part, adding cloud init to the image.</p>
+<p>First, create a <code>user.yml</code> file and fill it with</p>
+<pre><code class="language-yml">#cloud-config
+password: arrow
+chpasswd: { expire: false }
+ssh_pwauth: true
+</code></pre>
+<p>Then, create a <code>meta.yml</code> and fill it with</p>
+<pre><code class="language-yml">instance-id: 60a5a5b4-5c2f-4b7c-ade5-1d07483a2725
+</code></pre>
+<p>we then create a <code>seed.img</code> from that</p>
+<pre><code class="language-sh">cloud-localds -d raw seed.img user.yml meta.yml
+</code></pre>
+<pre><code class="language-sh">qemu-img convert \
+  -f qcow2 bionic-server-cloudimg-amd64.qcow2 \
+  -O raw cloud-init-bionic.img \
+  -p
+</code></pre>
+<pre><code class="language-sh">virt-install \
+  --name cloud-init-ubuntu-image \
+  --memory 2048 \
+  --disk cloud-init-bionic.img,device=disk,bus=virtio \
+  --disk seed.img,device=cdrom \
+  --virt-type kvm \
+  --graphics none \
+  --os-variant ubuntu18.04 \
+  --network default \
+  --import \
+  --hvm
+</code></pre>
+<p>you will see that now you can login with the username <code>ubuntu</code> and the password <code>arrow</code></p>
+<p>once you list your virtual machines with <code>virsh list --all</code>, you will find that they are likely still runnign or turned off. to remove then, first</p>
+<pre><code class="language-sh">virsh destroy --graceful cloud-init-ubuntu-image
+virsh undefine cloud-init-ubuntu-image
+</code></pre>
+<p>script for fast testing</p>
+<pre><code class="language-sh">#!/bin/sh
+rm -f seed.img
+cloud-localds -d raw seed.img user.yml meta.yml
+
+virsh destroy --graceful new
+virsh undefine new
+
+rm -f bionic.img
+qemu-img convert -f qcow2 bionic-server-cloudimg-amd64.qcow2 -O raw bionic.img -p
+
+virt-install \
+  --name new \
+  --memory 2048 \
+  --disk bionic.img,device=disk,bus=virtio \
+  --disk seed.img,device=cdrom \
+  --virt-type kvm \
+  --graphics none \
+  --os-variant ubuntu18.04 \
+  --network bridge=br0 \
+  --import \
+  --hvm
+</code></pre>
+
+		</main>
+		<footer>
+			<ul class="footer-links">
+				<li><a href="/index.xml" type="application/rss+xml" target="_blank"><i class="fa fa-rss"></i> RSS feed</a></li>
+				<li><a href="/">Home</a></li>
+				<li><a href="/about">About</a></li>
+			</ul>
+		</footer>
+	
+
+</body></html>

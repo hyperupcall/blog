@@ -1,0 +1,100 @@
+<!DOCTYPE html><html lang="en"><head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Edwin's Blog</title>
+		<link rel="stylesheet" href="https://hyperupcall.github.io/blog/css/open-color.css" media="all">
+		<!-- TODO -->
+		<link rel="stylesheet" type="text/css" href="/css/fonts.css">
+		<link rel="stylesheet" type="text/css" href="/css/style.css">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css" integrity="sha384-wcIxkf4k558AjM3Yz3BBFQUbk/zgIYC2R0QpeeYb+TwlBVMrlgLqwRjRtGZiK7ww" crossorigin="anonymous">
+
+		<script defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js" integrity="sha384-hIoBPJpTUs74ddyc4bFZSM1TVlQDA60VBbJS0oA934VSz82sBx1X7kSx2ATBDIyd" crossorigin="anonymous"></script>
+		<script defer="">
+			function __initialize_katex() {
+				renderMathInElement(document.body, {
+					delimiters: [
+						{ left: '$$', right: '$$', display: true },
+						{ left: '$', right: '$', display: false },
+					],
+				})
+			}
+		</script>
+		<script defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js" integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk" crossorigin="anonymous" onload="__initialize_katex()"></script>
+	</head>
+	<body>
+		<header>
+			<a href="/">
+				<img src="https://hyperupcall.github.io/blog/images/logo.png" height="50px" width="50px" alt="Logo">
+			</a>
+			<nav>
+				<a href="/">Home</a>
+				<a href="/categories">Categories</a>
+				<a href="/tags">Tags</a>
+				<a href="/about">About</a>
+			</nav>
+		</header>
+		<hr>
+		<main class="article-content">
+<p>Oddly enough, the latest version of Ubuntu Server failed to install on my MacBook Pro (2012). It's due to some bug in <code>efibootmgr</code>. Ubuntu Server Installer uses <code>efibootmgr</code> to create some NVRAM variables for the UEFI boot process. Unfortunately, <code>efibootmgr</code> failed right in the middle and printed an empty string to stderr, abruptly ending the installation process.</p>
+<p>To fix this, I hypothesized that I could somehow redirect the command's stderr to <code>/dev/null</code> using a file descriptor redirect. So, no error would be printed and the installation would complete as usual. But, when further inspecting the image, I couldn't seem to find the installation scripts to modify.</p>
+<p>I decided to sidestep the issue by installing Debian Stretch instead. Because I used the 'CD installer' (rather than the DVD installer), many of the 'popular packages' were not pre-installed. I underestimated the limitations of this setup, and I bailed out of setting up Debian. I only bailed out after manually configuring the network, when <code>systemd-resolved</code> did not seem to be reading the <code>DNS=</code> entry in my <code>systemd.network (5)</code> configuration file.</p>
+<p>I then decided to retry installing Ubuntu, but by using an Ubuntu Cloud image because I knew it did not have an installation wizard.</p>
+<h2>Copying the rootfs</h2>
+<p>I installed the Ubuntu Cloud image from the official source.</p>
+<pre><code class="language-sh">wget https://cloud-images.ubuntu.com/bionic/current/bionic-server-cloudimg-amd64.img
+</code></pre>
+<p>Because the downloaded image is in <code>qcow</code> format, I converted into a <code>raw</code> format. (you can use <code>qemu-img info</code> to query for this information).</p>
+<pre><code class="language-sh">qemu-img convert -p \
+  -f qcow2 bionic-server-cloudimg-amd64.img \
+  -O raw bionic.img \
+</code></pre>
+<p>Because we will be accessing the filesystem as a block device, we mount the file to a loop device.</p>
+<pre><code class="language-sh">sudo losetup -fP bionic.img
+</code></pre>
+<p>Now, we can finally <code>dd</code> the data to an actual partition.</p>
+<pre><code class="language-sh">sudo dd if=/dev/loop7p1 of=/dev/vg/ubuntu-server \
+  status=progress conv=fsync bs=2048
+</code></pre>
+<p>After this process, I remounted the partition, chrooted into it, and added a password for the root user.</p>
+<h2>Making the Server Bootable</h2>
+<p>The distribution's files for the EFI System Partition (ESP) are in <code>dev/loop7p3</code> (or your equivalent). It only contains grub-related files. Rather than simply copying the grub files over and manually creating an NVRAM varaible entry for UEFI, I simply created an <code>\EFI\ubuntu-server</code> folder in my ESP, and moved the bootloader and EFI stub kernel into it, from <code>/boot/</code>. I then created an fstab entry to mount the ESP to <code>/efi</code>, and from that, bind mount <code>/efi/EFI/ubuntu-server</code> to <code>/boot</code> and bind mount <code>/efi</code> to <code>/boot/efi</code>. At the time, I crossed my fingers that nothing related to updating the kernels and initramfs required features not supported by vfat, such as symlinks (spoiler alert: it does).</p>
+<p>Now we have all the files needed to boot, we just have to tell our boot loader (or boot manager) to use them. Because I was already using an SSD with Refind installed, I added an entry for my Ubuntu Server. I did not configure GRUB.</p>
+<pre><code class="language-conf">menuentry ubuntu-server {
+  loader   \EFI\ubuntu-server\vmlinuz
+  initrd   \EFI\ubuntu-server\initrd.img
+  options  "root=UUID=65e98e43-8591-48f8-8746-34c8b3819ee7 rw"
+  submenuentry "boot to tty" {
+    add_options "systemd.unit=multi-user.target"
+  }
+  submenuentry "boot fallback initramfs" {
+    initrd /boot/initrd.img.old
+  }
+  submenuentry "boot fallback kernel" {
+    loader /boot/vmlinuz.old
+  }
+}
+</code></pre>
+<p>When rebooting, I was pretty certain I did not need to do any more work and that I was almost finished with the setup. The computer booted properly, getty opened some virtual terminals, and login ran without any hiccups. However, I was unable to type at all. My laptop keyboard simply did not work. However, I was able to login with a nearby bluetooth keyboard!</p>
+<p>After poking around the system, I found the problem. <code>ls -alF "/lib/modules/$(uname -r)/kernel/drivers/hid"</code> showed me that there were almost no human interface driver kernel modules that were loaded. Of course, this is an Ubuntu cloud image, so it makes sense that login can only be done through serial and ssh.</p>
+<p>Anyways, to fix this, I simply downloaded the <code>drivers/hid/hid-apple.c</code> kernel driver (along with <code>drivers/hid/hid-ids.h</code>), placing them in a subdirectory.</p>
+<p>I then ran a Makefile with the following content</p>
+<pre><code class="language-makefile">obj-m += hid-apple.o
+
+all:
+  make -C /lib/modules/$(shell uname -r)/build M=$(PWD) modules
+</code></pre>
+<p>This built the proper modules. After inserting the modules into the kernel, it worked flawlessly! Hooray! :tada: I added the modules to <code>/lib/modules/$(uname -r)/updates</code>, and did some other miscellaneous cleanup. Of course, if I try to boot the system from a different computer, the keyboard will likely not work.</p>
+<p>A few other problems later arose. Remember I added the boot files in a directory of the ESP? It turned out symlinks are used in the kernel upgrade process, so I had to recreate a <code>/boot</code> partition for my Ubuntu server, copy over everything, and update my <code>/etc/fstab</code>.</p>
+<p>If I were to do this again, I would look into creating a <a href="https://help.ubuntu.com/lts/installation-guide/s390x/apbs01.html">preseed file</a>, (which I did not know about at the beginning of this process), and optionally use <a href="https://packer.io">packer</a> to uniformly perform the installation process in a virtual machine.</p>
+
+		</main>
+		<footer>
+			<ul class="footer-links">
+				<li><a href="/index.xml" type="application/rss+xml" target="_blank"><i class="fa fa-rss"></i> RSS feed</a></li>
+				<li><a href="/">Home</a></li>
+				<li><a href="/about">About</a></li>
+			</ul>
+		</footer>
+	
+
+</body></html>

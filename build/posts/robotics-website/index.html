@@ -1,0 +1,111 @@
+<!DOCTYPE html><html lang="en"><head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Edwin's Blog</title>
+		<link rel="stylesheet" href="https://hyperupcall.github.io/blog/css/open-color.css" media="all">
+		<!-- TODO -->
+		<link rel="stylesheet" type="text/css" href="/css/fonts.css">
+		<link rel="stylesheet" type="text/css" href="/css/style.css">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css" integrity="sha384-wcIxkf4k558AjM3Yz3BBFQUbk/zgIYC2R0QpeeYb+TwlBVMrlgLqwRjRtGZiK7ww" crossorigin="anonymous">
+
+		<script defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js" integrity="sha384-hIoBPJpTUs74ddyc4bFZSM1TVlQDA60VBbJS0oA934VSz82sBx1X7kSx2ATBDIyd" crossorigin="anonymous"></script>
+		<script defer="">
+			function __initialize_katex() {
+				renderMathInElement(document.body, {
+					delimiters: [
+						{ left: '$$', right: '$$', display: true },
+						{ left: '$', right: '$', display: false },
+					],
+				})
+			}
+		</script>
+		<script defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js" integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk" crossorigin="anonymous" onload="__initialize_katex()"></script>
+	</head>
+	<body>
+		<header>
+			<a href="/">
+				<img src="https://hyperupcall.github.io/blog/images/logo.png" height="50px" width="50px" alt="Logo">
+			</a>
+			<nav>
+				<a href="/">Home</a>
+				<a href="/categories">Categories</a>
+				<a href="/tags">Tags</a>
+				<a href="/about">About</a>
+			</nav>
+		</header>
+		<hr>
+		<main class="article-content">
+<p>During the November of 2018, I became aware of a <a href="https://challenges.robotevents.com/challenge/95">website</a> competition. I had the opportunity to submit a website that showcased my robotics club by mid-January. Website creation tools (like ones from Wix or Weebly) were not prohibited. After learning this, I thought this competition would be perfect to apply the frontend skills that I recently learned! I knew I probably wasn't going to win, but I wanted to give it my best shot.</p>
+<p>So I created a new repository that November and started working. I made sure to use similar tooling / technologies that I had experience with, because I was still sort of new to web development. I used the <a href="https://vuejs.org">Vue</a> JavaScript framework. I remember feeling <em>ecstatic</em> because Vue Cli 3 just released. Meaning, I didn't have to create my own Webpack config for Vue + Babel + Sass compiling / transpiling &amp; HMR etc. Gosh, that was a nightmare with my first website.</p>
+<h2>Initial Structure</h2>
+<p>I made sure to abide by some lessons I've learned firsthand from my previous website</p>
+<ul>
+<li>Create components from repeated page elements</li>
+<li>Do not make HTML templates large (split up into as many components as possible)</li>
+<li>Avoid creating large <code>.css</code>/<code>.sass</code> stylesheets (so large that they don't fit in their corresponding <code>.vue</code> component)</li>
+</ul>
+<p>Keeping that in mind, I build a basic page showing what the layout would roughly look like.</p>
+<p><img src="/image/robotics-website/robotics-website-1.png" alt="robotics-website-1">
+<a href="https://github.com/eshsrobotics/WebsiteChallenge2019/commit/6be6748794d08b85783afcfad2da3a96a132b5f8">See commit on GitHub</a></p>
+<p>As you can see, I did not opt for any UI framework. I don't recall the exact reason, but I think I wanted to learn how to create good-looking components on my own. Even if this slowed down development, I enjoyed creating the components. Besides, it made the website look more unique. From my last website I learned that colors and icons can really make or break the look of a website. Luckily I already knew about the great <a href="https://yeun.github.io/open-color">Open Color</a> color pallette and the amazing <a href="https://feathericons.com">Feather Icons</a> icons set.</p>
+<h2>Simple Architecture Changes</h2>
+<p>After a few weeks, I realized the top-level architecture I had previously had to be modified. It looked like the following.</p>
+<pre><code class="language-html">&lt;template&gt;
+    &lt;div id="app"&gt;
+        &lt;navbar /&gt;
+        &lt;router-view /&gt;
+        &lt;foot /&gt;
+    &lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+<p>If you're not familiar, the <code>&lt;router-view/&gt;</code> component changes based on the current URL, such as <code>/home</code> or <code>/about</code>.</p>
+<p>There was a Page Heading component inside of <code>router-view</code>, which I later moved out to the parent component. This component consisted of the page title and sub-pages of a route. Previously, I was duplicating the page heading across several components (each of which corresponded to a specific route). This seemed wasteful at best, so I refactored to improve the structure. Looking back, there were other ways to create an abstraction, but that sufficed for the time.</p>
+<pre><code class="language-html">&lt;template&gt;
+    &lt;div id="app"&gt;
+        &lt;navbar /&gt;
+        &lt;page-heading /&gt;
+        &lt;router-view /&gt;
+        &lt;foot /&gt;
+    &lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+<p>After I refactored, navigation behaved similarly, with simpler code</p>
+<p><img src="/image/robotics-website/robotics-website-2.gif" alt="robotics-website-2">
+<a href="https://github.com/eshsrobotics/WebsiteChallenge2019/commit/c231eee522374eb726cd54279bd5cf16c50be654">See Commit on GitHub</a></p>
+<p>Since the previous screenshot, I also added a footer, better animations on the navigation tabs, and placeholder images and text.</p>
+<h2>Colors</h2>
+<p>Unfortunately, our team's previous website had little content. So I couldn't really reuse any text or photos. On the plus side, I helped our team organize and upload our photographs to a GitHub repository a few months prior. I was able to browse for photos there.</p>
+<p>After adding the images, I styled some elements with light blue and yellow, which are our team colors.</p>
+<p><img src="/image/robotics-website/robotics-website-3.png" alt="robotics-website-3">
+<a href="https://github.com/eshsrobotics/WebsiteChallenge2019/commit/899ae599e5d6d8eeb98bee49f42d0938ccce4681">See Commit on GitHub</a></p>
+<h2>Mobile Support</h2>
+<p>Although the desktop version of the site looked fine, the mobile version still needed a lot of work. The pictures were too small and the navigation bar overflowed passed the width of the screen.</p>
+<p><img src="/image/robotics-website/robotics-website-4.png" alt="robotics-website-4"></p>
+<p>I fixed this by adding a hamburger menu. Also, I adjusted the width of competition cards to fit small devices.</p>
+<p><img src="/image/robotics-website/robotics-website-mobile.gif" alt="robotics-website-mobile-view"></p>
+<h2>My Favorite Parts</h2>
+<h3>Sponsor carousel</h3>
+<p>I had the most fun making the carousel that displayed the club's sponsors. After imagining this effect, I found a <a href="https://github.com/biigpongsatorn/vue-infinite-slide-bar">repository</a> that implemented this feature. For some reason, the scroll effect didn't work unless I put a set width on the element. Unfortunately, that's a limitation that probably won't be fixed.</p>
+<p><img src="/image/robotics-website/robotics-website-5.gif" alt="robotics-website-5"></p>
+<h3>Enlarged photograph views</h3>
+<p>I enjoyed animating the photograph card on hover. You can see it in the gif below: On moues hover, the card floats up, the shadow increases, and the "enlarge" icon fades in and slides to the left.</p>
+<p>The page that shows the enlarged image was pretty cool. At the time, I didn't know any best practices that allowed the image to stay on refresh. For a temporary-permanent solution, I base64 encoded the data that described the image in the URI. Because <code>/</code> is the 63rd character in the base64 format (starting from 0), it created extra routes that were not intended. As a result, I replaced forward slashes with exclamation marks. I had to convert the exclamation marks to forward slashes before decoding the string.</p>
+<p><img src="/image/robotics-website/enlarge-image-feature.gif" alt="robotics-website-enlarge-image-feature"></p>
+<h3>Photo album</h3>
+<p>The photo album is probably the most used feature on this site. Earlier I said that I had to browse for team photos directly through the GitHub interface. By creating this photo gallery, team members can search for photos easily.</p>
+<p><img src="/image/robotics-website/photo-album.png" alt="robotics-website-5"></p>
+<p>Since all of our team's photographs are in a GitHub <a href="https://gitub.com/eshsrobotics/database-photos">repository</a>, I just referenced those.</p>
+<h2>Wrap</h2>
+<p>When I started this project, it wasn't clear to me exactly how the final project will look. But, I had a whole lot of fun and learning experience by making incremental changes to the codebase. Although I had to drop some features (like a blogging system and a video album), I absolutely love the final product! From time to time, I revisit the codebase and make incremental changes.</p>
+
+		</main>
+		<footer>
+			<ul class="footer-links">
+				<li><a href="/index.xml" type="application/rss+xml" target="_blank"><i class="fa fa-rss"></i> RSS feed</a></li>
+				<li><a href="/">Home</a></li>
+				<li><a href="/about">About</a></li>
+			</ul>
+		</footer>
+	
+
+</body></html>
