@@ -4,15 +4,31 @@ import fs from 'node:fs/promises'
 import path from 'node:path'
 import { parseArgs } from 'node:util'
 
-import * as marked from 'marked'
-import handlebars from 'handlebars'
-import TOML from 'smol-toml'
-import * as htmlparser2 from "htmlparser2";
-import * as cheerio from 'cheerio'
 import { execa } from 'execa'
+import TOML from 'smol-toml'
+import handlebars from 'handlebars'
+import * as cheerio from 'cheerio'
+import * as htmlparser2 from "htmlparser2";
+import { Marked } from 'marked'
+import { markedEmoji } from "marked-emoji";
+import { markedHighlight } from 'marked-highlight'
+import { gemoji } from 'gemoji'
+import { codeToHtml } from 'shiki'
+import hljs from 'highlight.js';
 
 const Filename = new URL(import.meta.url).pathname
 const Dirname = path.dirname(Filename)
+const Options = {} // These are set in the next block.
+const Emojis = await (async () => {
+	const emojis = {}
+	for (const entry of gemoji) {
+		for (const slug of entry.names) {
+			emojis[slug] = entry.emoji
+		}
+	}
+
+	return emojis
+})()
 const Config = {
 	buildJsFile: path.join(Dirname, 'build.js'),
 	layoutDir: path.join(Dirname, 'layouts'),
@@ -22,13 +38,13 @@ const Config = {
 	staticDir: path.join(Dirname, 'static'),
 	outputDir: path.join(Dirname, 'build'),
 }
-const Options = {} // These are set in the next block.
 
+// TODO: Formatter
 {
-	const helpText = `${path.basename(Filename)} <build | serve | check> [options]
+	const helpText = `${path.basename(Filename)} <build | serve | new | check> [options]
   Options:
     -h, --help
-    --quiet
+    --verbose
     --clean
 	`
 
@@ -36,12 +52,12 @@ const Options = {} // These are set in the next block.
 		allowPositionals: true,
 		options: {
 			clean: { type: 'boolean' },
-			quiet: { type: 'boolean' },
+			verbose: { type: 'boolean' },
 			help: { type: 'boolean', alias: 'h' },
 		}
 	})
 	Options.clean = values.clean
-	Options.quiet = values.quiet
+	Options.verbose = values.verbose
 
 	if (!positionals[0]) {
 		console.error(helpText)
@@ -65,6 +81,8 @@ const Options = {} // These are set in the next block.
 		await cliBuild()
 	} else if (positionals[0] === 'serve') {
 		await cliServe()
+	} else if (positionals[0] === 'new') {
+		await cliNew()
 	} else if (positionals[0] === 'check') {
 		await cliCheck()
 	} else {
@@ -85,41 +103,31 @@ async function cliBuild() {
 	}
 
 	// Generate pages.
-	console.info('Generating pages...')
 	for (const pageEntry of await fs.readdir(Config.pagesDir, { withFileTypes: true })) {
-		if (pageEntry.name.endsWith('.js')) continue
+		const inputDir = path.join(Config.pagesDir, pageEntry.name)
+		if (!pageEntry.isDirectory()) throw new Error(`Expected directory; found non-directory: ${inputDir}`)
 
-		console.info(`Generating page ${pageEntry.name}...`)
-		if (pageEntry.isFile()) {
-			const filename = pageEntry.name
-			const inputFile = path.join(Config.pagesDir, filename)
-			const { html, frontmatter } = await toHtml(inputFile)
-			const outputFile = filename === 'index.html' ? path.join(Config.outputDir, filename) : path.join(Config.outputDir, path.parse(filename).name, 'index.html')
-			await fs.mkdir(path.dirname(outputFile), { recursive: true })
-			await fs.writeFile(outputFile, html)
-		} else if (pageEntry.isDirectory()) {
-			const dirname = pageEntry.name
-			const inputDir = path.join(Config.pagesDir, dirname)
-			throw new Error(`Cannot handle directory case: ${inputDir}`)
-		}
+		console.info(`Generating for page ${pageEntry.name}...`)
+		const inputFile = await getInputFile(inputDir, pageEntry.name)
+		const { html, frontmatter } = await toHtml(inputFile)
+		const outputFile = pageEntry.name === 'index' ? path.join(Config.outputDir, 'index.html') : path.join(Config.outputDir, pageEntry.name, 'index.html')
+		await fs.mkdir(path.dirname(outputFile), { recursive: true })
+		await fs.writeFile(outputFile, html)
 	}
 
 	// Generate posts.
-	console.info('Generating posts...')
-	for (const postEntry of await fs.readdir(Config.postsDir, { withFileTypes: true })) {
-		console.info(`Generating post ${postEntry.name}...`)
-		if (postEntry.isFile()) {
-			const filename = postEntry.name
-			const inputFile = path.join(Config.pagesDir, filename)
-			throw new Error(`Cannot handle directory case: ${inputFile}`)
-		} else if (postEntry.isDirectory()) {
-			// if (['.md', '.html'].path.parse(postEntry).ext) {
-			// 	return
-			// }
-			const postDirname = postEntry.name
-			const inputFile = await getMarkdownFile(path.join(Config.postsDir, postDirname))
+	for (const yearEntry of await fs.readdir(Config.postsDir, { withFileTypes: true })) {
+		const yearDir = path.join(Config.postsDir, yearEntry.name)
+		if (!yearEntry.isDirectory()) throw new Error(`Expected directory; found non-directory: ${yearDir}`)
+
+		for (const postEntry of await fs.readdir(yearDir, { withFileTypes: true })) {
+			const inputDir = path.join(yearDir, postEntry.name)
+			if (!postEntry.isDirectory()) throw new Error(`Expected directory; found non-directory: ${inputDir}`)
+
+			console.info(`Generating for post ${postEntry.name}...`)
+			const inputFile = await getInputFile(inputDir, postEntry.name)
 			const { html, frontmatter } = await toHtml(inputFile)
-			const outputFile = path.join(Config.outputDir, 'posts', postDirname, 'index.html')
+			const outputFile = path.join(Config.outputDir, 'posts', postEntry.name, 'index.html')
 			await fs.mkdir(path.dirname(outputFile), { recursive: true })
 			await fs.writeFile(outputFile, html)
 		}
@@ -127,7 +135,7 @@ async function cliBuild() {
 
 	await copyStaticFiles()
 
-	console.log('Done.')
+	console.info('Done.')
 
 	async function copyStaticFiles() {
 		try {
@@ -137,22 +145,24 @@ async function cliBuild() {
 		}
 	}
 
-	async function getMarkdownFile(/** @type {string} */ dir) {
-		let markdownFile = ''
-		for (const filename of await fs.readdir(dir)) {
-			if (filename.endsWith('.md')) {
-				if (markdownFile.length > 0) {
-					throw new Error(`Multiple markdown files found in ${dir}. Each post directory should only have one markdown file`)
-				}
-				markdownFile = path.join(dir, filename)
-			}
+	async function getInputFile(/** @type {string} */ dir, /** @type {string} */ dirname) {
+		try {
+			const htmlFile = path.join(dir, `${dirname}.html`)
+			await fs.stat(htmlFile)
+			return htmlFile
+		} catch (err) {
+			if (err.code !== 'ENOENT') throw err
 		}
 
-		if (!markdownFile) {
-			throw new Error(`No markdown files found in ${dir}`)
+		try {
+			const mdFile = path.join(dir, `${dirname}.md`)
+			await fs.stat(mdFile)
+			return mdFile
+		} catch (err) {
+			if (err.code !== 'ENOENT') throw err
 		}
 
-		return markdownFile
+		throw new Error(`No content files (with the correct filename) found in ${dir}`)
 	}
 
 	async function toHtml(/** @type {string} */ inputFile) {
@@ -166,6 +176,51 @@ async function cliBuild() {
 			})
 			const layoutFile = path.join(Config.layoutDir, 'default.hbs' || frontmatter.layout)
 			const layout = await fs.readFile(layoutFile, 'utf8')
+			// TODO: marked-katex-extension
+			const marked = new Marked(
+				markedHighlight({
+					langPrefix: 'hljs language-',
+					// async: true,
+					highlight(code, lang, info) {
+						const language = hljs.getLanguage(lang) ? lang : 'plaintext';
+						return hljs.highlight(code, { language }).value;
+
+						// return new Promise((resolve, reject) => {
+						// 	codeToHtml(code, {
+						// 		lang: language,
+						// 		theme: 'vitesse-dark'
+						// 	}).then((html) => {
+						// 		resolve(html)
+						// 	}).catch((err) => {
+						// 		reject(err)
+						// 	})
+						// })
+					}
+				})
+			)
+			marked.use({
+				renderer: {
+					link(href, title, text) {
+						const isLocalLink = href.startsWith(`/`) || href.startsWith('.')
+						if (isLocalLink) {
+							return html
+						} else {
+							// https://github.com/markedjs/marked/discussions/2982#discussioncomment-6979586
+							const html = marked.Renderer.prototype.link.call(this, href, title, text)
+							return html.replace(/^<a /, '<a target="_blank" rel="nofollow" ')
+						}
+
+					}
+				}
+			})
+			// marked.use()
+			marked.use(markedEmoji({
+				// @ts-expect-error
+				emojis: Emojis,
+				renderer: (token) => {
+					return token.emoji
+				}
+			}))
 			html = marked.parse(markdown)
 			html = handlebars.compile(layout, {
 				noEscape: true,
@@ -196,9 +251,9 @@ async function cliBuild() {
 		} else {
 			throw new Error(`Cannot handle file with type of ${path.parse(inputFile).ext}: ${inputFile}`)
 		}
-		if (inputFile.includes('categories')) {
-			console.log('in', html)
-		}
+		// if (inputFile.includes('categories')) {
+		// 	console.log('in', html)
+		// }
 		// Note that Cheerio may wrap the html in <html>, <head>, and <body> tags.
 		const $ = cheerio.load(html)
 		// for (const el2 of $('a')) {
@@ -214,7 +269,7 @@ async function cliBuild() {
 		// }
 		html = $.html()
 		if (inputFile.includes('categories')) {
-			console.log('out', html)
+			// console.log('out', html)
 		}
 
 		return { html, frontmatter }
@@ -237,8 +292,7 @@ async function cliServe() {
 			minify: false,
 			ui: false,
 			server: Config.outputDir,
-			// files: [Config.pagesDir, Config.postsDir]
-			...Options.quiet ? { logLevel: 'silent' } : {},
+			...Options.verbose ? {} : { logLevel: 'silent' },
 			callbacks: {
 				ready(err, bs) {
 					if (err) throw err
@@ -290,6 +344,10 @@ async function cliServe() {
 	await cliBuild()
 }
 
+async function cliNew() {
+
+}
+
 async function cliCheck() {
 	try {
 		await execa({
@@ -297,26 +355,8 @@ async function cliCheck() {
 			stderr: 'inherit',
 		})`lychee --offline ${Dirname}`
 	} catch (err) {
-		if (err.exitCode !== 0) {
-			console.log('Failed to run lychee')
+		if (err.exitCode !== 2) {
+			throw err
 		}
 	}
-
 }
-
-// bs.watch('**/*.md', {
-// 	persistent: true,
-// 	ignoreInitial: true,
-// 	ignored: ['**/node_modules/**', `${Config.outputDir}/**`]
-// })
-// .on('add', (() => {
-// 	cliBuild()
-// }))
-// .on('change', () => {
-// 	console.log('change')
-// 	cliBuild()
-// 	bs.reload()
-// })
-// .on('error', (error) => {
-// 	console.log(`Watcher error: ${error}`)
-// })

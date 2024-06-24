@@ -14,15 +14,30 @@ importers:
       execa:
         specifier: ^9.3.0
         version: 9.3.0
+      gemoji:
+        specifier: ^8.1.0
+        version: 8.1.0
       handlebars:
         specifier: ^4.7.8
         version: 4.7.8
+      highlight.js:
+        specifier: ^11.9.0
+        version: 11.9.0
       htmlparser2:
         specifier: ^9.1.0
         version: 9.1.0
       marked:
-        specifier: ^13.0.0
-        version: 13.0.0
+        specifier: ^12.0.2
+        version: 12.0.2
+      marked-emoji:
+        specifier: ^1.4.0
+        version: 1.4.1(marked@12.0.2)
+      marked-highlight:
+        specifier: ^2.1.1
+        version: 2.1.1(marked@12.0.2)
+      shiki:
+        specifier: ^1.9.0
+        version: 1.9.0
       smol-toml:
         specifier: ^1.2.1
         version: 1.2.1
@@ -41,6 +56,9 @@ packages:
 
   '@sec-ant/readable-stream@0.4.1':
     resolution: {integrity: sha512-831qok9r2t8AlxLko40y2ebgSDhenenCatLVeW/uBtnHPyhHOvG0C7TvfgecV+wHzIm5KUICgzmVpWS+IMEAeg==}
+
+  '@shikijs/core@1.9.0':
+    resolution: {integrity: sha512-cbSoY8P/jgGByG8UOl3jnP/CWg/Qk+1q+eAKWtcrU3pNoILF8wTsLB0jT44qUBV8Ce1SvA9uqcM9Xf+u3fJFBw==}
 
   '@sindresorhus/merge-streams@4.0.0':
     resolution: {integrity: sha512-tlqY9xq5ukxTUZBmoOp+m61cqwQD5pHJtFY3Mn8CA8ps6yghLH/Hw8UPdqg4OLmFW3IFlcXnQNmo/dh8HzXYIQ==}
@@ -313,6 +331,9 @@ packages:
     engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
     os: [darwin]
 
+  gemoji@8.1.0:
+    resolution: {integrity: sha512-HA4Gx59dw2+tn+UAa7XEV4ufUKI4fH1KgcbenVA9YKSj1QJTT0xh5Mwv5HMFNN3l2OtUe3ZIfuRwSyZS5pLIWw==}
+
   get-caller-file@2.0.5:
     resolution: {integrity: sha512-DyFP3BM/3YHTQOCUL/w0OZHR0lpKeGrxotcHWcqNEdnltqFwXVfhEBQ94eIo34AfQpo0rGki4cyIiftY06h2Fg==}
     engines: {node: 6.* || 8.* || >= 10.*}
@@ -340,6 +361,10 @@ packages:
   has-flag@4.0.0:
     resolution: {integrity: sha512-EykJT/Q1KjTWctppgIAgfSO0tKVuZUjhgMr17kqTumMl6Afv3EISleU7qZUzoXDFTAHTDC4NOoG/ZxU3EvlMPQ==}
     engines: {node: '>=8'}
+
+  highlight.js@11.9.0:
+    resolution: {integrity: sha512-fJ7cW7fQGCYAkgv4CPfwFHrfd/cLS4Hau96JuJ+ZTOWhjnhoeN1ub1tFmALm/+lW5z4WCAuAV9bm05AP0mS6Gw==}
+    engines: {node: '>=12.0.0'}
 
   htmlparser2@8.0.2:
     resolution: {integrity: sha512-GYdjWKDkbRLkZ5geuHs5NY1puJ+PXwP7+fHPRz06Eirsb9ugf6d8kkXav6ADhcODhFFPMIXyxkxSuMf3D6NCFA==}
@@ -434,8 +459,18 @@ packages:
   lodash@4.17.21:
     resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}
 
-  marked@13.0.0:
-    resolution: {integrity: sha512-VTeDCd9txf4KLLljUZ0nljE/Incb9SrWuueE44QVuU0pkOdh4sfCeW1Z6lPcxyDRSVY6rm8db/0OPaN75RNUmw==}
+  marked-emoji@1.4.1:
+    resolution: {integrity: sha512-3xHWQn8XD1LyhMpHxWpHTDWBZ9bpXLlW8JIqvyXTO6he7okKIB/W9fD/3fTg0DQuZlSQvPZ6Ub5hN6Rnmn7j9g==}
+    peerDependencies:
+      marked: '>=4 <14'
+
+  marked-highlight@2.1.1:
+    resolution: {integrity: sha512-ktdqwtBne8rim5mb+vvZ9FzElGFb+CHCgkx/g6DSzTjaSrVnxsJdSzB5YgCkknFrcOW+viocM1lGyIjC0oa3fg==}
+    peerDependencies:
+      marked: '>=4 <13'
+
+  marked@12.0.2:
+    resolution: {integrity: sha512-qXUm7e/YKFoqFPYPa3Ukg9xlI5cyAtGmyEIzMfW//m6kXwCy2Ps9DYf5ioijFKQ8qyuscrHoY04iJGctu2Kg0Q==}
     engines: {node: '>= 18'}
     hasBin: true
 
@@ -605,6 +640,9 @@ packages:
     resolution: {integrity: sha512-7++dFhtcx3353uBaq8DDR4NuxBetBzC7ZQOhmTQInHEd6bSrXdiEyzCvG07Z44UYdLShWUyXt5M/yhz8ekcb1A==}
     engines: {node: '>=8'}
 
+  shiki@1.9.0:
+    resolution: {integrity: sha512-i6//Lqgn7+7nZA0qVjoYH0085YdNk4MC+tJV4bo+HgjgRMJ0JmkLZzFAuvVioJqLkcGDK5GAMpghZEZkCnwxpQ==}
+
   signal-exit@4.1.0:
     resolution: {integrity: sha512-bzyZ1e88w9O1iNJbKnOlvYTrWPDl46O1bG0D3XInv+9tkPrxrN8jUUTiFlDkkmKWgn1M6CfIA13SuGqOa9Korw==}
     engines: {node: '>=14'}
@@ -762,6 +800,8 @@ packages:
 snapshots:
 
   '@sec-ant/readable-stream@0.4.1': {}
+
+  '@shikijs/core@1.9.0': {}
 
   '@sindresorhus/merge-streams@4.0.0': {}
 
@@ -1103,6 +1143,8 @@ snapshots:
   fsevents@2.3.3:
     optional: true
 
+  gemoji@8.1.0: {}
+
   get-caller-file@2.0.5: {}
 
   get-stream@9.0.1:
@@ -1128,6 +1170,8 @@ snapshots:
   has-flag@3.0.0: {}
 
   has-flag@4.0.0: {}
+
+  highlight.js@11.9.0: {}
 
   htmlparser2@8.0.2:
     dependencies:
@@ -1218,7 +1262,15 @@ snapshots:
 
   lodash@4.17.21: {}
 
-  marked@13.0.0: {}
+  marked-emoji@1.4.1(marked@12.0.2):
+    dependencies:
+      marked: 12.0.2
+
+  marked-highlight@2.1.1(marked@12.0.2):
+    dependencies:
+      marked: 12.0.2
+
+  marked@12.0.2: {}
 
   micromatch@4.0.7:
     dependencies:
@@ -1392,6 +1444,10 @@ snapshots:
       shebang-regex: 3.0.0
 
   shebang-regex@3.0.0: {}
+
+  shiki@1.9.0:
+    dependencies:
+      '@shikijs/core': 1.9.0
 
   signal-exit@4.1.0: {}
 

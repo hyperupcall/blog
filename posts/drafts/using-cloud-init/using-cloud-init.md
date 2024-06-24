@@ -93,7 +93,7 @@ virt-install \
 
 now, we got it. "ctrl + [" to exit
 
-![ubuntu booting up without cloud init](/image/cloud-init/no-cloud-init.png)
+![ubuntu booting up without cloud init](./no-cloud-init.png)
 
 you will notice that you don't see any cloud-init output; just systemd.
 

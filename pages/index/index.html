@@ -1,7 +1,7 @@
 {{>head}}
 <ul>
 	{{#each posts}}
-	<li><a href="/posts/{{this}}">{{this}}</a></li>
+	<li><a href="/posts/{{this.slug}}">{{this.uri}}</a></li>
 	{{/each}}
 </ul>
 {{>foot}}

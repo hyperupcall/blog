@@ -9,6 +9,8 @@
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css" integrity="sha384-wcIxkf4k558AjM3Yz3BBFQUbk/zgIYC2R0QpeeYb+TwlBVMrlgLqwRjRtGZiK7ww" crossorigin="anonymous">
 
 		<script defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js" integrity="sha384-hIoBPJpTUs74ddyc4bFZSM1TVlQDA60VBbJS0oA934VSz82sBx1X7kSx2ATBDIyd" crossorigin="anonymous"></script>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-light.min.css" integrity="sha512-o5v54Kh5PH0dgnf9ei0L+vMRsbm5fvIvnR/XkrZZjN4mqdaeH7PW66tumBoQVIaKNVrLCZiBEfHzRY4JJSMK/Q==" crossorigin="anonymous" referrerpolicy="no-referrer">
 		<script defer="">
 			function __initialize_katex() {
 				renderMathInElement(document.body, {
@@ -43,16 +45,15 @@
 <p>Immediately, I ran into problems. I could not ICMP ping my router from my Surface Pro, even though I was able to do so from my Raspberry Pi. Both were connected directly to the router (not the switch). I checked the ARP table, and the mapping (for my router, <code>10.0.0.1</code>) was in a FAILED state on my Surface, but REACHABLE from my Pi. After testing the CAT 6 ethernet cable (it was still functional), I wasn't sure what else to do - so i just reset the router, which seemed to work.</p>
 <p>But then there was another problem. I was not able to ping my Raspberry Pi from my Surface. I think I was able to ping other hosts from my Raspberry Pi though, but that doesn't make too much sense now that I think about it. It's because the Raspberry Pi's static IP address conflicted with another computer. I had planned to move the DHCP, DDNS, and DNS servers from the Pi to another computer (my trusty Macintosh G5 Tower), and I forgot the operating system I installed onto it had the same IP address. Changing the Pi's IP to prevent collisions fixed this issue.</p>
 <p>But, you guessed it! - there were more problems. These were related to the services I was running on the Pi. The Kea DHCP4 server would no longer start. However, the issue was a simple one to fix. The configuration specified the wrong IP to listen to</p>
-<pre><code class="language-json">{
-    "interfaces-config": {
-        "interfaces": ["eth0/10.0.0.2"],
-        "dhcp-socket-type": "raw"
-    }
-}
-</code></pre>
-<p>It was no longer <code>10.0.0.2</code>, but a separate one that did not collide with my Mac G5 Tower. Because specifying the IP address was optional in the first place, I just fixed it to <code>"eth0"</code>.</p>
+<pre><code class="hljs language-json"><span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">"interfaces-config"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+        <span class="hljs-attr">"interfaces"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-string">"eth0/10.0.0.2"</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">"dhcp-socket-type"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"raw"</span>
+    <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+</code></pre><p>It was no longer <code>10.0.0.2</code>, but a separate one that did not collide with my Mac G5 Tower. Because specifying the IP address was optional in the first place, I just fixed it to <code>"eth0"</code>.</p>
 <p>Frustratingly, BIND9 DNS <em>also</em> stopped working, for a similar reason.</p>
-<pre><code class="language-config">include "/usr/local/etc/bind/named.conf.log";
+<pre><code class="hljs language-config">include "/usr/local/etc/bind/named.conf.log";
 
 options {
   directory "/usr/local/var/cache/bind";
@@ -61,18 +62,16 @@ options {
   listen-on-v6 port 53 { ::1; };
 }
 ...
-</code></pre>
-<p>At first, I changed the IP address to the loopback interface <code>127.0.0.1</code>. That didn't work because I forgot the loopback interface is not associated with an actual hardware component that can be connected to from the reset of the network. I changed it to the actual IP address of the Pi (<code>10.0.0.10</code>).</p>
+</code></pre><p>At first, I changed the IP address to the loopback interface <code>127.0.0.1</code>. That didn't work because I forgot the loopback interface is not associated with an actual hardware component that can be connected to from the reset of the network. I changed it to the actual IP address of the Pi (<code>10.0.0.10</code>).</p>
 <p>And lastly, there is one more issue that I almost forgot to mention. Inside of some <code>option-data</code> in my Kea DHCP server, it was configured to continue broadcasting the old Domain Name Server IP.</p>
-<pre><code class="language-json">{
-    "name": "domain-name-servers",
-    "code": 6,
-    "space": "dhcp4",
-    "csv-format": true,
-    "data": "10.0.0.2"
-}
-</code></pre>
-<p>Of course, I did not want to give the clients to my DHCP server the wrong IP address, so I had to change that as well.</p>
+<pre><code class="hljs language-json"><span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">"name"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"domain-name-servers"</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">"code"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">6</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">"space"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"dhcp4"</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">"csv-format"</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">"data"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"10.0.0.2"</span>
+<span class="hljs-punctuation">}</span>
+</code></pre><p>Of course, I did not want to give the clients to my DHCP server the wrong IP address, so I had to change that as well.</p>
 <p>So in conclusion, after changing my network topology, I faced several issues:</p>
 <ul>
 <li>Could not ping my router (router bugged?)</li>

@@ -88,15 +88,16 @@ code {
 
 pre {
 	overflow-x: auto;
-	padding: 8px 12px;
 	border-radius: 3px;
-	background: #202020;
-	color: #d0d0d0;
+	border: 1px solid var(--oc-gray-5);
+}
+
+.hljs {
+	background-color: var(--oc-gray-1) !important;
 }
 
 pre code {
 	padding: initial;
-	background: transparent;
 }
 
 img {
@@ -183,14 +184,14 @@ footer {
 }
 
 .footer-links a {
-	color: #888;
+	color: var(--oc-gray-7);
 	text-decoration: none;
 	transition: color 300ms;
 	margin: 0 5px;
 }
 
 .footer-links a:hover {
-	color: #222;
+	color: var(--oc-gray-9);
 }
 
 .footer-links li::before {
