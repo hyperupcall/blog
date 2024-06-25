@@ -72,32 +72,17 @@ header > nav > a:hover {
 	box-shadow: 4px 4px 6px var(--oc-gray-2);
 }
 
+pre {
+	border: 1px solid var(--oc-gray-5);
+	overflow-x: auto;
+	border-radius: 3px;
+	padding: 2px;
+}
+
 pre,
 code {
 	font-family: 'Roboto Mono', monospace;
 	font-size: 15px;
-}
-
-code {
-	border-radius: 3px;
-	padding: 1px 3px;
-	background: #f0f0f0;
-	-webkit-hyphens: none;
-	hyphens: none;
-}
-
-pre {
-	overflow-x: auto;
-	border-radius: 3px;
-	border: 1px solid var(--oc-gray-5);
-}
-
-.hljs {
-	background-color: var(--oc-gray-1) !important;
-}
-
-pre code {
-	padding: initial;
 }
 
 img {

@@ -2,6 +2,14 @@
 
 Wedding myself to an external static site generator solution is a poor use of my time and limits the degree to which I can customize my website. `build.js` solves that because it only does what I need, exactly how I want it, and its customization is not constrained by the (different) APIs available to a "plugin". For information that eludes from my documentation, please read `build.js`.
 
+## Plans
+
+- Add `format` subcommand
+- Format the output HTML, CSS, etc.
+- Add async / improve performance
+- Only rebuild changed files watch mode
+- Some codebloks have different tabs vs spaces
+
 ## Directory Structure
 
 Nothing here is out of the ordinary.
@@ -10,21 +18,27 @@ Nothing here is out of the ordinary.
 
 The directory where the build is written to.
 
+### `content/`
+
+#### `pages/`
+
+Contains directories and files that each represent an individual page. For example, the directory `/pages/about` represents `/about/index.html` while the file `pages/index.xml` represents `/index.xml`.
+
+#### `posts/`
+
+Contains subdirectories with a dirname of either (1) a year (ex. `2005`) or (2) the value `drafts`. The subdirectories of those subdirectories represent an individual page (ex. `posts/2023/oppenheimer-movie-review`). Drafts are automatically shown when running the development server and automatically hidden when building the blog, unless indicated otherwise by the `--show-drafts` command-line flag.
+
+#### `til/`
+
+#### `papers/`
+
 ### `layouts/`
 
 Handlebars templates that are applied to all pages and posts. Individual pages and posts can specify a particular template in the frontmatter using the `layout` property.
 
-### `pages/`
-
-Contains subdirectories that each represent an individual page (ex. `/pages/about`).
-
 ### `partials/`
 
 Handlebars templates that can be used in any HTML file.
-
-### `posts/`
-
-Contains subdirectories with a dirname of either (1) a year (ex. `2005`) or (2) the value `drafts`. The subdirectories of those subdirectories represent an individual page (ex. `posts/2023/oppenheimer-movie-review`). Drafts are automatically shown when running the development server and automatically hidden when building the blog, unless indicated otherwise by the `--show-drafts` command-line flag.
 
 ### `static/`
 

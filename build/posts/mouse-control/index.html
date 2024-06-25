@@ -1,32 +1,28 @@
-<!DOCTYPE html><html lang="en"><head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Edwin's Blog</title>
-		<link rel="stylesheet" href="https://hyperupcall.github.io/blog/css/open-color.css" media="all">
+		<link
+			rel="stylesheet"
+			href="/css/open-color.css"
+			media="all"
+		/>
 		<!-- TODO -->
-		<link rel="stylesheet" type="text/css" href="/css/fonts.css">
-		<link rel="stylesheet" type="text/css" href="/css/style.css">
+		<link rel="stylesheet" type="text/css" href="/css/fonts.css" />
+		<link rel="stylesheet" type="text/css" href="/css/style.css" />
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css" integrity="sha384-wcIxkf4k558AjM3Yz3BBFQUbk/zgIYC2R0QpeeYb+TwlBVMrlgLqwRjRtGZiK7ww" crossorigin="anonymous">
-
-		<script defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js" integrity="sha384-hIoBPJpTUs74ddyc4bFZSM1TVlQDA60VBbJS0oA934VSz82sBx1X7kSx2ATBDIyd" crossorigin="anonymous"></script>
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-light.min.css" integrity="sha512-o5v54Kh5PH0dgnf9ei0L+vMRsbm5fvIvnR/XkrZZjN4mqdaeH7PW66tumBoQVIaKNVrLCZiBEfHzRY4JJSMK/Q==" crossorigin="anonymous" referrerpolicy="no-referrer">
-		<script defer="">
-			function __initialize_katex() {
-				renderMathInElement(document.body, {
-					delimiters: [
-						{ left: '$$', right: '$$', display: true },
-						{ left: '$', right: '$', display: false },
-					],
-				})
-			}
-		</script>
-		<script defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js" integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk" crossorigin="anonymous" onload="__initialize_katex()"></script>
 	</head>
 	<body>
 		<header>
 			<a href="/">
-				<img src="https://hyperupcall.github.io/blog/images/logo.png" height="50px" width="50px" alt="Logo">
+				<img
+					src="/images/logo.png"
+					height="50px"
+					width="50px"
+					alt="Logo"
+				/>
 			</a>
 			<nav>
 				<a href="/">Home</a>
@@ -35,15 +31,16 @@
 				<a href="/about">About</a>
 			</nav>
 		</header>
-		<hr>
+		<hr />
 		<main class="article-content">
-<p>Similar to , this posts analyses how mouse controls are used in complex applications.</p>
-<p>While working on <a target="_blank" rel="nofollow" href="https://github.com/quazipanacea">Quazipanacea</a>, I found myself implementing controls for a graph:</p>
-<p><img src="/image/mouse-control/quazipanacea.png" alt="graph">
-<img src="/image/cloud-init/q.png" alt="ubuntu booting up without cloud init2"></p>
+	<h1>Mouse Control</h1>
+<p>Similar to <a href="/posts/semantic-hotkeys">Semantic Hotkeys</a>, this posts analyses how mouse controls are used in complex applications.</p>
+<p>While working on <a href="https://github.com/quazipanacea">Quazipanacea</a>, I found myself implementing controls for a graph:</p>
+<p><img src="./quazipanacea.png" alt="graph">
+<img src="/posts/cloud-init/q.png" alt="ubuntu booting up without cloud init2"></p>
 <p>To make intuitive controls to pan, select multiple nodes, draw edges and more, I decided to document how other complex software handles multi-modal controls.</p>
 <h2>Blender</h2>
-<p><img src="/image/mouse-control/blender.png" alt="graph"></p>
+<p><img src="./blender.png" alt="graph"></p>
 <h3>Blender Mouse Buttons</h3>
 <table>
 <thead>
@@ -52,7 +49,8 @@
 <th>Action</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>Left-click</td>
 <td>Select Square</td>
 </tr>
@@ -100,12 +98,13 @@
 <td>Scroll-wheel + Control</td>
 <td>Nothing</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <h3>Blender Context Menu</h3>
-<p>Blender's context menu adapts to the current context (Object, Edit/Vertex, Edit/Edge, Edit/Face).</p>
+<p>Blender’s context menu adapts to the current context (Object, Edit/Vertex, Edit/Edge, Edit/Face).</p>
 <p>Move of them have the same cut/copy/paste, duplicate, delete, but of course there are context-specific items.</p>
 <h2>Excalidraw</h2>
-<p><img src="/image/mouse-control/excalidraw.png" alt="graph"></p>
+<p><img src="./excalidraw.png" alt="graph"></p>
 <h3>Excalidraw Mouse Buttons</h3>
 <table>
 <thead>
@@ -114,7 +113,8 @@
 <th>Action</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>Left-click</td>
 <td>Draw</td>
 </tr>
@@ -162,7 +162,8 @@
 <td>Scroll-wheel + Control</td>
 <td>Zoom</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 
 		</main>
 		<footer>
@@ -172,6 +173,5 @@
 				<li><a href="/about">About</a></li>
 			</ul>
 		</footer>
-	
-
-</body></html>
+	</body>
+</html>
