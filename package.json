@@ -24,7 +24,8 @@
 		"markdown-it": "^14.1.0",
 		"markdown-it-emoji": "^3.0.0",
 		"shiki": "^1.9.0",
-		"smol-toml": "^1.2.1"
+		"smol-toml": "^1.2.1",
+		"temporal-polyfill": "^0.2.5"
 	},
 	"devDependencies": {
 		"browser-sync": "^3.0.2",

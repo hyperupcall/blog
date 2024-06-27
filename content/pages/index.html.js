@@ -1,8 +1,5 @@
-import fs from 'node:fs/promises'
-import path from 'node:path'
-
-export async function TemplateVariables(Config, helpers) {
-	const posts = await helpers.getPosts(Config)
+export async function TemplateVariables(Config, Helpers) {
+	const posts = await Helpers.getPosts(Config)
 
 	return {
 		posts

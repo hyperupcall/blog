@@ -1,6 +1,6 @@
 # Documentation for `build.js`
 
-Wedding myself to an external static site generator solution is a poor use of my time and limits the degree to which I can customize my website. `build.js` solves that because it only does what I need, exactly how I want it, and its customization is not constrained by the (different) APIs available to a "plugin". For information that eludes from my documentation, please read `build.js`.
+Wedding myself to an external static site generator solution is a poor use of my time and limits the degree to which I can customize my website. `build.js` solves that because it only does what I need, exactly how I want it, and its customization is not constrained by the (different) APIs available to a "plugin".
 
 ## Plans
 
@@ -9,6 +9,7 @@ Wedding myself to an external static site generator solution is a poor use of my
 - Add async / improve performance
 - Only rebuild changed files watch mode
 - Some codebloks have different tabs vs spaces
+-`new` subcommand for making new templates
 
 ## Directory Structure
 
@@ -16,9 +17,11 @@ Nothing here is out of the ordinary.
 
 ### `build/`
 
-The directory where the build is written to.
+Where output files are written to.
 
 ### `content/`
+
+User-generated content. There are several variants:
 
 #### `pages/`
 
@@ -42,7 +45,7 @@ Handlebars templates that can be used in any HTML file.
 
 ### `static/`
 
-The static assets that are not processed.
+These assets are copied directly to the build directory without processing.
 
 ## Page and Post Handling
 
@@ -54,8 +57,10 @@ All other files are copied over, unprocessed.
 
 ## Supported Formats
 
-For now, both `.html`. and `.md` files are supported.
+For now, `.html`, `xml`, and `.md` files are supported.
 
 ## JavaScript Customization
 
+- `isDynamic`
+- `GenerateSlugs()`
 - `TemplateVariables()`

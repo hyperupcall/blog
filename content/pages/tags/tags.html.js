@@ -1,12 +1,18 @@
 export async function TemplateVariables(Config, Helpers) {
 	const posts = await Helpers.getPosts(Config)
 
-	let categories = []
+	let tags = {}
 	for (const post of posts) {
-		categories = categories.concat(post.frontmatter.categories || [])
+		for (const tag of post.frontmatter.tags ?? []) {
+			if (tag in tags) {
+				tags[tag] += 1
+			} else {
+				tags[tag] = 1
+			}
+		}
 	}
 
 	return {
-		categories
+		tags
 	}
 }

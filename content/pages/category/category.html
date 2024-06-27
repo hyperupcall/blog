@@ -1,0 +1,8 @@
+{{>head}}
+<h1>{{category}}</h1>
+<ul>
+	{{#each posts}}
+	<li><a href="/posts/{{this.slug}}">{{this.frontmatter.title}}</a></li>
+	{{/each}}
+</ul>
+{{>foot}}
