@@ -1,7 +1,7 @@
 :tada: Source code for my blog
 
-Built with [build.js](./build.js).
+Built using [Hugo](https://gohugo.io/) with the [Naturium](https://github.com/mobybit/hugo-natrium-theme/tree/master) theme. Uses [KaTeX](https://katex.org/) for equation rendering.
 
 ```console
-./build --help
+hugo server -Dw --forceSyncStatic
 ```

@@ -1,2 +1,3 @@
-build/
-node_modules/
+# Hugo
+.hugo_build.lock
+dist/

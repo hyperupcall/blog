@@ -1,0 +1,18 @@
+<!-- opens html, body, div -->
+{{ partial "header.html" . }}
+
+<main class="content">
+  <div class="list">
+    {{ range  (where $.Site.Pages "Type" "posts") }}
+      {{ if ne .Page.Title "Posts" }}
+        {{ partial "list-item.html" . }}
+      {{ end }}
+    {{ end }}
+  </div>
+
+  {{ partial "pagination.html" . }}
+
+</main>
+
+<!-- closes div, body, html -->
+{{ partial "footer.html" . }}

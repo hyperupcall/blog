@@ -1,0 +1,67 @@
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+{{ hugo.Generator }} {{ if eq .Params.url "/" }}
+<title>{{ .Title }}</title>
+<meta property="og:title" content="{{ .Title }}" />
+<meta property="og:type" content="website" />
+{{ else }}
+<title>{{ .Title }} - {{ .Site.Title }}</title>
+<meta property="og:title" content="{{ .Title }} - {{ .Site.Title }}" />
+{{ end }} {{ if eq .Params.url "/" }}
+<meta property="description" content="{{ .Site.Params.description }}" />
+{{ else }} {{ if .Description }}
+<meta property="description" content="{{ .Description }}" />
+{{ end }} {{ end }} {{ if .Keywords }} <meta property="keywords" content ="{{
+delimit .Keywords ", " }}"> {{ end }} {{- with .OutputFormats.Get "RSS" -}} {{
+if .Permalink }}
+<link
+	href="{{ .Permalink }}"
+	rel="alternate"
+	type="application/rss+xml"
+	title="{{ $.Site.Title }}"
+/>
+{{ end }} {{- end -}}
+
+<link
+	rel="apple-touch-icon"
+	sizes="180x180"
+	href="https://hyperupcall.github.io/blog/apple-touch-icon.png?v=1"
+/>
+<link
+	rel="icon"
+	type="image/png"
+	sizes="32x32"
+	href="https://hyperupcall.github.io/blog/favicon-32x32.png?v=1"
+/>
+<link
+	rel="icon"
+	type="image/png"
+	sizes="16x16"
+	href="https://hyperupcall.github.io/blog/favicon-16x16.png?v=1"
+/>
+<link
+	rel="manifest"
+	href="https://hyperupcall.github.io/blog/site.webmanifest?v=1"
+/>
+<link
+	rel="mask-icon"
+	href="https://hyperupcall.github.io/blog/safari-pinned-tab.svg?v=1"
+	color="#5bbad5"
+/>
+<link
+	rel="shortcut icon"
+	href="https://hyperupcall.github.io/blog/favicon.ico?v=1"
+/>
+<meta name="msapplication-TileColor" content="#da532c" />
+<meta
+	name="msapplication-config"
+	content="https://hyperupcall.github.io/blog/browserconfig.xml?v=1"
+/>
+<meta name="theme-color" content="#ffffff" />
+<link
+	rel="stylesheet"
+	href="{{ .Site.BaseURL }}css/open-color.css"
+	media="all"
+/>
+<link rel="stylesheet" href="{{ .Site.BaseURL }}css/main.css" media="all" />
+<link rel="stylesheet" href="{{ .Site.BaseURL }}css/fonts.css" />
