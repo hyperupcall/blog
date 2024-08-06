@@ -34,8 +34,8 @@ task.generate() {
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="canonical" href="https://edwinkofler.com/$route" />
-		<meta http-equiv="refresh" content="0; url=https://edwinkofler.com/$route" />
+		<link rel="canonical" href="https://edwinkofler.com/$route/" />
+		<meta http-equiv="refresh" content="0; url=https://edwinkofler.com/$route/" />
 		<title>Redirecting...</title>
 		<script>
 			window.location.href = 'https://edwinkofler.com/$route/'

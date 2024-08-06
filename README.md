@@ -1,7 +1,3 @@
-:tada: Source code for my blog
+# blog
 
-Built using [Hugo](https://gohugo.io/) with the [Naturium](https://github.com/mobybit/hugo-natrium-theme/tree/master) theme. Uses [KaTeX](https://katex.org/) for equation rendering.
-
-```console
-hugo server -Dw --forceSyncStatic
-```
+Redirects links to [edwinkofler.com](https://github.com/fox-projects/edwinkofler.com).
